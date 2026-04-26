@@ -1,0 +1,198 @@
+/* ===================================================================
+   Theme CSS - Light and Dark Mode Color Variables
+   Dark mode based on Moonlight VSCode Theme
+   =================================================================== */
+
+/* Light mode - MkDocs Material "default" scheme */
+[data-md-color-scheme="default"] {
+  /* Custom theme variables from new_theme_light.css */
+  --card: #ffffff;
+  --ring: #6366f1;
+  --input: #d1d5db;
+  --muted: #f3f4f6;
+  --accent: #e0e7ff;
+  --border: #d1d5db;
+  --radius: 0.5rem;
+  --chart-1: #6366f1;
+  --chart-2: #4f46e5;
+  --chart-3: #4338ca;
+  --chart-4: #3730a3;
+  --chart-5: #312e81;
+  --popover: #ffffff;
+  --primary: #6366f1;
+  --sidebar: #f3f4f6;
+  --font-mono: JetBrains Mono, monospace;
+  --font-sans: Inter, sans-serif;
+  --secondary: #e5e7eb;
+  --background: #f8fafc;
+  --font-serif: Merriweather, serif;
+  --foreground: #1e293b;
+  --destructive: #ef4444;
+  --shadow-blur: 8px;
+  --shadow-color: hsl(0 0% 0%);
+  --sidebar-ring: #6366f1;
+  --shadow-spread: -1px;
+  --shadow-opacity: 0.1;
+  --sidebar-accent: #e0e7ff;
+  --sidebar-border: #d1d5db;
+  --card-foreground: #1e293b;
+  --shadow-offset-x: 0px;
+  --shadow-offset-y: 4px;
+  --sidebar-primary: #6366f1;
+  --muted-foreground: #6b7280;
+  --accent-foreground: #374151;
+  --popover-foreground: #1e293b;
+  --primary-foreground: #ffffff;
+  --sidebar-foreground: #1e293b;
+  --secondary-foreground: #374151;
+  --destructive-foreground: #ffffff;
+  --sidebar-accent-foreground: #374151;
+  --sidebar-primary-foreground: #ffffff;
+
+  /* Header distinction */
+  --header-background: #ffffff;
+
+  /* Override MkDocs Material default CSS variables */
+  --md-default-fg-color: #1e293b;
+  --md-default-fg-color--light: #6b7280;
+  --md-default-fg-color--lighter: #9ca3af;
+  --md-default-fg-color--lightest: #d1d5db;
+  --md-default-bg-color: #f8fafc;
+  --md-default-bg-color--light: #ffffff;
+  --md-default-bg-color--lighter: #f3f4f6;
+  --md-default-bg-color--lightest: #e5e7eb;
+
+  --md-primary-fg-color: #6366f1;
+  --md-primary-fg-color--light: #818cf8;
+  --md-primary-fg-color--dark: #4f46e5;
+
+  --md-accent-fg-color: #e0e7ff;
+  --md-accent-fg-color--transparent: rgba(224, 231, 255, 0.1);
+
+  --md-typeset-color: #1e293b;
+  --md-typeset-a-color: #6366f1;
+
+  --md-code-fg-color: #1e293b;
+  --md-code-bg-color: #f3f4f6;
+
+  /* Mermaid colors - light colors for dark diagram background */
+  --md-mermaid-label-fg-color: #f8eaf8;
+  --md-mermaid-label-bg-color: #191726;
+  --md-mermaid-node-bg-color: #191726;
+  --md-mermaid-node-fg-color: #f8eaf8;
+  --md-mermaid-edge-color: #7386d0;
+
+  color-scheme: light;
+}
+
+/* Dark mode - MkDocs Material "slate" scheme - Moonlight Theme */
+[data-md-color-scheme="slate"] {
+  /* Custom theme variables based on Moonlight VSCode Theme */
+  --card: #191726;
+  --ring: #7386d0;
+  --input: #0c0e17;
+  --muted: #0d0e17;
+  --accent: #282e46;
+  --border: #30363d;
+  --radius: 0.5rem;
+  --chart-1: #7386d0;
+  --chart-2: #5dabf3;
+  --chart-3: #79c0ff;
+  --chart-4: #58a6ff;
+  --chart-5: #acb9e6;
+  --popover: #191726;
+  --primary: #7386d0;
+  --sidebar: #010409;
+  --secondary: #282e46;
+  --background: #0d0e17;
+  --foreground: #f8eaf8;
+  --destructive: #ca5f71;
+  --sidebar-ring: #7386d0;
+  --sidebar-accent: #282e46;
+  --sidebar-border: #30363d;
+  --card-foreground: #f8eaf8;
+  --sidebar-primary: #7386d0;
+  --muted-foreground: #8b949e;
+  --accent-foreground: #b8c3e4;
+  --popover-foreground: #f8eaf8;
+  --primary-foreground: #f8eaf8;
+  --sidebar-foreground: #f8eaf8;
+  --secondary-foreground: #b8c3e4;
+  --destructive-foreground: #f8eaf8;
+  --sidebar-accent-foreground: #b8c3e4;
+  --sidebar-primary-foreground: #f8eaf8;
+
+  /* Header distinction */
+  --header-background: #1c1f2f;
+
+  /* TOC hover color */
+  --toc-hover: #2a2e46;
+
+  /* Tag colors from Moonlight theme */
+  --tag-tools-bg: rgba(115, 134, 208, 0.15);
+  --tag-tools-fg: #7386d0;
+  --tag-tools-border: #7386d0;
+
+  --tag-visual-bg: rgba(255, 203, 107, 0.15);
+  --tag-visual-fg: #ffcb6b;
+  --tag-visual-border: #ffcb6b;
+
+  --tag-code-bg: rgba(93, 171, 243, 0.15);
+  --tag-code-fg: #5dabf3;
+  --tag-code-border: #5dabf3;
+
+  /* Additional Moonlight colors */
+  --success: #49ef95;
+  --warning: #ffcb6b;
+  --info: #acb9e6;
+  --highlight: #58a6ff;
+  --selection: #5b86c199;
+  --button-bg: #3c466f;
+  --button-hover: #455180;
+
+  /* Markdown element colors from Moonlight */
+  --markdown-heading: #9cb6ed;
+  --markdown-heading-punct: #a5a1e9;
+  --markdown-quote: #acb9e6;
+  --markdown-quote-bg: #010409;
+  --markdown-quote-border: #30363d;
+  --markdown-code-inline: #b0b9e5;
+  --markdown-code-block: #b0b9e5;
+  --markdown-code-block-bg: #6e768166;
+  --markdown-link: #7386d0;
+  --markdown-link-active: #58a6ff;
+  --markdown-list-bullet: #a5a1e9;
+  --markdown-table: #a5a1e9;
+
+  /* Override MkDocs Material slate CSS variables */
+  --md-default-fg-color: #f8eaf8;
+  --md-default-fg-color--light: #b8c3e4;
+  --md-default-fg-color--lighter: #8b949e;
+  --md-default-fg-color--lightest: #30363d;
+  --md-default-bg-color: #0d0e17;
+  --md-default-bg-color--light: #191726;
+  --md-default-bg-color--lighter: #282e46;
+  --md-default-bg-color--lightest: #3c466f;
+
+  --md-primary-fg-color: #7386d0;
+  --md-primary-fg-color--light: #acb9e6;
+  --md-primary-fg-color--dark: #5dabf3;
+
+  --md-accent-fg-color: #282e46;
+  --md-accent-fg-color--transparent: rgba(40, 46, 70, 0.1);
+
+  --md-typeset-color: #f8eaf8;
+  --md-typeset-a-color: #7386d0;
+
+  --md-code-fg-color: #f8eaf8;
+  --md-code-bg-color: #191726;
+
+  /* Mermaid colors - light colors for dark diagram background */
+  --md-mermaid-label-fg-color: #f8eaf8;
+  --md-mermaid-label-bg-color: #191726;
+  --md-mermaid-node-bg-color: #191726;
+  --md-mermaid-node-fg-color: #f8eaf8;
+  --md-mermaid-edge-color: #7386d0;
+
+  color-scheme: dark;
+}

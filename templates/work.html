@@ -1,0 +1,83 @@
+{% extends "main.html" %}
+{% block content %}
+
+<h1>Projetos</h1>
+
+<div class="work-reference">
+  <div class="projects-grid">
+    {% for work in page.meta.work %}
+    <div class="project-card">
+
+      <div class="project-image image-container-with-placeholder">
+        {% if work.images and work.images|length > 0 %}
+          {% set project_index = loop.index0 %}
+          <div class="carousel-container" data-project="{{ project_index }}">
+            <div class="carousel-track">
+              {% for image in work.images %}
+              <div class="carousel-slide {% if loop.first %}active{% endif %}">
+                <a href="{{ image }}" class="glightbox" data-gallery="project-{{ project_index }}" data-title="{{ work.title }}">
+                  <img src="{{ image }}" alt="{{ work.title }}" class="project-img img-with-fallback no-placeholder" onerror="this.classList.add('img-error'); this.onerror=null;">
+                  <div class="image-placeholder">
+                    <img src="../assets/images/branding/logo.png" alt="Logo" class="placeholder-logo no-placeholder">
+                  </div>
+                </a>
+              </div>
+              {% endfor %}
+            </div>
+            {% if work.images|length > 1 %}
+            <button class="carousel-arrow carousel-arrow-left" aria-label="Imagem anterior">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+              </svg>
+            </button>
+            <button class="carousel-arrow carousel-arrow-right" aria-label="Próxima imagem">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+              </svg>
+            </button>
+            <div class="carousel-indicators">
+              {% for image in work.images %}
+              <span class="carousel-indicator {% if loop.first %}active{% endif %}" data-index="{{ loop.index0 }}"></span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        {% else %}
+          <img src="" alt="{{ work.title }}" class="project-img img-with-fallback img-error no-placeholder" style="display: none;">
+          <div class="image-placeholder">
+            <img src="../assets/images/branding/logo.png" alt="Logo" class="placeholder-logo no-placeholder">
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="project-content">
+        <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer" class="project-link">
+          <h3 class="projectTitle">{{ work.title }}</h3>
+        </a>
+
+        <div class="project-tags">
+          {% for category in work.categories %}
+          <span class="tag {{ category }}">{{ category | capitalize }}</span>
+          {% endfor %}
+        </div>
+
+        {% if work.description %}
+        <p class="project-description">
+          {{ work.description }}
+        </p>
+        {% endif %}
+
+        <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer" class="project-external-link">
+          Ver Projeto →
+        </a>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
+{% block tabs %}
+{{ super() }}
+{% endblock %}

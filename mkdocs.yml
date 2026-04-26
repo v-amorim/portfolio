@@ -1,0 +1,124 @@
+# Site Settings
+site_name: Vinicius C. Amorim
+site_author: Vinicius C. Amorim
+docs_dir: docs
+
+copyright: >
+
+extra_css:
+  - stylesheets/bundle.css
+
+extra_javascript:
+  - javascripts/mermaid-config.js
+  - javascripts/image-placeholder.js
+  - javascripts/carousel.js
+  - javascripts/timeline.js
+
+# Material Configuration
+theme:
+  font: false
+  name: material
+  custom_dir: templates
+  icon:
+    logo: logo
+    repo: fontawesome/brands/github
+  favicon: /assets/images/branding/logo.png
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo claro
+  features:
+    - content.code.copy
+    - navigation.indexes # Implied section 'index.md' files
+    - navigation.instant # Keep navigation from reloading
+    - navigation.instant.progress # Display page loading progress-bar ( > 400ms)
+    - navigation.sections
+    - navigation.tabs # Static upper section tabs (exist)
+    - navigation.tabs.sticky # Static upper section tabs (stay)
+    - navigation.top
+    - navigation.tracking
+    - search.highlight # Highlight all occurrences of queried string
+    - search.share # Search Query can be copied to Clipboard
+    - search.suggest # Display likeliest completion for the last queried word
+    - toc.follow
+
+nav:
+  - Início: index.md
+  - Projetos: work.md
+  - Blog:
+      - blog/index.md
+
+plugins:
+  - glightbox
+  - panzoom
+  - privacy
+  - search
+  - blog:
+      archive: true
+      archive_toc: true
+      blog_toc: true
+      categories: true
+      post_excerpt: required
+      post_url_date_format: yyyy/MM
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      auto_append:
+        - snippets/abbreviations.md
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - templates/.icons
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      use_pygments: true
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+
+watch:
+  - snippets
+  - templates
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/vinicius-amorim/
+    - icon: fontawesome/brands/github
+      link: https://github.com/v-amorim
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:vamorim.dev@gmail.com
+
+  toolbox:
+    - []
+    - ["visual-studio-code-logo.svg", "git-icon.svg", "markdown-icon.svg", "google-workspace-logo.svg", "jira-logo.svg"]
+    - []

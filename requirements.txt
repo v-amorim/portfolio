@@ -1,0 +1,6 @@
+mkdocs
+mkdocs-roamlinks-plugin
+mkdocs-glightbox
+mkdocs-material
+mkdocs-git-revision-date-localized-plugin
+mkdocs-panzoom-plugin

@@ -1,0 +1,61 @@
+# MkDocs
+site/
+.cache/
+mkdocs.log
+
+# Generated CSS bundle (built from sources)
+# Uncomment to keep bundle in git for direct deployment:
+# docs/stylesheets/bundle.css
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# uv
+.venv/
+uv.lock
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+*:Zone.Identifier
+
+# Project-specific
+CLAUDE.md
+.claude/*
+.memsearch/
+
+# Stray files
+current.png
+current2.png
+image.png
+Profile.pdf
