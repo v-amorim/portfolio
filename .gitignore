@@ -31,7 +31,6 @@ wheels/
 
 # uv
 .venv/
-uv.lock
 
 # IDEs
 .vscode/
@@ -53,9 +52,3 @@ Thumbs.db
 CLAUDE.md
 .claude/*
 .memsearch/
-
-# Stray files
-current.png
-current2.png
-image.png
-Profile.pdf
