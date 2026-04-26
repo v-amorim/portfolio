@@ -2,6 +2,8 @@
 
 Personal portfolio site built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/).
 
+🌐 **Live Site:** [https://v-amorim.github.io/portfolio/](https://v-amorim.github.io/portfolio/)
+
 ## Local Development with uv
 
 ### Prerequisites
@@ -50,10 +52,6 @@ The site automatically deploys to GitHub Pages when pushing to `main` or `master
 - **uv** - Fast Python package management
 - **GitHub Actions** - CI/CD for automated deployment
 - **GitHub Pages** - Hosting platform
-
-## Credits
-
-Template heavily inspired by [Anelia Stoyanova's Portfolio](https://github.com/anelllya/portfolio).
 
 ## License
 
