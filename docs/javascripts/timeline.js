@@ -64,8 +64,8 @@ const careerData = {
 };
 
 function calculateDuration(start_date, end_date) {
-  // Se não houver data de início, retornar "∞"
-  if (!start_date) return "∞";
+  // Se não houver data de início, retornar string vazia
+  if (!start_date) return "";
 
   const start = new Date(start_date + "-01");
   const end = end_date ? new Date(end_date + "-01") : new Date();
@@ -90,7 +90,7 @@ function calculateDuration(start_date, end_date) {
 }
 
 function formatDateRange(start_date, end_date) {
-  if (!start_date) return "∞";
+  if (!start_date) return "";
 
   const months = {
     '01': 'Jan', '02': 'Fev', '03': 'Mar', '04': 'Abr',
