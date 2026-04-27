@@ -199,16 +199,37 @@
 
   .tx-hero__content h1 {
     font-size: 1.4rem !important;
-    margin: 1rem 2rem;
+    margin: 1rem 1rem;
   }
 
   .tx-hero p {
-    margin: .5rem 2rem;
+    margin: .5rem 1rem;
     font-size: .8rem;
   }
 
+  .tx-hero__content .md-button {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    margin: 1rem;
+    gap: 1rem;
+  }
+
   .card {
-    margin: 0.2rem 2rem;
+    margin: 0;
+  }
+
+  .card-content h3 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Hide back to top button on mobile to avoid overlap */
+  .md-top {
+    display: none;
   }
 }
 
