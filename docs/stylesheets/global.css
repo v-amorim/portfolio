@@ -228,7 +228,7 @@
   --md-primary-fg-color--light: #acb9e6;
   --md-primary-fg-color--dark: #5dabf3;
 
-  --md-accent-fg-color: #282e46;
+  --md-accent-fg-color: #7386d0;
   --md-accent-fg-color--transparent: rgba(40, 46, 70, 0.1);
 
   --md-typeset-color: #f8eaf8;
@@ -610,7 +610,7 @@ code {
 [data-md-color-scheme="slate"] .md-post__meta time,
 [data-md-color-scheme="slate"] .md-post__meta .md-author,
 [data-md-color-scheme="slate"] .md-post__meta .md-meta__list {
-  color: var(--warning);
+  color: var(--muted-foreground);
 }
 
 /* ===================================================================
@@ -675,7 +675,10 @@ input {
    =================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

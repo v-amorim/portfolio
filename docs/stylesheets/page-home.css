@@ -148,7 +148,7 @@
 .card-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
   flex: 1;
@@ -223,8 +223,15 @@
     margin: 0;
   }
 
+  .card-grid .card-content h3,
   .card-content h3 {
-    font-size: 1.5rem !important;
+    font-size: 1.35rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .card-grid .card-content p,
+  .card-content p {
+    font-size: 0.85rem !important;
   }
 
   /* Hide back to top button on mobile to avoid overlap */
