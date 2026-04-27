@@ -1,0 +1,152 @@
+/* ===================================================================
+   Work/Projects Page Styles (work.md)
+   =================================================================== */
+
+.work-reference {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================================================
+   Projects Grid Layout
+   =================================================================== */
+
+.projects-grid {
+  --border-project: 0.02rem solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--spacing-6);
+  margin: var(--spacing-4) 0;
+}
+
+/* ===================================================================
+   Project Cards
+   =================================================================== */
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: var(--spacing-5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  border-color: var(--primary);
+}
+
+.project-image {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  background-color: var(--muted);
+}
+
+.project-image a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.project-img {
+  filter: var(--grayscale-filter);
+  transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-image:hover .project-img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  flex: 1;
+}
+
+.project-link {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-link:hover {
+  color: var(--primary);
+}
+
+.project-link h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  color: var(--foreground);
+  transition: color 0.2s ease;
+}
+
+.project-link:hover h3 {
+  color: var(--primary);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.project-description {
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.875rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.project-external-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.project-external-link svg {
+  transition: transform 0.2s ease;
+}
+
+.project-external-link:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.project-external-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media screen and (max-width: 76.25rem) {
+  .project-img {
+    filter: grayscale(.1);
+  }
+}

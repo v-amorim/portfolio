@@ -6,13 +6,18 @@ docs_dir: docs
 copyright: >
 
 extra_css:
-  - stylesheets/bundle.css
+  - stylesheets/global.css
+  - stylesheets/components.css
+  - stylesheets/page-home.css
+  - stylesheets/page-work.css
+  - stylesheets/background-logo.css
 
 extra_javascript:
   - javascripts/mermaid-config.js
   - javascripts/image-placeholder.js
   - javascripts/carousel.js
   - javascripts/timeline.js
+  - javascripts/background-logo.js
 
 # Material Configuration
 theme:

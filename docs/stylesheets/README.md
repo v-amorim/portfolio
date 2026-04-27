@@ -1,60 +1,38 @@
 # Stylesheets
 
-## Production
+## Structure
 
-The site uses **`bundle.css`** which is a concatenation of all CSS files.
+The site uses separate CSS files loaded in order:
 
-## Development
+- **`theme.css`** - Theme color variables (light/dark mode, Moonlight colors)
+- **`extra.css`** - Global styles, components, Material theme overrides
+- **`home.css`** - Home page specific styles (hero, cards, bento boxes)
+- **`timeline.css`** - Career timeline/kanban board component
 
-To modify styles, edit the source files:
+## Load Order (Important!)
 
-- **`theme.css`** - Theme color variables (light/dark mode)
-- **`extra.css`** - Global styles, color variables, utilities
-- **`home.css`** - Home page specific styles
-- **`timeline.css`** - Career timeline/kanban board styles
-
-## Rebuilding Bundle
-
-After editing any source CSS file, regenerate the bundle:
-
-```bash
-# From project root
-cat docs/stylesheets/theme.css docs/stylesheets/extra.css docs/stylesheets/home.css docs/stylesheets/timeline.css > docs/stylesheets/bundle.css
-```
-
-Or use the convenience script:
-
-```bash
-# Create scripts/build-css.sh
-#!/bin/bash
-cat docs/stylesheets/{theme,extra,home,timeline}.css > docs/stylesheets/bundle.css
-echo "✅ CSS bundle rebuilt: $(wc -l < docs/stylesheets/bundle.css) lines"
-```
-
-## File Order (Important!)
-
-The CSS files must be concatenated in this specific order:
-
-1. `theme.css` - CSS variables must be defined first
-2. `extra.css` - Global styles that depend on theme variables
-3. `home.css` - Page-specific styles
-4. `timeline.css` - Component-specific styles
-
-Changing the order may break variable references.
-
-## Performance Impact
-
-- **Before**: 4 separate CSS files (4 HTTP requests)
-- **After**: 1 bundled CSS file (1 HTTP request)
-- **Savings**: 3 fewer HTTP requests, faster initial render
-
-## CI/CD Integration (Future)
-
-Consider automating bundle generation in GitHub Actions:
+Files are loaded in `mkdocs.yml` in this specific order:
 
 ```yaml
-# .github/workflows/ci.yml
-- name: Build CSS bundle
-  run: |
-    cat docs/stylesheets/{theme,extra,home,timeline}.css > docs/stylesheets/bundle.css
+extra_css:
+  - stylesheets/theme.css    # CSS variables first
+  - stylesheets/extra.css    # Global styles
+  - stylesheets/home.css     # Page-specific
+  - stylesheets/timeline.css # Components
 ```
+
+**Why order matters**: CSS variables in `theme.css` must be defined before other files reference them with `var(--primary)`, etc.
+
+## Adding New Styles
+
+### Global components (buttons, cards, utilities)
+→ Edit `extra.css`
+
+### Home page layout
+→ Edit `home.css`
+
+### New page-specific styles
+→ Create new file (e.g., `work.css`) and add to `mkdocs.yml`
+
+### Theme colors
+→ Edit `theme.css` variables
