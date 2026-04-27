@@ -8,7 +8,7 @@ hide:
 <div class="tx-hero" markdown>
 
 <div class="tx-hero__image">
-  <img src="assets/images/profile_picture.jpg" alt="Vinicius C. Amorim" class="profile-picture">
+  <img src="assets/images/profile_picture.jpg" alt="Vinicius C. Amorim" class="profile-picture" data-glightbox="false">
 </div>
 
 <div class="tx-hero__content" markdown>

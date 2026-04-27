@@ -32,14 +32,14 @@
   box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(115, 134, 208, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: none !important;
+  user-select: none;
+  cursor: default !important;
 }
 
-.profile-picture:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(115, 134, 208, 0.3);
+.profile-picture.no-lightbox {
+  pointer-events: none !important;
+  cursor: default !important;
 }
 
 .tx-hero__content {
@@ -107,6 +107,7 @@
     opacity: 0;
     transform: translateX(-50%) translateY(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(-8px);
