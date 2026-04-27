@@ -4,6 +4,7 @@ site_author: Vinicius C. Amorim
 docs_dir: docs
 
 copyright: >
+  <a href="https://github.com/v-amorim/portfolio" target="_blank" rel="noopener" style="color: var(--md-primary-fg-color);">View this site's source code</a>
 
 extra_css:
   - stylesheets/global.css
