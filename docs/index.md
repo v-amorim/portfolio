@@ -5,47 +5,77 @@ hide:
   - toc
 ---
 
-# Sobre mim
+<div class="tx-hero" markdown>
 
-## Olá, eu sou **Vinicius C. Amorim**
+<div class="tx-hero__image">
+  <img src="assets/images/profile_picture.jpg" alt="Vinicius C. Amorim" class="profile-picture">
+</div>
 
-Engenheiro de Dados com 4 anos de experiência transformando dados brutos em pipelines robustos e insights acionáveis. Atualmente na [DEEP ESG](https://www.linkedin.com/company/deep-esg/), trabalho com Python, PySpark e GCP para construir soluções de dados escaláveis em data warehouses e data lakes.
+<div class="tx-hero__content" markdown>
 
-Sou formado em Ciência da Computação e tenho experiência em liderança de equipes, desenvolvimento full-stack e automação de processos. Minha paixão é criar sistemas de dados que não apenas funcionam, mas que são manuteníveis, eficientes e geram impacto real nos negócios.
+# Vinicius C. Amorim
 
-> Acredito que uma boa engenharia de dados é invisível - simplesmente funciona.
+## Engenheiro de Dados
 
-<p class="newLine"></p>
+Transformo montanhas de dados em insights que movem decisões.
+Pipelines escaláveis, arquitetura em nuvem e código limpo.
 
-## O que me move
+<a href="mailto:vamorim.dev@gmail.com" class="md-button md-button--primary" title="vamorim.dev@gmail.com">:material-email: Entre em contato</a>
+<a href="https://www.linkedin.com/in/vinicius-amorim/" class="md-button" target="_blank" rel="noopener">:fontawesome-brands-linkedin: LinkedIn</a>
+<a href="https://github.com/v-amorim" class="md-button" target="_blank" rel="noopener">:fontawesome-brands-github: GitHub</a>
 
-Minha curiosidade técnica e mentalidade analítica me levaram da Web Operations à engenharia de dados, onde encontrei o desafio perfeito: transformar caos em clareza. Gosto de otimizar queries, reduzir custos em nuvem e ver o impacto imediato de pipelines bem projetados.
+</div>
 
-Trabalho seguindo princípios de qualidade de dados, observabilidade e automação. Acredito em tratar dados como código, implementar CI/CD para pipelines e equilibrar excelência técnica com soluções pragmáticas.
-
-Além do trabalho, mantenho projetos open source que melhoram a experiência de desenvolvimento - de temas customizados para terminais e editores até ferramentas de conversão de cores.
-
-<p class="newLine"></p>
-
-## Fora do código
-
-**Culinária**: Adoro experimentar novas receitas e técnicas. Minha conquista recente foi dominar pizzas napolitanas caseiras que viraram sucesso nas festas.
-
-**Leitura técnica**: Sempre explorando padrões de arquitetura de dados, sistemas distribuídos e boas práticas de engenharia de software.
-
-**Open Source**: Criar ferramentas que ajudam outros desenvolvedores é profundamente satisfatório - é gratificante ver pessoas se beneficiando das soluções que construí.
+</div>
 
 <p class="newLine"></p>
 
-## Próximos passos
+<div class="card-grid" markdown>
 
-Busco trabalhar em projetos de dados em larga escala que exijam arquitetura sofisticada, otimização de performance e confiabilidade. Quero continuar crescendo em áreas como DataOps, MLOps e engenharia de plataforma, enquanto contribuo para construir sistemas que capacitem equipes a tomar decisões informadas.
+<div class="card" markdown>
+<div class="card-content" markdown>
 
----
+### :material-timer: 4+ anos
 
-Sempre aberto para conversar sobre engenharia de dados, oportunidades de colaboração ou simplesmente trocar ideias sobre as últimas tecnologias.
+Construindo infraestrutura de dados que escala
 
-[Entre em contato](mailto:vamorim.dev@gmail.com){ .md-button }
+</div>
+</div>
+
+<div class="card" markdown>
+<div class="card-content" markdown>
+
+### :material-cloud: GCP + PySpark
+
+Processando milhões de registros por dia
+
+</div>
+</div>
+
+<div class="card" markdown>
+<div class="card-content" markdown>
+
+### :material-code-braces: Open Source
+
+Compartilhando ferramentas com a comunidade
+
+</div>
+</div>
+
+</div>
+
+<p class="newLine"></p>
+
+## O que eu faço
+
+Construo infraestrutura de dados que processa milhões de registros diariamente. No dia a dia:
+
+- Projeto e mantenho pipelines end-to-end: ingestão, transformação e entrega de dados em produção
+- Otimizo arquitetura de armazenamento e queries para reduzir custos e melhorar performance
+- Orquestro workflows com Airflow e processo dados em larga escala com PySpark no GCP
+- Contribuo com a comunidade open source criando temas e ferramentas que outros devs usam
+
+Acredito que boa engenharia de dados é invisível — quando funciona bem, ninguém precisa pensar nela. Mas quando falha, trava o negócio inteiro. Meu trabalho é garantir que a segunda parte nunca aconteça.
 
 ---
 

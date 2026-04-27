@@ -1,0 +1,255 @@
+/* ===================================================================
+   Home Page Styles (index.md)
+   =================================================================== */
+
+/* ===================================================================
+   Hero Section
+   =================================================================== */
+
+.tx-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.tx-hero__image {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 220px;
+  height: 220px;
+  border-radius: 25%;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 3px solid var(--md-primary-fg-color);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(115, 134, 208, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(115, 134, 208, 0.3);
+}
+
+.tx-hero__content {
+  padding-bottom: 1rem;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.tx-hero__content h1 {
+  margin-bottom: 1rem;
+  font-family: var(--md-typeset-heading);
+}
+
+.tx-hero__content h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.tx-hero__content p {
+  font-weight: 200;
+  color: var(--md-typeset-color);
+  max-width: 30rem;
+  margin: 0 auto 1rem;
+}
+
+/* ===================================================================
+   Email Tooltip
+   =================================================================== */
+
+.md-button--primary[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: var(--card);
+  color: var(--md-default-fg-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  pointer-events: none;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.md-button--primary[title]:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-2px);
+  border: 6px solid transparent;
+  border-top-color: var(--card);
+  z-index: 1000;
+  pointer-events: none;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px);
+  }
+}
+
+.md-button--primary[title] {
+  position: relative;
+}
+
+/* ===================================================================
+   Metrics Cards
+   =================================================================== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  margin: 1rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.card:hover {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 0 0 1px var(--md-primary-fg-color);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  flex: 1;
+  padding: 0.5rem 0;
+}
+
+.card-grid .card-content h3,
+.card-content h3 {
+  font-size: 1.75rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--md-primary-fg-color) !important;
+  text-transform: none !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  margin: 0 0 0.25rem 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+}
+
+.card-content h3 .twemoji {
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+}
+
+.card-grid .card-content p,
+.card-content p {
+  font-size: 0.8rem !important;
+  font-weight: 400 !important;
+  color: var(--md-default-fg-color--light) !important;
+  text-align: left !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media screen and (max-width: 30rem) {
+  .tx-hero__content {
+    text-align: center;
+  }
+
+  .tx-hero__content h1 {
+    font-size: 1.4rem !important;
+    margin: 1rem 2rem;
+  }
+
+  .tx-hero p {
+    margin: .5rem 2rem;
+    font-size: .8rem;
+  }
+
+  .card {
+    margin: 0.2rem 2rem;
+  }
+}
+
+@media screen and (min-width: 31rem) and (max-width: 60rem) {
+  .tx-hero__content {
+    margin: 3.5rem auto;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  .tx-hero {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    margin-block: 2rem;
+  }
+
+  .tx-hero__image {
+    order: 1;
+  }
+
+  .profile-picture {
+    width: 270px;
+    height: 270px;
+  }
+
+  .tx-hero__content {
+    order: 2;
+    text-align: left;
+    color: var(--md-default-fg-color);
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .tx-hero__content p {
+    margin: 0 0 1rem 0;
+  }
+
+  .card-grid {
+    margin: 1rem 0;
+  }
+}

@@ -1,0 +1,919 @@
+/* ===================================================================
+   Theme CSS - Light and Dark Mode Color Variables
+   Dark mode based on Moonlight VSCode Theme
+   =================================================================== */
+
+/* Light mode - MkDocs Material "default" scheme */
+[data-md-color-scheme="default"] {
+  /* Custom theme variables from new_theme_light.css */
+  --card: #ffffff;
+  --ring: #6366f1;
+  --input: #d1d5db;
+  --muted: #f3f4f6;
+  --accent: #e0e7ff;
+  --border: #d1d5db;
+  --radius: 0.5rem;
+  --chart-1: #6366f1;
+  --chart-2: #4f46e5;
+  --chart-3: #4338ca;
+  --chart-4: #3730a3;
+  --chart-5: #312e81;
+  --popover: #ffffff;
+  --primary: #6366f1;
+  --sidebar: #f3f4f6;
+  --font-mono: JetBrains Mono, monospace;
+  --font-sans: Inter, sans-serif;
+  --secondary: #e5e7eb;
+  --background: #f8fafc;
+  --font-serif: Merriweather, serif;
+  --foreground: #1e293b;
+  --destructive: #ef4444;
+  --shadow-blur: 8px;
+  --shadow-color: hsl(0 0% 0%);
+  --sidebar-ring: #6366f1;
+  --shadow-spread: -1px;
+  --shadow-opacity: 0.1;
+  --sidebar-accent: #e0e7ff;
+  --sidebar-border: #d1d5db;
+  --card-foreground: #1e293b;
+  --shadow-offset-x: 0px;
+  --shadow-offset-y: 4px;
+  --sidebar-primary: #6366f1;
+  --muted-foreground: #6b7280;
+  --accent-foreground: #374151;
+  --popover-foreground: #1e293b;
+  --primary-foreground: #ffffff;
+  --sidebar-foreground: #1e293b;
+  --secondary-foreground: #374151;
+  --destructive-foreground: #ffffff;
+  --sidebar-accent-foreground: #374151;
+  --sidebar-primary-foreground: #ffffff;
+
+  /* Header distinction */
+  --header-background: #ffffff;
+
+  /* Override MkDocs Material default CSS variables */
+  --md-default-fg-color: #1e293b;
+  --md-default-fg-color--light: #6b7280;
+  --md-default-fg-color--lighter: #9ca3af;
+  --md-default-fg-color--lightest: #d1d5db;
+  --md-default-bg-color: #f8fafc;
+  --md-default-bg-color--light: #ffffff;
+  --md-default-bg-color--lighter: #f3f4f6;
+  --md-default-bg-color--lightest: #e5e7eb;
+
+  --md-primary-fg-color: #6366f1;
+  --md-primary-fg-color--light: #818cf8;
+  --md-primary-fg-color--dark: #4f46e5;
+
+  --md-accent-fg-color: #e0e7ff;
+  --md-accent-fg-color--transparent: rgba(224, 231, 255, 0.1);
+
+  --md-typeset-color: #1e293b;
+  --md-typeset-a-color: #6366f1;
+
+  --md-code-fg-color: #1e293b;
+  --md-code-bg-color: #f3f4f6;
+
+  /* Mermaid colors - light colors for dark diagram background */
+  --md-mermaid-label-fg-color: #f8eaf8;
+  --md-mermaid-label-bg-color: #191726;
+  --md-mermaid-node-bg-color: #191726;
+  --md-mermaid-node-fg-color: #f8eaf8;
+  --md-mermaid-edge-color: #7386d0;
+
+  color-scheme: light;
+}
+
+/* Dark mode - MkDocs Material "slate" scheme - Moonlight Theme */
+[data-md-color-scheme="slate"] {
+  /* Custom theme variables based on Moonlight VSCode Theme */
+  --card: #191726;
+  --ring: #7386d0;
+  --input: #0c0e17;
+  --muted: #0d0e17;
+  --accent: #282e46;
+  --border: #30363d;
+  --radius: 0.5rem;
+  --chart-1: #7386d0;
+  --chart-2: #5dabf3;
+  --chart-3: #79c0ff;
+  --chart-4: #58a6ff;
+  --chart-5: #acb9e6;
+  --popover: #191726;
+  --primary: #7386d0;
+  --sidebar: #010409;
+  --secondary: #282e46;
+  --background: #0d0e17;
+  --foreground: #f8eaf8;
+  --destructive: #ca5f71;
+  --sidebar-ring: #7386d0;
+  --sidebar-accent: #282e46;
+  --sidebar-border: #30363d;
+  --card-foreground: #f8eaf8;
+  --sidebar-primary: #7386d0;
+  --muted-foreground: #8b949e;
+  --accent-foreground: #b8c3e4;
+  --popover-foreground: #f8eaf8;
+  --primary-foreground: #f8eaf8;
+  --sidebar-foreground: #f8eaf8;
+  --secondary-foreground: #b8c3e4;
+  --destructive-foreground: #f8eaf8;
+  --sidebar-accent-foreground: #b8c3e4;
+  --sidebar-primary-foreground: #f8eaf8;
+
+  /* Header distinction */
+  --header-background: #1c1f2f;
+
+  /* Card depth hierarchy - inner cards within card containers */
+  --card-inner: #12131f;
+
+  /* TOC hover color */
+  --toc-hover: #2a2e46;
+
+  /* Tag colors from Moonlight theme */
+  --tag-tools-bg: rgba(115, 134, 208, 0.15);
+  --tag-tools-fg: #7386d0;
+  --tag-tools-border: #7386d0;
+
+  --tag-visual-bg: rgba(255, 203, 107, 0.15);
+  --tag-visual-fg: #ffcb6b;
+  --tag-visual-border: #ffcb6b;
+
+  --tag-code-bg: rgba(93, 171, 243, 0.15);
+  --tag-code-fg: #5dabf3;
+  --tag-code-border: #5dabf3;
+
+  /* Data Engineering tags */
+  --tag-data-eng-bg: rgba(73, 239, 149, 0.15);
+  --tag-data-eng-fg: #49ef95;
+  --tag-data-eng-border: #49ef95;
+
+  --tag-spark-bg: rgba(121, 192, 255, 0.15);
+  --tag-spark-fg: #79c0ff;
+  --tag-spark-border: #79c0ff;
+
+  --tag-etl-bg: rgba(88, 166, 255, 0.15);
+  --tag-etl-fg: #58a6ff;
+  --tag-etl-border: #58a6ff;
+
+  --tag-analytics-bg: rgba(172, 185, 230, 0.15);
+  --tag-analytics-fg: #acb9e6;
+  --tag-analytics-border: #acb9e6;
+
+  /* ML & API tags */
+  --tag-ml-bg: rgba(202, 95, 113, 0.15);
+  --tag-ml-fg: #ca5f71;
+  --tag-ml-border: #ca5f71;
+
+  --tag-api-bg: rgba(93, 171, 243, 0.15);
+  --tag-api-fg: #5dabf3;
+  --tag-api-border: #5dabf3;
+
+  --tag-scraping-bg: rgba(255, 203, 107, 0.18);
+  --tag-scraping-fg: #ffba57;
+  --tag-scraping-border: rgba(255, 203, 107, 0.45);
+
+  /* Language & Environment tags */
+  --tag-python-bg: rgba(93, 171, 243, 0.15);
+  --tag-python-fg: #5dabf3;
+  --tag-python-border: #5dabf3;
+
+  --tag-shell-bg: rgba(73, 239, 149, 0.12);
+  --tag-shell-fg: #3dd68c;
+  --tag-shell-border: rgba(73, 239, 149, 0.35);
+
+  --tag-gui-bg: rgba(165, 161, 233, 0.15);
+  --tag-gui-fg: #a5a1e9;
+  --tag-gui-border: #a5a1e9;
+
+  --tag-docs-bg: rgba(139, 148, 158, 0.15);
+  --tag-docs-fg: #8b949e;
+  --tag-docs-border: #8b949e;
+
+  /* Additional Moonlight colors */
+  --success: #49ef95;
+  --warning: #ffcb6b;
+  --info: #acb9e6;
+  --highlight: #58a6ff;
+  --selection: #5b86c199;
+  --button-bg: #3c466f;
+  --button-hover: #455180;
+
+  /* Markdown element colors from Moonlight */
+  --markdown-heading: #9cb6ed;
+  --markdown-heading-punct: #a5a1e9;
+  --markdown-quote: #acb9e6;
+  --markdown-quote-bg: #010409;
+  --markdown-quote-border: #30363d;
+  --markdown-code-inline: #b0b9e5;
+  --markdown-code-block: #b0b9e5;
+  --markdown-code-block-bg: #6e768166;
+  --markdown-link: #7386d0;
+  --markdown-link-active: #58a6ff;
+  --markdown-list-bullet: #a5a1e9;
+  --markdown-table: #a5a1e9;
+
+  /* Override MkDocs Material slate CSS variables */
+  --md-default-fg-color: #f8eaf8;
+  --md-default-fg-color--light: #b8c3e4;
+  --md-default-fg-color--lighter: #8b949e;
+  --md-default-fg-color--lightest: #30363d;
+  --md-default-bg-color: #0d0e17;
+  --md-default-bg-color--light: #191726;
+  --md-default-bg-color--lighter: #282e46;
+  --md-default-bg-color--lightest: #3c466f;
+
+  --md-primary-fg-color: #7386d0;
+  --md-primary-fg-color--light: #acb9e6;
+  --md-primary-fg-color--dark: #5dabf3;
+
+  --md-accent-fg-color: #282e46;
+  --md-accent-fg-color--transparent: rgba(40, 46, 70, 0.1);
+
+  --md-typeset-color: #f8eaf8;
+  --md-typeset-a-color: #7386d0;
+
+  --md-code-fg-color: #f8eaf8;
+  --md-code-bg-color: #191726;
+
+  /* Mermaid colors - light colors for dark diagram background */
+  --md-mermaid-label-fg-color: #f8eaf8;
+  --md-mermaid-label-bg-color: #191726;
+  --md-mermaid-node-bg-color: #191726;
+  --md-mermaid-node-fg-color: #f8eaf8;
+  --md-mermaid-edge-color: #7386d0;
+
+  color-scheme: dark;
+}
+
+/* ===================================================================
+   Material Theme Overrides & Global Styles
+   =================================================================== */
+
+* {
+  /* Legacy color variables for backwards compatibility */
+  --color-shades-blue-100: #E8FDFF;
+  --color-shades-blue-200: #A2E3F7;
+  --color-shades-blue-300: #5DC8E5;
+  --color-shades-blue-400: #00ABCF;
+  --color-shades-blue-500: #008AAB;
+  --color-shades-blue-600: #006A85;
+  --color-shades-blue-700: #004C60;
+  --color-shades-blue-800: #002F3D;
+  --color-shades-blue-900: #00151D;
+  --color-shades-purple-50: #F8F5FF;
+  --color-shades-purple-100: #D9CEFF;
+  --color-shades-purple-200: #BBA6FF;
+  --color-shades-purple-300: #9E7FFA;
+  --color-shades-purple-400: #815CDF;
+  --color-shades-purple-500: #6441B6;
+  --color-shades-purple-600: #472D84;
+  --color-shades-purple-700: #2C1C52;
+  --color-shades-purple-800: #130C26;
+  --color-shades-yellow-50: #FFFBED;
+  --color-shades-yellow-100: #F8DEAE;
+  --color-shades-yellow-200: #EFC87F;
+  --color-shades-yellow-300: #EFBA4B;
+  --color-shades-yellow-400: #AA7A00;
+  --color-shades-yellow-500: #7D5900;
+  --color-shades-yellow-600: #593C00;
+  --color-shades-yellow-700: #392400;
+  --color-shades-yellow-800: #1A0F00;
+
+  --grayscale-filter: grayscale(50%);
+
+  --spacing-1px: 1px;
+  --spacing-0_5: 0.125rem;
+  --spacing-1: 0.25rem;
+  --spacing-1_5: 0.375rem;
+  --spacing-2: 0.5rem;
+  --spacing-2_5: 0.625rem;
+  --spacing-3: 0.75rem;
+  --spacing-3_5: 0.875rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-7: 1.75rem;
+  --spacing-8: 2rem;
+  --spacing-9: 2.25rem;
+  --spacing-10: 2.5rem;
+  --spacing-11: 2.75rem;
+  --spacing-12: 3rem;
+
+  --tag-padding: var(--spacing-1) var(--spacing-3_5) var(--spacing-1) var(--spacing-2_5);
+  --button-border-radius: var(--spacing-8);
+  --grid-gap: var(--spacing-4);
+
+  --section-bg-color: var(--muted);
+  --outline: var(--border);
+  --tags: var(--muted-foreground);
+  --input-caption: var(--muted-foreground);
+
+  --success: #C3E598;
+  --information: #64C3DC;
+  --warning: #FF936D;
+  --error: #FF929E;
+
+  /* Legacy compatibility */
+  --primary-light: var(--primary-foreground);
+  --primary-light-020: rgba(99, 102, 241, 0.2);
+  --primary-light-008: rgba(99, 102, 241, 0.08);
+  --secondary-030: rgba(239, 186, 75, 0.3);
+  --secondary-016: rgba(239, 186, 75, 0.16);
+  --tertiary-030: rgba(0, 171, 207, 0.3);
+  --tertiary-016: rgba(0, 171, 207, 0.16);
+  --tertiary-012: rgba(0, 171, 207, 0.12);
+  --tertiary-008: rgba(0, 171, 207, 0.08);
+  --primary-050: rgba(187, 166, 255, 0.5);
+  --secondary-050: rgba(239, 200, 127, 0.5);
+  --tertiary-050: rgba(93, 200, 229, 0.5);
+  --disabled-008: rgba(107, 114, 128, 0.08);
+  --gray-50-004: rgba(249, 250, 251, 0.04);
+  --gray-920-008: rgba(18, 17, 18, 0.08);
+
+  --black: #000000;
+  --white: #ffffff;
+  --black-white: var(--white);
+  --white-black: var(--black);
+  --graphic-background: var(--background);
+  --graphic-lines: var(--border);
+
+  --primary-dark: var(--primary);
+  --disabled: var(--muted-foreground);
+}
+
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf");
+}
+
+:root {
+  --md-text-font: 'Mulish', system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --md-typeset-heading: 'Mulish', system-ui, sans-serif;
+}
+
+/* ===================================================================
+   Typography
+   =================================================================== */
+
+.md-typeset {
+  font-family: var(--md-text-font);
+  font-size: .9rem;
+}
+
+.md-typeset h1 {
+  font-size: 1.8rem;
+  color: var(--foreground);
+  font-family: var(--md-typeset-heading);
+  font-weight: 900;
+  margin: 0 0 var(--spacing-3);
+}
+
+.md-typeset h2 {
+  font-weight: 600;
+  margin: 1rem 0 .64em;
+}
+
+.md-typeset h3 {
+  font-weight: 500;
+  margin: 1rem 0 .64em;
+}
+
+.md-typeset ul li {
+  margin-bottom: 0;
+}
+
+code {
+  text-wrap: pretty;
+}
+
+::selection {
+  color: var(--background);
+  background-color: var(--primary);
+}
+
+/* ===================================================================
+   Buttons
+   =================================================================== */
+
+.md-top {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.md-typeset .md-button {
+  border-radius: var(--button-border-radius);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.md-typeset .md-button .twemoji {
+  height: 1.25em;
+  width: 1.25em;
+}
+
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: 0.1rem solid var(--primary);
+}
+
+.md-typeset .md-button--primary {
+  border-radius: var(--button-border-radius);
+  border: 0.1rem solid transparent;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: var(--spacing-2_5) var(--spacing-4);
+  margin-top: var(--spacing-2);
+  margin-right: var(--spacing-2);
+  font-weight: 600;
+}
+
+.md-typeset .md-button--primary:focus,
+.md-typeset .md-button--primary:hover {
+  background-color: var(--primary);
+  opacity: 0.9;
+  color: var(--primary-foreground);
+  border: 0.1rem solid transparent;
+}
+
+.md-typeset .md-button--secondary {
+  color: var(--foreground);
+  border-radius: var(--button-border-radius);
+  border: 0.1rem solid var(--border);
+  padding: var(--spacing-2_5) var(--spacing-4);
+  margin-top: var(--spacing-2);
+  margin-right: var(--spacing-2);
+}
+
+.md-typeset .md-button--secondary:focus,
+.md-typeset .md-button--secondary:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  border-color: var(--accent);
+}
+
+.md-typeset .md-button--tertiary {
+  color: var(--foreground);
+  border-radius: 0;
+  border: none;
+  padding: var(--spacing-2_5) var(--spacing-4);
+  margin-top: var(--spacing-2);
+  margin-right: var(--spacing-2);
+}
+
+.md-typeset .md-button--tertiary:focus,
+.md-typeset .md-button--tertiary:hover {
+  background-color: var(--muted);
+  color: var(--accent-foreground);
+  border-bottom: 0.1rem solid var(--accent);
+}
+
+/* ===================================================================
+   Material Components
+   =================================================================== */
+
+.md-header--shadow {
+  box-shadow: none;
+}
+
+.md-header,
+.md-header--lifted,
+.md-tabs {
+  background-color: var(--header-background) !important;
+  color: var(--foreground);
+}
+
+.md-search__input+.md-search__icon {
+  color: var(--foreground);
+}
+
+.md-search__form {
+  background-color: var(--input);
+  border-radius: var(--spacing-8);
+}
+
+.md-search__form:hover {
+  border: 1px solid var(--border);
+  border-radius: var(--spacing-8);
+}
+
+.md-search__input {
+  border: 1px solid var(--border);
+  border-radius: var(--spacing-8);
+  color: var(--foreground);
+  background-color: var(--input);
+}
+
+.md-search__input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.md-search__output {
+  border-radius: var(--spacing-8) !important;
+  overflow: hidden;
+  background-color: var(--card);
+}
+
+.md-search__suggest {
+  border-radius: 0;
+}
+
+.md-search-result__meta {
+  background-color: var(--muted);
+}
+
+.md-search__scrollwrap {
+  border-radius: 0;
+}
+
+.md-search-result__article {
+  border-radius: 0;
+}
+
+.md-nav__item--section {
+  border-top: 1px solid var(--border);
+}
+
+.md-nav__item .md-nav__link--active {
+  border-left: 3px solid;
+  padding-left: 12px;
+}
+
+.md-nav__list {
+  padding-block: 4px;
+}
+
+.md-card {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+  padding: var(--spacing-4);
+  border-radius: var(--spacing-0_5);
+  max-width: 300px;
+  margin: auto;
+  background-color: var(--card);
+  color: var(--card-foreground);
+}
+
+.md-card-content h2 {
+  margin-top: 0;
+}
+
+.md-card-content p {
+  margin-bottom: var(--spacing-4);
+}
+
+.md-card-content img {
+  width: 100%;
+  height: auto;
+}
+
+/* Blog */
+.md-post__content h2 {
+  font-weight: 600;
+}
+
+.md-post__content h2>a {
+  color: var(--foreground);
+  transition: color 0.2s ease;
+}
+
+.md-post__content h2>a:hover {
+  color: var(--primary);
+}
+
+.md-post__content h3>a {
+  color: var(--foreground);
+  transition: color 0.2s ease;
+}
+
+.md-post__content h3>a:hover {
+  color: var(--primary);
+}
+
+.md-post__meta>.md-nav__item--section {
+  border-top: none;
+}
+
+.md-post--excerpt {
+  border-bottom: 3px dotted var(--border);
+  padding-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-5);
+}
+
+[data-md-color-scheme="slate"] .md-post--excerpt {
+  border-bottom-color: rgba(115, 134, 208, 0.3);
+}
+
+[data-md-color-scheme="slate"] .md-post__meta time,
+[data-md-color-scheme="slate"] .md-post__meta .md-author,
+[data-md-color-scheme="slate"] .md-post__meta .md-meta__list {
+  color: var(--warning);
+}
+
+/* ===================================================================
+   Utilities
+   =================================================================== */
+
+.newLine {
+  display: flow-root;
+}
+
+p.newLine {
+  padding-block: 1rem;
+}
+
+.content-link {
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--md-typeset-a-background);
+  text-decoration-style: solid;
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: var(--spacing-1);
+}
+
+.content-link:hover {
+  text-decoration-thickness: 16px;
+  text-underline-offset: -.5em;
+  color: var(--md-typeset-a-color);
+}
+
+input {
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+#anelialogo path {
+  fill: var(--md-typeset-color);
+}
+
+/* ===================================================================
+   Syntax Highlighting
+   =================================================================== */
+
+.highlight .na,
+.highlight .nv,
+.highlight .vc,
+.highlight .kc,
+.highlight .vg,
+.highlight .vi,
+.highlight .o,
+.highlight .ow,
+.highlight .p {
+  color: var(--md-default-fg-color--light);
+}
+
+.highlight .c {
+  color: var(--success);
+}
+
+/* ===================================================================
+   Accessibility - Reduced Motion
+   =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================================================
+   Plugin Overrides
+   =================================================================== */
+
+/* GLightbox */
+.glightbox-clean .gslide-description {
+  background: var(--card);
+  color: var(--card-foreground);
+}
+
+.glightbox-clean .gdesc-inner {
+  font-family: var(--md-text-font);
+}
+
+.glightbox-clean .gclose,
+.glightbox-clean .gnext,
+.glightbox-clean .gprev {
+  color: var(--primary);
+}
+
+.glightbox-clean .gclose:hover,
+.glightbox-clean .gnext:hover,
+.glightbox-clean .gprev:hover {
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+/* Panzoom */
+.panzoom-box {
+  background-color: transparent !important;
+}
+
+/* Mermaid */
+.mermaid {
+  text-align: center;
+  padding: var(--spacing-4);
+  border-radius: var(--spacing-2);
+  border: 1px solid;
+  margin: var(--spacing-4) 0;
+  background-color: #0d0e17;
+}
+
+[data-md-color-scheme="default"] .mermaid {
+  border-color: #30363d;
+}
+
+[data-md-color-scheme="slate"] .mermaid {
+  border-color: #30363d;
+  --mermaid-bg-color: #0d0e17;
+  --mermaid-node-bg-color: #191726;
+  --mermaid-node-fg-color: #f8eaf8;
+  --mermaid-edge-color: #7386d0;
+  --mermaid-border-color: #30363d;
+  --mermaid-primary-color: #7386d0;
+  --mermaid-secondary-color: #5dabf3;
+  --mermaid-tertiary-color: #79c0ff;
+  --mermaid-note-bg-color: #282e46;
+  --mermaid-note-border-color: #7386d0;
+}
+
+.mermaid svg {
+  background-color: transparent !important;
+}
+
+.mermaid text,
+.mermaid .actor,
+.mermaid .labelText,
+.mermaid .messageText,
+.mermaid .noteText,
+.mermaid tspan {
+  fill: #f8eaf8 !important;
+  color: #f8eaf8 !important;
+}
+
+.mermaid .titleText {
+  fill: #f8eaf8 !important;
+}
+
+.mermaid line,
+.mermaid path {
+  stroke: #7386d0 !important;
+}
+
+.mermaid rect {
+  fill: #191726 !important;
+  stroke: #30363d !important;
+}
+
+.mermaid .section0,
+.mermaid .section1,
+.mermaid .section2,
+.mermaid .section3,
+.mermaid .section4,
+.mermaid .section5,
+.mermaid .section6,
+.mermaid .section7 {
+  fill: #191726 !important;
+}
+
+.mermaid .sectionTitle0,
+.mermaid .sectionTitle1,
+.mermaid .sectionTitle2,
+.mermaid .sectionTitle3,
+.mermaid .sectionTitle4,
+.mermaid .sectionTitle5,
+.mermaid .sectionTitle6,
+.mermaid .sectionTitle7 {
+  fill: #f8eaf8 !important;
+}
+
+.mermaid .mindmap-node-section-0,
+.mermaid .mindmap-node-section-1,
+.mermaid .mindmap-node-section-2,
+.mermaid .mindmap-node-section-3,
+.mermaid .mindmap-node-section-4,
+.mermaid .mindmap-node-section-5,
+.mermaid .mindmap-node-section-6,
+.mermaid .mindmap-node-section-7 {
+  stroke: #5dabf3 !important;
+}
+
+/* ===================================================================
+   Dark Mode Moonlight Overrides
+   =================================================================== */
+
+[data-md-color-scheme="slate"] .md-nav__link:hover,
+[data-md-color-scheme="slate"] .md-nav__link:focus {
+  color: var(--markdown-link-active);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  background-color: #49ef95;
+  color: #0d0e17;
+  border: 1px solid #49ef95;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover,
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:focus {
+  background-color: #3dd68c;
+  color: #0d0e17;
+  border-color: #3dd68c;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary):hover {
+  border-color: #7386d0;
+  color: #f8eaf8;
+  background-color: rgba(115, 134, 208, 0.1);
+}
+
+[data-md-color-scheme="slate"] ::selection {
+  background-color: var(--selection);
+  color: var(--foreground);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4,
+[data-md-color-scheme="slate"] .md-typeset h5,
+[data-md-color-scheme="slate"] .md-typeset h6 {
+  color: var(--markdown-heading);
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  color: var(--markdown-quote);
+  background-color: var(--markdown-quote-bg);
+  border-left: 4px solid rgba(73, 239, 149, 0.4);
+}
+
+[data-md-color-scheme="slate"] .md-typeset code:not(.highlight code) {
+  color: var(--markdown-code-inline);
+  background-color: var(--markdown-code-block-bg);
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre>code {
+  color: var(--markdown-code-block);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: var(--markdown-link-active);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:hover,
+[data-md-color-scheme="slate"] .md-typeset a:focus {
+  color: var(--markdown-link);
+}
+
+[data-md-color-scheme="slate"] .md-typeset ul>li::marker,
+[data-md-color-scheme="slate"] .md-typeset ol>li::marker {
+  color: var(--markdown-list-bullet);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  color: var(--markdown-heading);
+  border-bottom: 2px solid var(--markdown-table);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
+  border-top: 1px solid var(--border);
+}
+
+[data-md-color-scheme="slate"] .md-typeset strong {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .md-typeset em {
+  color: var(--foreground);
+}
+
+[data-md-color-scheme="slate"] .md-typeset hr {
+  border-bottom: 1px solid rgba(115, 134, 208, 0.3);
+}
+
+[data-md-color-scheme="slate"] .card-grid .card-content h3 {
+  color: var(--markdown-heading) !important;
+}
+
+[data-md-color-scheme="slate"] .project-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-md-color-scheme="slate"] .project-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  border-color: #7386d0;
+}
+
+[data-md-color-scheme="slate"] .project-external-link {
+  color: #58a6ff;
+}
+
+[data-md-color-scheme="slate"] .project-external-link:hover {
+  color: #79c0ff;
+}
