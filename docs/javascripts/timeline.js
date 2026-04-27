@@ -138,12 +138,10 @@ function createKanbanBoard() {
                       </div>
                       <div class="card-body">
                         <p class="card-description">${card.description}</p>
+                        <span class="card-date">${dateText}</span>
                       </div>
                       <div class="card-footer">
-                        <div class="card-company-wrapper">
-                          <span class="card-date">${dateText}</span>
-                          <span class="card-company">${card.company}</span>
-                        </div>
+                        <span class="card-company-tag tag">${card.company}</span>
                         <span class="card-tag ${card.tag.type}">${card.tag.text}</span>
                       </div>
                     </div>

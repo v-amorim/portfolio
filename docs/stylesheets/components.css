@@ -1,0 +1,451 @@
+/* ===================================================================
+   Reusable Components
+   =================================================================== */
+
+/* ===================================================================
+   Tags (used in work page and blog)
+   =================================================================== */
+
+.tag {
+  padding: 3px 12px 5px 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--spacing-8);
+}
+
+.tools,
+.ferramentas {
+  background: var(--tag-tools-bg, rgba(139, 92, 246, 0.15));
+  color: var(--tag-tools-fg, #a78bfa);
+  border-color: var(--tag-tools-border, rgba(139, 92, 246, 0.4));
+  font-weight: 500;
+}
+
+.visual {
+  background: var(--tag-visual-bg, rgba(251, 191, 36, 0.15));
+  color: var(--tag-visual-fg, #fbbf24);
+  border-color: var(--tag-visual-border, rgba(251, 191, 36, 0.4));
+  font-weight: 500;
+}
+
+.code,
+.código {
+  background: var(--tag-code-bg, rgba(59, 130, 246, 0.15));
+  color: var(--tag-code-fg, #60a5fa);
+  border-color: var(--tag-code-border, rgba(59, 130, 246, 0.4));
+  font-weight: 500;
+}
+
+/* Engenharia de Dados tags */
+.engenharia-de-dados {
+  background: var(--tag-data-eng-bg, rgba(73, 239, 149, 0.15));
+  color: var(--tag-data-eng-fg, #49ef95);
+  border-color: var(--tag-data-eng-border, rgba(73, 239, 149, 0.4));
+  font-weight: 500;
+}
+
+.spark {
+  background: var(--tag-spark-bg, rgba(121, 192, 255, 0.15));
+  color: var(--tag-spark-fg, #79c0ff);
+  border-color: var(--tag-spark-border, rgba(121, 192, 255, 0.4));
+  font-weight: 500;
+}
+
+.etl {
+  background: var(--tag-etl-bg, rgba(88, 166, 255, 0.15));
+  color: var(--tag-etl-fg, #58a6ff);
+  border-color: var(--tag-etl-border, rgba(88, 166, 255, 0.4));
+  font-weight: 500;
+}
+
+.analytics {
+  background: var(--tag-analytics-bg, rgba(172, 185, 230, 0.15));
+  color: var(--tag-analytics-fg, #acb9e6);
+  border-color: var(--tag-analytics-border, rgba(172, 185, 230, 0.4));
+  font-weight: 500;
+}
+
+/* Machine Learning & API tags */
+.machine-learning {
+  background: var(--tag-ml-bg, rgba(202, 95, 113, 0.15));
+  color: var(--tag-ml-fg, #ca5f71);
+  border-color: var(--tag-ml-border, rgba(202, 95, 113, 0.4));
+  font-weight: 500;
+}
+
+.api {
+  background: var(--tag-api-bg, rgba(93, 171, 243, 0.15));
+  color: var(--tag-api-fg, #5dabf3);
+  border-color: var(--tag-api-border, rgba(93, 171, 243, 0.4));
+  font-weight: 500;
+}
+
+.web-scraping {
+  background: var(--tag-scraping-bg, rgba(255, 203, 107, 0.18));
+  color: var(--tag-scraping-fg, #ffba57);
+  border-color: var(--tag-scraping-border, rgba(255, 203, 107, 0.45));
+  font-weight: 500;
+}
+
+/* Language & Environment tags */
+.python {
+  background: var(--tag-python-bg, rgba(93, 171, 243, 0.15));
+  color: var(--tag-python-fg, #5dabf3);
+  border-color: var(--tag-python-border, rgba(93, 171, 243, 0.4));
+  font-weight: 500;
+}
+
+.shell {
+  background: var(--tag-shell-bg, rgba(73, 239, 149, 0.12));
+  color: var(--tag-shell-fg, #3dd68c);
+  border-color: var(--tag-shell-border, rgba(73, 239, 149, 0.35));
+  font-weight: 500;
+}
+
+.gui {
+  background: var(--tag-gui-bg, rgba(165, 161, 233, 0.15));
+  color: var(--tag-gui-fg, #a5a1e9);
+  border-color: var(--tag-gui-border, rgba(165, 161, 233, 0.4));
+  font-weight: 500;
+}
+
+.documentação {
+  background: var(--tag-docs-bg, rgba(139, 148, 158, 0.15));
+  color: var(--tag-docs-fg, #8b949e);
+  border-color: var(--tag-docs-border, rgba(139, 148, 158, 0.4));
+  font-weight: 500;
+}
+
+/* ===================================================================
+   Image Placeholder System (used in work page)
+   =================================================================== */
+
+.image-container-with-placeholder {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--muted);
+  display: inline-block;
+  min-width: 150px;
+  min-height: 150px;
+}
+
+.image-container-with-placeholder:not(.align-left):not(.align-right) {
+  display: block;
+  width: 100%;
+}
+
+.image-container-with-placeholder.align-left {
+  float: left;
+  margin-right: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.image-container-with-placeholder.align-right {
+  float: right;
+  margin-left: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.image-placeholder,
+.project-image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.placeholder-logo {
+  width: 80px;
+  height: 80px;
+  opacity: 0.15;
+  filter: grayscale(100%);
+  object-fit: contain;
+}
+
+.img-with-fallback.img-error,
+.project-img.img-error {
+  opacity: 0;
+}
+
+.img-with-fallback.img-error~.image-placeholder,
+.project-img.img-error~.project-image-placeholder,
+.project-img.img-error~.image-placeholder {
+  opacity: 1;
+}
+
+/* ===================================================================
+   Carousel (used in work page for project images)
+   =================================================================== */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: relative;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--primary);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel-container:hover .carousel-arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--primary);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow-left {
+  left: var(--spacing-2);
+}
+
+.carousel-arrow-right {
+  right: var(--spacing-2);
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: var(--spacing-2);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--spacing-1_5);
+  z-index: 10;
+  padding: var(--spacing-1_5);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--spacing-4);
+}
+
+.carousel-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carousel-indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.carousel-indicator.active {
+  background: var(--primary);
+  width: 24px;
+  border-radius: var(--spacing-2);
+}
+
+/* ===================================================================
+   Timeline/Kanban Component (used in home page)
+   =================================================================== */
+
+.career-kanban {
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.kanban-column {
+  flex: 1;
+  min-width: 280px;
+  background: var(--card);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kanban-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.kanban-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.kanban-count {
+  background: var(--muted);
+  color: var(--muted-foreground);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.kanban-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kanban-card {
+  background: var(--card-inner);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kanban-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+[data-md-color-scheme="slate"] .kanban-card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-md-color-scheme="slate"] .kanban-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  border-color: #7386d0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.card-role {
+  font-size: 0.875rem;
+  color: var(--foreground);
+  font-weight: 500;
+  margin: 0;
+}
+
+.card-body {
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-date {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.card-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-company-tag {
+  font-size: 0.75rem;
+  background: var(--muted);
+  color: var(--foreground);
+  border-color: var(--border);
+  font-weight: 600;
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font-weight: 500;
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+  .kanban-board {
+    flex-direction: column;
+  }
+
+  .kanban-column {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
