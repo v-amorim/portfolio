@@ -1,5 +1,5 @@
 const careerData = {
-  "Hobbies/Extras": [
+  "Pessoal": [
     {
       start_date: "2020-01",
       end_date: null,
@@ -177,8 +177,95 @@ function createKanbanBoard() {
   });
 }
 
+function createVerticalTimeline() {
+  const container = document.getElementById('career-timeline-vertical');
+  if (!container) return;
+
+  // Flatten all entries from every column, keeping the status type from the tag
+  const entries = Object.values(careerData).flat();
+
+  // Sort by start_date descending; entries without a start_date go last
+  entries.sort((a, b) => {
+    if (!a.start_date) return 1;
+    if (!b.start_date) return -1;
+    return b.start_date.localeCompare(a.start_date);
+  });
+
+  const itemsHTML = entries.map((card, index) => {
+    const dateRange = formatDateRange(card.start_date, card.end_date);
+    const duration = calculateDuration(card.start_date, card.end_date);
+    const dateText = card.start_date && duration ? `${dateRange} (${duration})` : dateRange;
+    const side = index % 2 === 0 ? 'left' : 'right';
+    return `
+      <div class="timeline-item ${side}" style="animation-delay: ${index * 0.08}s">
+        <div class="timeline-marker ${card.tag.type}"></div>
+        <div class="timeline-content kanban-card">
+          <div class="card-header">
+            <h4 class="card-role">${card.role}</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-description">${card.description}</p>
+            ${dateText ? `<span class="card-date">${dateText}</span>` : ''}
+          </div>
+          <div class="card-footer">
+            <span class="card-company-tag tag">${card.company}</span>
+            <span class="card-tag ${card.tag.type}">${card.tag.text}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="career-timeline">
+      <div class="timeline-track">
+        ${itemsHTML}
+      </div>
+    </div>
+  `;
+
+  const observer = new IntersectionObserver((entriesObs) => {
+    entriesObs.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        setTimeout(() => {
+          entry.target.style.willChange = 'auto';
+        }, 400);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  document.querySelectorAll('.timeline-item').forEach(item => {
+    observer.observe(item);
+  });
+}
+
+function initTimelineToggle() {
+  const toggle = document.querySelector('.timeline-toggle');
+  if (!toggle) return;
+
+  const kanban = document.getElementById('career-timeline');
+  const vertical = document.getElementById('career-timeline-vertical');
+  const buttons = toggle.querySelectorAll('.timeline-toggle-btn');
+
+  function setView(view) {
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.view === view));
+    if (kanban) kanban.classList.toggle('view-hidden', view !== 'kanban');
+    if (vertical) vertical.classList.toggle('view-hidden', view !== 'timeline');
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => setView(btn.dataset.view));
+  });
+}
+
 function initTimeline() {
   createKanbanBoard();
+  createVerticalTimeline();
+  initTimelineToggle();
 }
 
 // Initial load

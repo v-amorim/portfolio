@@ -71,14 +71,22 @@ Compartilhando ferramentas com a comunidade
 Construo infraestrutura de dados que processa milhões de registros diariamente. No dia a dia:
 
 - Projeto e mantenho pipelines end-to-end: ingestão, transformação e entrega de dados em produção
-- Otimizo arquitetura de armazenamento e queries para reduzir custos e melhorar performance
+- Otimizo arquitetura de armazenamento e queries para reduzir custos e melhorar desempenho
 - Orquestro workflows com Airflow e processo dados em larga escala com PySpark no GCP
 - Contribuo com a comunidade open source criando temas e ferramentas que outros devs usam
 
-Acredito que boa engenharia de dados é invisível — quando funciona bem, ninguém precisa pensar nela. Mas quando falha, trava o negócio inteiro. Meu trabalho é garantir que a segunda parte nunca aconteça.
+Acredito que boa engenharia de dados é invisível: quando funciona bem, ninguém precisa pensar nela. Mas quando falha, trava o negócio inteiro. Meu trabalho é garantir que a segunda parte nunca aconteça.
 
 ---
 
 ## Linha do tempo da carreira
 
+<div class="timeline-toggle-wrap">
+  <div class="timeline-toggle" role="tablist" aria-label="Alternar visualização da carreira">
+    <button class="timeline-toggle-btn active" data-view="kanban" type="button">Kanban</button>
+    <button class="timeline-toggle-btn" data-view="timeline" type="button">Timeline</button>
+  </div>
+</div>
+
 <div id="career-timeline"></div>
+<div id="career-timeline-vertical" class="view-hidden"></div>
