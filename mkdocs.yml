@@ -7,6 +7,9 @@ site_description: >-
   arquitetura em nuvem com GCP e PySpark, e projetos open source.
 docs_dir: docs
 
+exclude_docs: |
+  stylesheets/README.md
+
 repo_url: https://github.com/v-amorim/portfolio
 repo_name: v-amorim/portfolio
 
