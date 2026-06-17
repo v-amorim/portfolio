@@ -440,38 +440,6 @@ code {
   border: 0.1rem solid transparent;
 }
 
-.md-typeset .md-button--secondary {
-  color: var(--foreground);
-  border-radius: var(--button-border-radius);
-  border: 0.1rem solid var(--border);
-  padding: var(--spacing-2_5) var(--spacing-4);
-  margin-top: var(--spacing-2);
-  margin-right: var(--spacing-2);
-}
-
-.md-typeset .md-button--secondary:focus,
-.md-typeset .md-button--secondary:hover {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-  border-color: var(--accent);
-}
-
-.md-typeset .md-button--tertiary {
-  color: var(--foreground);
-  border-radius: 0;
-  border: none;
-  padding: var(--spacing-2_5) var(--spacing-4);
-  margin-top: var(--spacing-2);
-  margin-right: var(--spacing-2);
-}
-
-.md-typeset .md-button--tertiary:focus,
-.md-typeset .md-button--tertiary:hover {
-  background-color: var(--muted);
-  color: var(--accent-foreground);
-  border-bottom: 0.1rem solid var(--accent);
-}
-
 /* ===================================================================
    Material Components
    =================================================================== */
@@ -547,29 +515,6 @@ code {
   padding-block: 4px;
 }
 
-.md-card {
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
-  padding: var(--spacing-4);
-  border-radius: var(--spacing-0_5);
-  max-width: 300px;
-  margin: auto;
-  background-color: var(--card);
-  color: var(--card-foreground);
-}
-
-.md-card-content h2 {
-  margin-top: 0;
-}
-
-.md-card-content p {
-  margin-bottom: var(--spacing-4);
-}
-
-.md-card-content img {
-  width: 100%;
-  height: auto;
-}
-
 /* Blog */
 .md-post__content h2 {
   font-weight: 600;
@@ -623,21 +568,6 @@ code {
 
 p.newLine {
   padding-block: 1rem;
-}
-
-.content-link {
-  text-decoration-thickness: 2px;
-  text-decoration-color: var(--md-typeset-a-background);
-  text-decoration-style: solid;
-  text-decoration-line: underline;
-  text-decoration-skip-ink: none;
-  text-underline-offset: var(--spacing-1);
-}
-
-.content-link:hover {
-  text-decoration-thickness: 16px;
-  text-underline-offset: -.5em;
-  color: var(--md-typeset-a-color);
 }
 
 input {

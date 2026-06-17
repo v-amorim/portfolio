@@ -37,11 +37,6 @@
   cursor: default !important;
 }
 
-.profile-picture.no-lightbox {
-  pointer-events: none !important;
-  cursor: default !important;
-}
-
 .tx-hero__content {
   padding-bottom: 1rem;
   margin: 0 auto;

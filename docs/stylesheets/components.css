@@ -146,8 +146,7 @@
   margin-bottom: var(--spacing-4);
 }
 
-.image-placeholder,
-.project-image-placeholder {
+.image-placeholder {
   position: absolute;
   top: 0;
   left: 0;
@@ -175,7 +174,6 @@
 }
 
 .img-with-fallback.img-error~.image-placeholder,
-.project-img.img-error~.project-image-placeholder,
 .project-img.img-error~.image-placeholder {
   opacity: 1;
 }
