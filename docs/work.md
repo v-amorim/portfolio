@@ -37,14 +37,14 @@ work:
     categories: ["ferramentas", "python", "gui"]
     description: "App PyQt6 que converte hex para códigos ANSI (256 cores + RGB). Útil para desenvolver temas de terminal com esquemas consistentes. Stack: PyQt6 • Color Conversion"
     images:
-      - "../assets/images/screenshots/1.png"
-      - "../assets/images/screenshots/2.png"
+      - "../assets/images/screenshots/1.webp"
+      - "../assets/images/screenshots/2.webp"
     url: "https://github.com/v-amorim/hex_to_ansi"
 
   - title: "Markdown Cheatsheet - Referência Rápida"
     categories: ["documentação", "ferramentas"]
     description: "Guia de referência completo para Markdown e extensões (GFM, PyMdown). Útil para documentação técnica e escrita de READMEs. Stack: Markdown • Documentation"
     images:
-      - "../assets/images/featured/md_cheatsheet.png"
+      - "../assets/images/featured/md_cheatsheet.webp"
     url: "https://gist.github.com/v-amorim/bf1bcb8bee4e0455fc5b8019be876794"
 ---
