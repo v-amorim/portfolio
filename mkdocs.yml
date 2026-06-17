@@ -1,10 +1,17 @@
 # Site Settings
 site_name: Vinicius C. Amorim
 site_author: Vinicius C. Amorim
+site_url: https://v-amorim.github.io/portfolio/
+site_description: >-
+  Portfólio de Vinicius C. Amorim, Engenheiro de Dados. Pipelines escaláveis,
+  arquitetura em nuvem com GCP e PySpark, e projetos open source.
 docs_dir: docs
 
+repo_url: https://github.com/v-amorim/portfolio
+repo_name: v-amorim/portfolio
+
 copyright: >
-  <a href="https://github.com/v-amorim/portfolio" target="_blank" rel="noopener" style="color: var(--md-primary-fg-color);">View this site's source code</a>
+  <a href="https://github.com/v-amorim/portfolio" target="_blank" rel="noopener" style="color: var(--md-primary-fg-color);">Ver o código-fonte deste site</a>
 
 extra_css:
   - stylesheets/global.css
@@ -24,11 +31,12 @@ extra_javascript:
 theme:
   font: false
   name: material
+  language: pt-BR
   custom_dir: templates
   icon:
     logo: logo
     repo: fontawesome/brands/github
-  favicon: /assets/images/branding/logo.png
+  favicon: assets/images/branding/favicon.png
   palette:
     # Palette toggle for light mode
     - scheme: default
