@@ -1,6 +1,21 @@
 {% extends "main.html" %}
 {% block content %}
 
+{% set category_labels = {
+  "engenharia-de-dados": "Engenharia de Dados",
+  "machine-learning": "Machine Learning",
+  "etl": "ETL",
+  "api": "API",
+  "gui": "GUI",
+  "spark": "Spark",
+  "python": "Python",
+  "analytics": "Analytics",
+  "ferramentas": "Ferramentas",
+  "visual": "Visual",
+  "shell": "Shell",
+  "documentação": "Documentação"
+} %}
+
 <h1>Projetos</h1>
 
 <div class="work-reference">
@@ -57,7 +72,7 @@
 
         <div class="project-tags">
           {% for category in work.categories %}
-          <span class="tag {{ category }}">{{ category | capitalize }}</span>
+          <span class="tag {{ category }}">{{ category_labels[category] | default(category | replace('-', ' ') | title) }}</span>
           {% endfor %}
         </div>
 
@@ -68,7 +83,7 @@
         {% endif %}
 
         <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer" class="project-external-link">
-          <span>Ver Projeto</span>
+          <span>Ver projeto</span>
           <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 24 24" width="16" fill="currentColor">
             <path d="M0 0h24v24H0z" fill="none"/>
             <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/>
