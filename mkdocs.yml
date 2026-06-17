@@ -137,8 +137,3 @@ extra:
       link: https://github.com/v-amorim
     - icon: fontawesome/solid/paper-plane
       link: mailto:vamorim.dev@gmail.com
-
-  toolbox:
-    - []
-    - ["visual-studio-code-logo.svg", "git-icon.svg", "markdown-icon.svg", "google-workspace-logo.svg", "jira-logo.svg"]
-    - []
