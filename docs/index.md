@@ -68,7 +68,7 @@ Compartilhando ferramentas com a comunidade
 
 ## O que eu faço
 
-Construo infraestrutura de dados que processa milhões de registros diariamente. No dia a dia:
+Na prática, o dia a dia passa por:
 
 - Projeto e mantenho pipelines end-to-end: ingestão, transformação e entrega de dados em produção
 - Otimizo arquitetura de armazenamento e queries para reduzir custos e melhorar desempenho
