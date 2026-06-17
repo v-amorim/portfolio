@@ -72,6 +72,8 @@ nav:
       - blog/index.md
 
 plugins:
+  - social:
+      cards: !ENV [CI, false]
   - glightbox:
       skip_classes:
         - profile-picture
