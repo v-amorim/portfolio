@@ -1,64 +1,84 @@
+// Entries are grouped by company. A company with multiple roles renders as a
+// single card with an internal mini-timeline showing the progression there.
 const careerData = {
   "Pessoal": [
     {
-      start_date: "2020-01",
-      end_date: null,
       company: "Open Source",
-      role: "Criador de Temas",
-      description: "VSCode theme publicado no marketplace. Tema Oh-My-Posh customizado para terminal",
-      tag: { text: "VSCODE", type: "hobby" }
+      roles: [
+        {
+          start_date: "2020-01",
+          end_date: null,
+          role: "Criador de Temas",
+          description: "VSCode theme publicado no marketplace. Tema Oh-My-Posh customizado para terminal",
+          tag: { text: "VSCODE", type: "hobby" }
+        }
+      ]
     },
     {
-      start_date: "2016-01",
-      end_date: null,
       company: "Freelance",
-      role: "Diagramador",
-      description: "Scripts ExtendScript para automação de inserção de textos traduzidos no InDesign. Redução de 70% em tempo de diagramação via atalhos customizados",
-      tag: { text: "AUTOMATE", type: "hobby" }
+      roles: [
+        {
+          start_date: "2016-01",
+          end_date: null,
+          role: "Diagramador",
+          description: "Scripts ExtendScript para automação de inserção de textos traduzidos no InDesign. Redução de 70% em tempo de diagramação via atalhos customizados",
+          tag: { text: "AUTOMATE", type: "hobby" }
+        }
+      ]
     },
     {
-      start_date: null,
-      end_date: null,
       company: "Side Projects",
-      role: "Automação",
-      description: "Scripts PowerShell e Python para automação Windows. Ferramentas CLI experimentais",
-      tag: { text: "CLI", type: "hobby" }
+      roles: [
+        {
+          start_date: null,
+          end_date: null,
+          role: "Automação",
+          description: "Scripts PowerShell e Python para automação Windows. Ferramentas CLI experimentais",
+          tag: { text: "CLI", type: "hobby" }
+        }
+      ]
     }
   ],
   "Em Progresso": [
     {
-      start_date: "2024-01",
-      end_date: null,
       company: "DEEP ESG",
-      role: "Engenheiro de Dados - Pleno",
-      description: "Ownership end-to-end: ingestão, ETL (tradução/padronização) e processamento de cálculos em PySpark/Airflow/GCP. Gestão de demandas via Jira",
-      tag: { text: "DATA ENG", type: "active" }
+      roles: [
+        {
+          start_date: "2024-01",
+          end_date: null,
+          role: "Engenheiro de Dados - Pleno",
+          description: "Ownership end-to-end: ingestão, ETL (tradução/padronização) e processamento de cálculos em PySpark/Airflow/GCP. Gestão de demandas via Jira",
+          tag: { text: "DATA ENG", type: "active" }
+        },
+        {
+          start_date: "2023-07",
+          end_date: "2023-12",
+          role: "Engenheiro de Dados - Junior",
+          description: "Pipelines ETL/ELT com Python e PySpark em GCP. Arquitetura de data lakes e warehouses",
+          tag: { text: "PYSPARK", type: "done" }
+        }
+      ]
     }
   ],
   "Concluído": [
     {
-      start_date: "2023-07",
-      end_date: "2023-12",
-      company: "DEEP ESG",
-      role: "Engenheiro de Dados - Junior",
-      description: "Pipelines ETL/ELT com Python e PySpark em GCP. Arquitetura de data lakes e warehouses",
-      tag: { text: "PYSPARK", type: "done" }
-    },
-    {
-      start_date: "2023-08",
-      end_date: "2024-01",
       company: "Quero Educação",
-      role: "Web Operations - Líder",
-      description: "Liderança de equipe em pipelines ETL. Automação Python/Pandas para padronização e carga de dados Excel → PostgreSQL",
-      tag: { text: "LEAD", type: "done" }
-    },
-    {
-      start_date: "2021-07",
-      end_date: "2023-08",
-      company: "Quero Educação",
-      role: "Web Operations - Estagiário",
-      description: "ETL de dados de clientes via Excel/Pandas. Scripts Python para tradução, normalização e validação pré-carga em banco",
-      tag: { text: "ETL", type: "done" }
+      roles: [
+        {
+          start_date: "2023-08",
+          end_date: "2024-01",
+          role: "Web Operations - Líder",
+          description: "Liderança de equipe em pipelines ETL. Automação Python/Pandas para padronização e carga de dados Excel → PostgreSQL",
+          tag: { text: "LEAD", type: "done" }
+        },
+        {
+          start_date: "2021-07",
+          end_date: "2023-08",
+          role: "Web Operations - Estagiário",
+          description: "ETL de dados de clientes via Excel/Pandas. Scripts Python para tradução, normalização e validação pré-carga em banco",
+          tag: { text: "ETL", type: "done" }
+        }
+      ]
     }
   ],
 };
@@ -111,6 +131,61 @@ function formatDateRange(start_date, end_date) {
   return `${startFormatted} - ${endFormatted}`;
 }
 
+// Overall span of a company across all its roles: earliest start, and the
+// latest end (or null/Presente if any role is still ongoing).
+function getCompanySpan(roles) {
+  const starts = roles.map(r => r.start_date).filter(Boolean);
+  const start = starts.length ? starts.reduce((a, b) => (a < b ? a : b)) : null;
+
+  const ongoing = roles.some(r => r.start_date && !r.end_date);
+  let end = null;
+  if (!ongoing) {
+    const ends = roles.map(r => r.end_date).filter(Boolean);
+    end = ends.length ? ends.reduce((a, b) => (a > b ? a : b)) : null;
+  }
+
+  return { start, end };
+}
+
+// Shared inner markup for a company card: header with the company name and
+// total tenure, plus an internal mini-timeline of its roles. Used by both the
+// Kanban and the vertical timeline views.
+function companyCardInner(group) {
+  const span = getCompanySpan(group.roles);
+  const spanRange = formatDateRange(span.start, span.end);
+  const spanDuration = calculateDuration(span.start, span.end);
+  const spanText = span.start && spanDuration ? `${spanRange} · ${spanDuration}` : spanRange;
+  const multi = group.roles.length > 1 ? ' multi' : '';
+
+  const rolesHTML = group.roles.map(role => {
+    const dateRange = formatDateRange(role.start_date, role.end_date);
+    const duration = calculateDuration(role.start_date, role.end_date);
+    const dateText = role.start_date && duration ? `${dateRange} (${duration})` : dateRange;
+    return `
+      <div class="role-item ${role.tag.type}">
+        <span class="role-dot"></span>
+        <div class="role-content">
+          <h5 class="role-title">${role.role}</h5>
+          ${dateText ? `<span class="role-date">${dateText}</span>` : ''}
+          <p class="role-description">${role.description}</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class="card-header">
+      <h4 class="card-company">${group.company}</h4>
+      ${spanText ? `<span class="card-span">${spanText}</span>` : ''}
+    </div>
+    <div class="card-body">
+      <div class="role-timeline${multi}">
+        ${rolesHTML}
+      </div>
+    </div>
+  `;
+}
+
 function createKanbanBoard() {
   const container = document.getElementById('career-timeline');
   if (!container) return;
@@ -127,26 +202,11 @@ function createKanbanBoard() {
                 <span class="kanban-count">${cards.length}</span>
               </div>
               <div class="kanban-cards">
-                ${cards.map((card, index) => {
-    const dateRange = formatDateRange(card.start_date, card.end_date);
-    const duration = calculateDuration(card.start_date, card.end_date);
-    const dateText = card.start_date ? `${dateRange} (${duration})` : dateRange;
-    return `
+                ${cards.map((group, index) => `
                     <div class="kanban-card" style="animation-delay: ${index * 0.1}s">
-                      <div class="card-header">
-                        <h4 class="card-role">${card.role}</h4>
-                      </div>
-                      <div class="card-body">
-                        <p class="card-description">${card.description}</p>
-                        <span class="card-date">${dateText}</span>
-                      </div>
-                      <div class="card-footer">
-                        <span class="card-company-tag tag">${card.company}</span>
-                        <span class="card-tag ${card.tag.type}">${card.tag.text}</span>
-                      </div>
+                      ${companyCardInner(group)}
                     </div>
-                  `;
-  }).join('')}
+                  `).join('')}
               </div>
             </div>
           `).join('')}
@@ -181,36 +241,27 @@ function createVerticalTimeline() {
   const container = document.getElementById('career-timeline-vertical');
   if (!container) return;
 
-  // Flatten all entries from every column, keeping the status type from the tag
-  const entries = Object.values(careerData).flat();
+  // Flatten company groups from every column into a single ordered list
+  const groups = Object.values(careerData).flat();
 
-  // Sort by start_date descending; entries without a start_date go last
-  entries.sort((a, b) => {
-    if (!a.start_date) return 1;
-    if (!b.start_date) return -1;
-    return b.start_date.localeCompare(a.start_date);
+  // Sort by the most recent role's start_date descending; groups without a
+  // start_date go last
+  groups.sort((a, b) => {
+    const sa = a.roles[0].start_date;
+    const sb = b.roles[0].start_date;
+    if (!sa) return 1;
+    if (!sb) return -1;
+    return sb.localeCompare(sa);
   });
 
-  const itemsHTML = entries.map((card, index) => {
-    const dateRange = formatDateRange(card.start_date, card.end_date);
-    const duration = calculateDuration(card.start_date, card.end_date);
-    const dateText = card.start_date && duration ? `${dateRange} (${duration})` : dateRange;
+  const itemsHTML = groups.map((group, index) => {
     const side = index % 2 === 0 ? 'left' : 'right';
+    const markerType = group.roles[0].tag.type;
     return `
       <div class="timeline-item ${side}" style="animation-delay: ${index * 0.08}s">
-        <div class="timeline-marker ${card.tag.type}"></div>
+        <div class="timeline-marker ${markerType}"></div>
         <div class="timeline-content kanban-card">
-          <div class="card-header">
-            <h4 class="card-role">${card.role}</h4>
-          </div>
-          <div class="card-body">
-            <p class="card-description">${card.description}</p>
-            ${dateText ? `<span class="card-date">${dateText}</span>` : ''}
-          </div>
-          <div class="card-footer">
-            <span class="card-company-tag tag">${card.company}</span>
-            <span class="card-tag ${card.tag.type}">${card.tag.text}</span>
-          </div>
+          ${companyCardInner(group)}
         </div>
       </div>
     `;

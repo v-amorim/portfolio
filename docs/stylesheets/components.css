@@ -379,61 +379,90 @@
 }
 
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
 }
 
-.card-role {
-  font-size: 0.875rem;
+.md-typeset .card-company {
+  font-size: 1rem;
   color: var(--foreground);
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
 }
 
-.card-body {
-  margin-bottom: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.card-date {
+.card-span {
   font-size: 0.75rem;
   color: var(--muted-foreground);
   display: block;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
 }
 
-.card-description {
-  font-size: 0.875rem;
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Internal mini-timeline of roles within a company card */
+.role-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Connecting line drawn only when the company has 2+ roles */
+.role-timeline.multi::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--border);
+}
+
+.role-item {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.role-dot {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--card-inner);
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+.role-item.active .role-dot {
+  background: var(--primary);
+}
+
+/* .md-typeset prefix beats Material's heading rules, which otherwise add a
+   top margin (misaligning the dot) and override the size */
+.md-typeset .role-title {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 0.2rem;
+}
+
+.role-date {
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.role-description {
+  font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--muted-foreground);
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.card-company-tag {
-  font-size: 0.75rem;
-  background: var(--muted);
-  color: var(--foreground);
-  border-color: var(--border);
-  font-weight: 600;
-}
-
-.card-tag {
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  background: var(--accent);
-  color: var(--accent-foreground);
-  font-weight: 500;
+  margin: 0;
 }
 
 /* Responsive Timeline */
