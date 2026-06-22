@@ -21,6 +21,18 @@ work:
     images: []
     url: "https://github.com/v-amorim/alpha-desafio-machine-learning"
 
+  - title: "iLearn - Reconhecimento Facial para Presença"
+    categories: ["machine-learning", "python", "computer-vision"]
+    description: "Sistema de presença por reconhecimento facial em tempo real. Detecta e identifica pessoas cadastradas via câmera ao vivo e registra presença em MySQL/MariaDB (com fallback local em JSON). Roda em desktop e em kiosk Raspberry Pi. Stack: Python • Kivy/KivyMD • face_recognition (dlib) • OpenCV • MariaDB"
+    images: []
+    url: "https://github.com/v-amorim/attendence-with-face-recognition"
+
+  - title: "Python Sample Repository - Template de Projeto"
+    categories: ["ferramentas", "python", "template"]
+    description: "Template enxuto para iniciar qualquer projeto Python, com a tooling e as convenções já configuradas e zero dependências de runtime. Stack: uv • ruff • ty • pytest • pre-commit"
+    images: []
+    url: "https://github.com/v-amorim/python_sample_repository"
+
   - title: "Moonlight - Tema Oh My Posh"
     categories: ["ferramentas", "visual", "shell"]
     description: "Tema de terminal com 17 iterações de design. Features: indicadores git, URLs clicáveis, layout responsivo. Evolução completa documentada no repo. Stack: Oh My Posh • Shell Customization"
