@@ -26,6 +26,7 @@
 .project-card {
   border: 1px solid var(--border);
   border-radius: var(--spacing-5);
+  corner-shape: squircle;
   overflow: hidden;
   display: flex;
   flex-direction: column;

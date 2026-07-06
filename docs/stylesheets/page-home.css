@@ -26,6 +26,7 @@
   width: 220px;
   height: 220px;
   border-radius: 25%;
+  corner-shape: squircle;
   object-fit: cover;
   object-position: center 20%;
   border: 3px solid var(--md-primary-fg-color);
@@ -127,6 +128,7 @@
 .card {
   border: 1px solid var(--border);
   border-radius: 12px;
+  corner-shape: squircle;
   padding: 1.25rem 1.5rem;
   display: flex;
   flex-direction: column;
