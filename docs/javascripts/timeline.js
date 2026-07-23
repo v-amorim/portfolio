@@ -19,7 +19,7 @@ const careerData = {
       roles: [
         {
           start_date: "2016-01",
-          end_date: null,
+          end_date: "2026-01",
           role: "Diagramador",
           description: "Scripts ExtendScript para automação de inserção de textos traduzidos no InDesign. Redução de 70% em tempo de diagramação via atalhos customizados",
           tag: { text: "AUTOMATE", type: "hobby" }
@@ -41,14 +41,28 @@ const careerData = {
   ],
   "Em Progresso": [
     {
+      company: "Educbank",
+      roles: [
+        {
+          start_date: "2026-05",
+          end_date: null,
+          role: "Engenheiro de Dados",
+          description: "Plataforma de dados em arquitetura medalhão (Bronze, Prata, Ouro) sobre Databricks/Azure com Unity Catalog. Ingestão, PySpark e Lakeflow; camada Ouro alimenta dashboards. Data Quality, contratos entre camadas e deploy via Databricks Asset Bundles + GitHub Actions",
+          tag: { text: "DATABRICKS", type: "active" }
+        }
+      ]
+    }
+  ],
+  "Concluído": [
+    {
       company: "DEEP ESG",
       roles: [
         {
           start_date: "2024-01",
-          end_date: null,
+          end_date: "2026-05",
           role: "Engenheiro de Dados - Pleno",
           description: "Ownership end-to-end: ingestão, ETL (tradução/padronização) e processamento de cálculos em PySpark/Airflow/GCP. Gestão de demandas via Jira",
-          tag: { text: "DATA ENG", type: "active" }
+          tag: { text: "DATA ENG", type: "done" }
         },
         {
           start_date: "2023-07",
@@ -58,9 +72,7 @@ const careerData = {
           tag: { text: "PYSPARK", type: "done" }
         }
       ]
-    }
-  ],
-  "Concluído": [
+    },
     {
       company: "Quero Educação",
       roles: [

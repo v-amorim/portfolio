@@ -15,14 +15,14 @@ hide:
 
 # Vinicius C. Amorim
 
-## Engenheiro de Dados
+## Engenheiro de Dados e IA @ [educbank](https://educbank.com.br){: target="_blank" rel="noopener" }
 
-Transformo montanhas de dados em insights que movem decisões.
-Pipelines escaláveis, arquitetura em nuvem e código limpo.
+Construo plataformas de dados que saem do papel e vão pra produção: da ingestão até a camada que o negócio usa pra decidir.
+Databricks, PySpark e arquitetura em nuvem, na Azure e no GCP.
 
+<a href="work/" class="md-button">:material-briefcase-outline: Projetos</a>
 <a href="mailto:vamorim.dev@gmail.com" class="md-button md-button--primary" title="vamorim.dev@gmail.com">:material-email: Entre em contato</a>
 <a href="https://www.linkedin.com/in/vinicius-amorim/" class="md-button" target="_blank" rel="noopener">:fontawesome-brands-linkedin: LinkedIn</a>
-<a href="https://github.com/v-amorim" class="md-button" target="_blank" rel="noopener">:fontawesome-brands-github: GitHub</a>
 
 </div>
 
@@ -35,9 +35,9 @@ Pipelines escaláveis, arquitetura em nuvem e código limpo.
 <div class="card" markdown>
 <div class="card-content" markdown>
 
-### :material-timer: 4+ anos
+### :material-database: Bronze → Ouro
 
-Construindo infraestrutura de dados que escala
+Arquitetura medalhão em Databricks + Unity Catalog
 
 </div>
 </div>
@@ -45,9 +45,9 @@ Construindo infraestrutura de dados que escala
 <div class="card" markdown>
 <div class="card-content" markdown>
 
-### :material-cloud: GCP + PySpark
+### :material-cloud: Azure + GCP
 
-Processando milhões de registros por dia
+PySpark em produção, multi-cloud
 
 </div>
 </div>
@@ -70,12 +70,28 @@ Compartilhando ferramentas com a comunidade
 
 Na prática, o dia a dia passa por:
 
-- Projeto e mantenho pipelines end-to-end: ingestão, transformação e entrega de dados em produção
-- Otimizo arquitetura de armazenamento e queries para reduzir custos e melhorar desempenho
-- Orquestro workflows com Airflow e processo dados em larga escala com PySpark no GCP
+- Projeto e mantenho plataformas de dados em arquitetura medalhão (Bronze, Prata, Ouro) sobre Databricks e Unity Catalog
+- Aplico qualidade e governança de dados: contratos entre camadas, quarentenas e gates automatizados em CI/CD
+- Processo dados em larga escala com PySpark, orquestrando pipelines com Lakeflow e Airflow, em Azure e GCP
 - Contribuo com a comunidade open source criando temas e ferramentas que outros devs usam
 
-Acredito que boa engenharia de dados é invisível: quando funciona bem, ninguém precisa pensar nela. Mas quando falha, trava o negócio inteiro. Meu trabalho é garantir que a segunda parte nunca aconteça.
+Prefiro prevenir problema de dado a apagar incêndio depois: contrato rígido entre camadas, teste automatizado e quarentena pra dado inválido, antes que ele vire decisão errada lá na frente.
+
+## Stack
+
+<div class="project-tags" markdown>
+<span class="tag python">Python</span>
+<span class="tag code">SQL</span>
+<span class="tag spark">PySpark</span>
+<span class="tag engenharia-de-dados">Databricks</span>
+<span class="tag engenharia-de-dados">Unity Catalog</span>
+<span class="tag etl">Azure</span>
+<span class="tag etl">GCP</span>
+<span class="tag etl">Airflow</span>
+<span class="tag etl">Lakeflow</span>
+<span class="tag etl">CI/CD</span>
+<span class="tag engenharia-de-dados">Data Quality</span>
+</div>
 
 ---
 

@@ -22,39 +22,39 @@
 }
 
 .visual {
-  background: var(--tag-visual-bg, rgba(251, 191, 36, 0.15));
-  color: var(--tag-visual-fg, #fbbf24);
-  border-color: var(--tag-visual-border, rgba(251, 191, 36, 0.4));
+  background: var(--tag-visual-bg, rgba(184, 108, 179, 0.15));
+  color: var(--tag-visual-fg, #b86cb3);
+  border-color: var(--tag-visual-border, rgba(184, 108, 179, 0.4));
   font-weight: 500;
 }
 
 .code,
 .código {
-  background: var(--tag-code-bg, rgba(59, 130, 246, 0.15));
-  color: var(--tag-code-fg, #60a5fa);
-  border-color: var(--tag-code-border, rgba(59, 130, 246, 0.4));
+  background: var(--tag-code-bg, rgba(93, 171, 243, 0.15));
+  color: var(--tag-code-fg, #5dabf3);
+  border-color: var(--tag-code-border, rgba(93, 171, 243, 0.4));
   font-weight: 500;
 }
 
 /* Engenharia de Dados tags */
 .engenharia-de-dados {
-  background: var(--tag-data-eng-bg, rgba(73, 239, 149, 0.15));
-  color: var(--tag-data-eng-fg, #49ef95);
-  border-color: var(--tag-data-eng-border, rgba(73, 239, 149, 0.4));
+  background: var(--tag-data-eng-bg, rgba(206, 217, 255, 0.15));
+  color: var(--tag-data-eng-fg, #ced9ff);
+  border-color: var(--tag-data-eng-border, rgba(206, 217, 255, 0.4));
   font-weight: 500;
 }
 
 .spark {
-  background: var(--tag-spark-bg, rgba(121, 192, 255, 0.15));
-  color: var(--tag-spark-fg, #79c0ff);
-  border-color: var(--tag-spark-border, rgba(121, 192, 255, 0.4));
+  background: var(--tag-spark-bg, rgba(174, 164, 191, 0.15));
+  color: var(--tag-spark-fg, #aea4bf);
+  border-color: var(--tag-spark-border, rgba(174, 164, 191, 0.4));
   font-weight: 500;
 }
 
 .etl {
-  background: var(--tag-etl-bg, rgba(88, 166, 255, 0.15));
-  color: var(--tag-etl-fg, #58a6ff);
-  border-color: var(--tag-etl-border, rgba(88, 166, 255, 0.4));
+  background: var(--tag-etl-bg, rgba(203, 207, 231, 0.15));
+  color: var(--tag-etl-fg, #cbcfe7);
+  border-color: var(--tag-etl-border, rgba(203, 207, 231, 0.4));
   font-weight: 500;
 }
 
@@ -81,9 +81,9 @@
 }
 
 .web-scraping {
-  background: var(--tag-scraping-bg, rgba(255, 203, 107, 0.18));
-  color: var(--tag-scraping-fg, #ffba57);
-  border-color: var(--tag-scraping-border, rgba(255, 203, 107, 0.45));
+  background: var(--tag-scraping-bg, rgba(202, 95, 166, 0.15));
+  color: var(--tag-scraping-fg, #ca5fa6);
+  border-color: var(--tag-scraping-border, rgba(202, 95, 166, 0.4));
   font-weight: 500;
 }
 
@@ -96,23 +96,37 @@
 }
 
 .shell {
-  background: var(--tag-shell-bg, rgba(73, 239, 149, 0.12));
-  color: var(--tag-shell-fg, #3dd68c);
-  border-color: var(--tag-shell-border, rgba(73, 239, 149, 0.35));
+  background: var(--tag-shell-bg, rgba(153, 230, 179, 0.15));
+  color: var(--tag-shell-fg, #99e6b3);
+  border-color: var(--tag-shell-border, rgba(153, 230, 179, 0.4));
   font-weight: 500;
 }
 
 .gui {
-  background: var(--tag-gui-bg, rgba(165, 161, 233, 0.15));
-  color: var(--tag-gui-fg, #a5a1e9);
-  border-color: var(--tag-gui-border, rgba(165, 161, 233, 0.4));
+  background: var(--tag-gui-bg, rgba(184, 108, 179, 0.15));
+  color: var(--tag-gui-fg, #b86cb3);
+  border-color: var(--tag-gui-border, rgba(184, 108, 179, 0.4));
   font-weight: 500;
 }
 
 .documentação {
-  background: var(--tag-docs-bg, rgba(139, 148, 158, 0.15));
-  color: var(--tag-docs-fg, #8b949e);
-  border-color: var(--tag-docs-border, rgba(139, 148, 158, 0.4));
+  background: var(--tag-docs-bg, rgba(203, 207, 231, 0.15));
+  color: var(--tag-docs-fg, #cbcfe7);
+  border-color: var(--tag-docs-border, rgba(203, 207, 231, 0.4));
+  font-weight: 500;
+}
+
+.computer-vision {
+  background: var(--tag-cv-bg, rgba(153, 230, 179, 0.15));
+  color: var(--tag-cv-fg, #99e6b3);
+  border-color: var(--tag-cv-border, rgba(153, 230, 179, 0.4));
+  font-weight: 500;
+}
+
+.template {
+  background: var(--tag-template-bg, rgba(203, 207, 231, 0.15));
+  color: var(--tag-template-fg, #cbcfe7);
+  border-color: var(--tag-template-border, rgba(203, 207, 231, 0.4));
   font-weight: 500;
 }
 

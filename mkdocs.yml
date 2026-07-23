@@ -3,8 +3,8 @@ site_name: Vinicius C. Amorim
 site_author: Vinicius C. Amorim
 site_url: https://v-amorim.github.io/portfolio/
 site_description: >-
-  Portfólio de Vinicius C. Amorim, Engenheiro de Dados. Pipelines escaláveis,
-  arquitetura em nuvem com GCP e PySpark, e projetos open source.
+  Portfólio de Vinicius C. Amorim, Engenheiro de Dados e IA. Plataformas de dados
+  com Databricks, PySpark, Azure e GCP, e projetos open source.
 docs_dir: docs
 
 exclude_docs: |

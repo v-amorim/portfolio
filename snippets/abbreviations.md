@@ -12,7 +12,7 @@
 *[GCP]: Google Cloud Platform
 *[HCI]: Human Computer Interaction
 *[HTML]: Hyper Text Markup Language
-*[IA]: Information Architecture
+*[IA]: Inteligência Artificial
 *[IAM]: Identity and Access Management
 *[IaC]: Infrastructure as Code
 *[JSON]: JavaScript Object Notation
