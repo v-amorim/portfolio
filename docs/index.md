@@ -5,6 +5,8 @@ hide:
   - toc
 ---
 
+<div class="home-container" markdown>
+
 <div class="tx-hero" markdown>
 
 <div class="tx-hero__image">
@@ -68,14 +70,14 @@ Compartilhando ferramentas com a comunidade
 
 ## O que eu faço
 
-Na prática, o dia a dia passa por:
+No dia a dia:
 
-- Projeto e mantenho plataformas de dados em arquitetura medalhão (Bronze, Prata, Ouro) sobre Databricks e Unity Catalog
-- Aplico qualidade e governança de dados: contratos entre camadas, quarentenas e gates automatizados em CI/CD
-- Processo dados em larga escala com PySpark, orquestrando pipelines com Lakeflow e Airflow, em Azure e GCP
-- Contribuo com a comunidade open source criando temas e ferramentas que outros devs usam
+- Desenho e mantenho plataformas de dados em arquitetura medalhão (Bronze, Prata, Ouro), sobre Databricks e Unity Catalog
+- Cuido da qualidade e governança dos dados: contratos entre camadas, quarentena pra dado inválido e gates automatizados no CI/CD
+- Processo grandes volumes com PySpark e orquestro pipelines com Lakeflow e Airflow, na Azure e no GCP
+- Mantenho projetos open source: temas e ferramentas que outros devs usam no dia a dia
 
-Prefiro prevenir problema de dado a apagar incêndio depois: contrato rígido entre camadas, teste automatizado e quarentena pra dado inválido, antes que ele vire decisão errada lá na frente.
+Prefiro travar um dado ruim na quarentena a descobrir o problema só depois que ele já virou decisão errada lá na frente.
 
 ## Stack
 
@@ -106,3 +108,5 @@ Prefiro prevenir problema de dado a apagar incêndio depois: contrato rígido en
 
 <div id="career-timeline"></div>
 <div id="career-timeline-vertical" class="view-hidden"></div>
+
+</div>
