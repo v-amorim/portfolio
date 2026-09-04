@@ -1,6 +1,7 @@
 // Entries are grouped by company. A company with multiple roles renders as a
 // single card with an internal mini-timeline showing the progression there.
-const careerData = {
+// One dataset per language; the page's <html lang> picks which one renders.
+const careerDataPt = {
   "Projetos pessoais": [
     {
       company: "Open Source",
@@ -83,6 +84,109 @@ const careerData = {
   ],
 };
 
+const careerDataEn = {
+  "Personal projects": [
+    {
+      company: "Open Source",
+      roles: [
+        {
+          start_date: "2020-01",
+          end_date: null,
+          role: "Theme Author",
+          description: "VSCode theme published on the marketplace and Oh My Posh theme for the terminal",
+          tag: { text: "VSCODE", type: "hobby" }
+        }
+      ]
+    },
+    {
+      company: "Freelance",
+      roles: [
+        {
+          start_date: "2016-01",
+          end_date: "2026-01",
+          role: "Desktop Publisher",
+          description: "ExtendScript scripts automating the placement of translated text in InDesign. 70% less layout time through custom shortcuts",
+          tag: { text: "AUTOMATE", type: "hobby" }
+        }
+      ]
+    }
+  ],
+  "Current": [
+    {
+      company: "Educbank",
+      roles: [
+        {
+          start_date: "2026-05",
+          end_date: null,
+          role: "Data Engineer",
+          description: "Data platform in medallion architecture (Bronze, Silver, Gold) on Databricks/Azure with Unity Catalog. Ingestion, PySpark and Lakeflow; the Gold layer feeds dashboards. Data quality, contracts between layers and deploys via Databricks Asset Bundles + GitHub Actions",
+          tag: { text: "DATABRICKS", type: "active" }
+        }
+      ]
+    }
+  ],
+  "Previous": [
+    {
+      company: "DEEP ESG",
+      roles: [
+        {
+          start_date: "2024-01",
+          end_date: "2026-05",
+          role: "Mid-level Data Engineer",
+          description: "End-to-end owner of the ESG calculation pipelines: ingestion, standardization and processing in PySpark and Airflow on GCP",
+          tag: { text: "DATA ENG", type: "done" }
+        },
+        {
+          start_date: "2023-07",
+          end_date: "2023-12",
+          role: "Junior Data Engineer",
+          description: "First ETL pipelines in PySpark on GCP, loading the product's data lake and warehouse",
+          tag: { text: "PYSPARK", type: "done" }
+        }
+      ]
+    },
+    {
+      company: "Quero Educação",
+      roles: [
+        {
+          start_date: "2023-08",
+          end_date: "2024-01",
+          role: "Web Operations Lead",
+          description: "Led a team of 6 in data operations: Python and Pandas automation that replaced manual spreadsheet loads into PostgreSQL",
+          tag: { text: "LEAD", type: "done" }
+        },
+        {
+          start_date: "2021-07",
+          end_date: "2023-08",
+          role: "Web Operations Intern",
+          description: "Customer data ETL with Excel and Pandas. Python scripts for translation, normalization and pre-load validation",
+          tag: { text: "ETL", type: "done" }
+        }
+      ]
+    }
+  ],
+};
+
+const LOCALE = document.documentElement.lang.startsWith("en") ? "en" : "pt-BR";
+const careerData = LOCALE === "en" ? careerDataEn : careerDataPt;
+
+const labels = {
+  "pt-BR": {
+    months: { '01': 'Jan', '02': 'Fev', '03': 'Mar', '04': 'Abr', '05': 'Mai', '06': 'Jun', '07': 'Jul', '08': 'Ago', '09': 'Set', '10': 'Out', '11': 'Nov', '12': 'Dez' },
+    present: "Presente",
+    year: ["ano", "anos"],
+    month: ["mês", "meses"],
+    lessThanMonth: "< 1 mês"
+  },
+  en: {
+    months: { '01': 'Jan', '02': 'Feb', '03': 'Mar', '04': 'Apr', '05': 'May', '06': 'Jun', '07': 'Jul', '08': 'Aug', '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dec' },
+    present: "Present",
+    year: ["year", "years"],
+    month: ["month", "months"],
+    lessThanMonth: "< 1 month"
+  }
+}[LOCALE];
+
 function calculateDuration(start_date, end_date) {
   if (!start_date) return "";
 
@@ -99,29 +203,25 @@ function calculateDuration(start_date, end_date) {
 
   const parts = [];
   if (years > 0) {
-    parts.push(`${years} ano${years > 1 ? 's' : ''}`);
+    parts.push(`${years} ${labels.year[years > 1 ? 1 : 0]}`);
   }
   if (months > 0) {
-    parts.push(`${months} ${months > 1 ? 'meses' : 'mês'}`);
+    parts.push(`${months} ${labels.month[months > 1 ? 1 : 0]}`);
   }
 
-  return parts.length > 0 ? parts.join(' ') : '< 1 mês';
+  return parts.length > 0 ? parts.join(' ') : labels.lessThanMonth;
 }
 
 function formatDateRange(start_date, end_date) {
   if (!start_date) return "";
 
-  const months = {
-    '01': 'Jan', '02': 'Fev', '03': 'Mar', '04': 'Abr',
-    '05': 'Mai', '06': 'Jun', '07': 'Jul', '08': 'Ago',
-    '09': 'Set', '10': 'Out', '11': 'Nov', '12': 'Dez'
-  };
+  const months = labels.months;
 
   const [startYear, startMonth] = start_date.split('-');
   const startFormatted = `${months[startMonth]} ${startYear}`;
 
   if (!end_date) {
-    return `${startFormatted} - Presente`;
+    return `${startFormatted} - ${labels.present}`;
   }
 
   const [endYear, endMonth] = end_date.split('-');

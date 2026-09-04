@@ -5,7 +5,9 @@
 (function() {
   'use strict';
 
-  const LOGO_PATH = '/img/logo.png';
+  // Derived from the favicon link so it resolves under any base path or language prefix
+  const faviconHref = document.querySelector('link[rel="icon"]')?.href || '';
+  const LOGO_PATH = faviconHref.replace(/favicon\.png$/, 'logo.png');
   const PLACEHOLDER_CLASS = 'auto-placeholder-container';
 
   function isEmptyOrInvalidSrc(src) {
