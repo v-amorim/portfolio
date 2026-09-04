@@ -747,6 +747,89 @@
 }
 
 /* ===================================================================
+   Lightbox: capped image, arrows at a fixed distance from centre,
+   dots pinned under the viewport (lightbox-nav.js builds the dots)
+   =================================================================== */
+
+/* Image never wider than this; GLightbox marks larger originals zoomable, click expands */
+.glightbox-container {
+  --lightbox-max: min(1100px, 78vw);
+}
+
+.glightbox-container .gslide-image img {
+  max-width: var(--lightbox-max);
+  max-height: 82vh;
+}
+
+/* Arrows flank the capped width, not the viewport edges, so they stay put across slides */
+@media screen and (min-width: 769px) {
+  .glightbox-container .gprev,
+  .glightbox-container .gnext {
+    top: 50%;
+    translate: 0 -50%;
+  }
+
+  /* !important: the skin sheet pins them 30px from the viewport edges with equal specificity */
+  .glightbox-container .gprev {
+    left: max(8px, calc(50% - var(--lightbox-max) / 2 - 72px)) !important;
+    right: auto !important;
+  }
+
+  .glightbox-container .gnext {
+    right: max(8px, calc(50% - var(--lightbox-max) / 2 - 72px)) !important;
+    left: auto !important;
+  }
+}
+
+.glightbox-closing .glightbox-dots {
+  opacity: 0;
+  transition: none;
+}
+
+.glightbox-dots {
+  position: fixed;
+  left: 50%;
+  bottom: var(--spacing-4);
+  translate: -50% 0;
+  z-index: 99999;
+  display: inline-flex;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1_5);
+  border-radius: var(--button-border-radius);
+  background: oklch(0 0 0 / 0.45);
+}
+
+.glightbox-dots button {
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: oklch(1 0 0 / 0.5);
+  cursor: pointer;
+  transition: background-color 0.15s ease, width 0.15s ease;
+}
+
+/* 20px hit area on 8px dots, centres 20px apart so neighbours never overlap */
+.glightbox-dots button::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+}
+
+.glightbox-dots button:hover,
+.glightbox-dots button:focus-visible {
+  background: oklch(1 0 0 / 0.85);
+}
+
+.glightbox-dots button[aria-current="true"] {
+  width: 1.25rem;
+  border-radius: var(--spacing-2);
+  background: var(--md-primary-fg-color);
+}
+
+/* ===================================================================
    Mermaid fullscreen pan/zoom
    =================================================================== */
 

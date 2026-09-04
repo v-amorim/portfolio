@@ -20,7 +20,7 @@ extra_css:
   - stylesheets/global.css
   - stylesheets/components.css
   - stylesheets/page-home.css
-  - stylesheets/page-work.css
+  - stylesheets/page-projects.css
   - stylesheets/background-logo.css
 
 extra_javascript:
@@ -28,7 +28,8 @@ extra_javascript:
   - javascripts/mermaid-config.js
   - javascripts/mermaid-zoom.js
   - javascripts/image-placeholder.js
-  - javascripts/carousel.js
+  - javascripts/projects-filter.js
+  - javascripts/lightbox-nav.js
   - javascripts/timeline.js
   - javascripts/background-logo.js
 
@@ -67,7 +68,7 @@ theme:
 
 nav:
   - Início: index.md
-  - Projetos: work.md
+  - Projetos: projects.md
   - Blog:
       - blog/index.md
       - blog/claude-code-engenharia-dados.md
@@ -77,6 +78,7 @@ plugins:
   - social:
       cards: !ENV [CI, false]
   - glightbox:
+      loop: true
       skip_classes:
         - profile-picture
   - privacy

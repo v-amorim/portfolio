@@ -1,0 +1,135 @@
+{% extends "main.html" %}
+{% block content %}
+
+{% set lang = i18n_page_locale | default("pt-BR") %}
+
+{% if lang == "en" %}
+  {% set category_labels = {
+    "engenharia-de-dados": "Data Engineering",
+    "machine-learning": "Machine Learning",
+    "etl": "ETL",
+    "api": "API",
+    "gui": "GUI",
+    "spark": "Spark",
+    "python": "Python",
+    "analytics": "Analytics",
+    "ferramentas": "Tools",
+    "visual": "Visual",
+    "shell": "Shell",
+    "documentação": "Documentation",
+    "computer-vision": "Computer Vision",
+    "template": "Template"
+  } %}
+  {% set t = { "view": "View project", "all": "All", "filter": "Filter projects by area", "images": "images", "image": "image", "open": "Open screenshots" } %}
+  {% set areas = [("dados", "Data"), ("ml", "Machine Learning"), ("ferramentas", "Tools"), ("visual", "Visual")] %}
+{% else %}
+  {% set category_labels = {
+    "engenharia-de-dados": "Engenharia de Dados",
+    "machine-learning": "Machine Learning",
+    "etl": "ETL",
+    "api": "API",
+    "gui": "GUI",
+    "spark": "Spark",
+    "python": "Python",
+    "analytics": "Analytics",
+    "ferramentas": "Ferramentas",
+    "visual": "Visual",
+    "shell": "Shell",
+    "documentação": "Documentação",
+    "computer-vision": "Visão Computacional",
+    "template": "Template"
+  } %}
+  {% set t = { "view": "Ver projeto", "all": "Todos", "filter": "Filtrar projetos por área", "images": "imagens", "image": "imagem", "open": "Abrir capturas de tela" } %}
+  {% set areas = [("dados", "Dados"), ("ml", "Machine Learning"), ("ferramentas", "Ferramentas"), ("visual", "Visual")] %}
+{% endif %}
+
+{% set area_icons = {
+  "dados": ".icons/material/database-outline.svg",
+  "ml": ".icons/material/brain.svg",
+  "ferramentas": ".icons/material/wrench-outline.svg",
+  "visual": ".icons/material/palette-outline.svg"
+} %}
+
+<h1>{{ page.title }}</h1>
+
+<div class="projects-filter" role="group" aria-label="{{ t.filter }}">
+  <button type="button" class="projects-filter__btn" data-filter="all" aria-pressed="true">
+    {{ t.all }} <span class="projects-filter__count">{{ page.meta.work | length }}</span>
+  </button>
+  {% for key, label in areas %}
+  {% set count = page.meta.work | selectattr("area", "equalto", key) | list | length %}
+  {% if count > 0 %}
+  <button type="button" class="projects-filter__btn projects-filter__btn--{{ key }}" data-filter="{{ key }}" aria-pressed="false">
+    <span class="projects-filter__icon" aria-hidden="true">{% include area_icons[key] %}</span>
+    {{ label }} <span class="projects-filter__count">{{ count }}</span>
+  </button>
+  {% endif %}
+  {% endfor %}
+</div>
+
+<div class="projects-grid">
+  {% for work in page.meta.work %}
+  {% set title_parts = work.title.split(":", 1) %}
+  {% set desc_parts = (work.description or "").split("Stack:", 1) %}
+  {% set gallery = "project-" ~ loop.index0 %}
+  <article class="project-card" data-area="{{ work.area }}">
+
+    <div class="project-head">
+      <span class="project-area project-area--{{ work.area }}" aria-hidden="true">
+        {% include area_icons[work.area] %}
+      </span>
+      <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer" class="project-link">
+        <h3 class="projectTitle">
+          {{ title_parts[0] | trim }}
+          {% if title_parts | length > 1 %}<span class="project-subtitle">{{ title_parts[1] | trim }}</span>{% endif %}
+        </h3>
+      </a>
+      {% if work.images %}
+      <a href="{{ work.images[0] }}" class="glightbox project-thumb" data-gallery="{{ gallery }}" data-title="{{ work.title }}" aria-label="{{ t.open }}">
+        <img src="{{ work.images[0] }}" alt="" loading="lazy">
+      </a>
+      {% for image in work.images[1:] %}
+      <a href="{{ image }}" class="glightbox project-thumb project-thumb--hidden" data-gallery="{{ gallery }}" data-title="{{ work.title }}" tabindex="-1" aria-hidden="true"></a>
+      {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="project-tags">
+      {% for category in work.categories %}
+      <span class="tag {{ category }}">{{ category_labels[category] | default(category | replace('-', ' ') | title) }}</span>
+      {% endfor %}
+    </div>
+
+    {% if desc_parts[0] | trim %}
+    <p class="project-description">{{ desc_parts[0] | trim }}</p>
+    {% endif %}
+
+    {% if desc_parts | length > 1 %}
+    <ul class="project-stack">
+      {% for item in desc_parts[1].split("•") %}
+      <li>{{ item | trim }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="project-foot">
+      <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer" class="project-external-link">
+        <span>{{ t.view }}</span>
+        {% include ".icons/material/open-in-new.svg" %}
+      </a>
+      {% if work.images %}
+      <span class="project-images">
+        {% include ".icons/material/image-multiple-outline.svg" %}
+        {{ work.images | length }} {{ t.images if work.images | length > 1 else t.image }}
+      </span>
+      {% endif %}
+    </div>
+
+  </article>
+  {% endfor %}
+</div>
+
+{% endblock %}
+{% block tabs %}
+{{ super() }}
+{% endblock %}

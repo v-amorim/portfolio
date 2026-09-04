@@ -1,0 +1,319 @@
+/* ===================================================================
+   Projects Page Styles (projects.md)
+   =================================================================== */
+
+/* ===================================================================
+   Area filter
+   =================================================================== */
+
+.projects-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin: var(--spacing-4) 0 var(--spacing-6);
+}
+
+.projects-filter__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1_5);
+  min-height: 2rem;
+  padding: 0 var(--spacing-3);
+  border: 1px solid var(--border);
+  border-radius: var(--button-border-radius);
+  background: var(--card);
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, scale 0.15s ease;
+}
+
+.projects-filter__btn:hover,
+.projects-filter__btn:focus-visible {
+  color: var(--foreground);
+  border-color: var(--md-primary-fg-color);
+}
+
+.projects-filter__btn:active {
+  scale: 0.96;
+}
+
+.projects-filter__btn[aria-pressed="true"] {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Area icon slides in on hover, focus and while the filter is active */
+.projects-filter__icon {
+  display: inline-flex;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: width 0.15s ease, opacity 0.15s ease;
+}
+
+.projects-filter__icon svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.projects-filter__btn:hover .projects-filter__icon,
+.projects-filter__btn:focus-visible .projects-filter__icon,
+.projects-filter__btn[aria-pressed="true"] .projects-filter__icon {
+  width: 1rem;
+  opacity: 1;
+}
+
+.projects-filter__btn--ml:hover .projects-filter__icon { color: var(--tag-ml-fg, #de7f8f); }
+.projects-filter__btn--ferramentas:hover .projects-filter__icon { color: var(--tag-tools-fg, #99a8e0); }
+.projects-filter__btn--visual:hover .projects-filter__icon { color: var(--tag-visual-fg, #cf95ca); }
+.projects-filter__btn--dados:hover .projects-filter__icon { color: var(--md-primary-fg-color); }
+
+@media (hover: none) {
+  .projects-filter__icon {
+    width: 1rem;
+    opacity: 1;
+  }
+}
+
+.projects-filter__count {
+  font-size: 0.7rem;
+  font-weight: 500;
+  opacity: 0.75;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===================================================================
+   Grid and cards
+   =================================================================== */
+
+/* Fixed 3 columns: auto-fit squeezed in a 4th on wide screens and made the cards read differently per filter */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-5);
+  margin: var(--spacing-4) 0;
+}
+
+@media screen and (max-width: 64rem) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.md-typeset .project-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4) var(--spacing-5);
+  border: 1px solid var(--border);
+  border-radius: var(--spacing-5);
+  corner-shape: squircle;
+  background-color: var(--card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, translate 0.2s ease;
+}
+
+.md-typeset .project-card:hover,
+.md-typeset .project-card:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  translate: 0 -2px;
+}
+
+.project-card[hidden] {
+  display: none;
+}
+
+/* Header: area icon, title with subtitle, optional thumbnail */
+.project-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+}
+
+.project-area {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--spacing-2);
+  corner-shape: squircle;
+  background: var(--accent);
+  color: var(--md-primary-fg-color);
+}
+
+.project-area svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.project-area--ml { color: var(--tag-ml-fg, #de7f8f); }
+.project-area--ferramentas { color: var(--tag-tools-fg, #99a8e0); }
+.project-area--visual { color: var(--tag-visual-fg, #cf95ca); }
+
+.project-link {
+  flex: 1;
+  min-width: 0;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.md-typeset .project-link h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--foreground);
+  text-wrap: balance;
+  transition: color 0.2s ease;
+}
+
+.project-card:hover .project-link h3 {
+  color: var(--primary);
+}
+
+.project-subtitle {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+
+/* Thumbnail: 12px inside a 16px-padded card keeps the corners concentric with the 20px card */
+.project-thumb {
+  flex: 0 0 auto;
+  display: block;
+  width: 5.5rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--spacing-3);
+  corner-shape: squircle;
+  outline: 1px solid oklch(0 0 0 / 0.1);
+  background: var(--muted);
+}
+
+[data-md-color-scheme="slate"] .project-thumb {
+  outline-color: oklch(1 0 0 / 0.1);
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: var(--grayscale-filter);
+  transition: filter 0.2s ease, scale 0.2s ease;
+}
+
+.project-thumb:hover img {
+  filter: none;
+  scale: 1.05;
+}
+
+.project-thumb--hidden {
+  display: none;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.md-typeset .project-description {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+/* Stack: pulled out of the prose into a scannable monospace row */
+.md-typeset ul.project-stack:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1) var(--spacing-3);
+  margin: 0;
+  padding: var(--spacing-3) 0 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+}
+
+.md-typeset ul.project-stack > li:not([hidden]) {
+  margin: 0;
+  padding: 0;
+}
+
+.md-typeset ul.project-stack > li + li::before {
+  content: "·";
+  margin-inline-end: var(--spacing-3);
+  opacity: 0.6;
+}
+
+.project-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  margin-top: auto;
+}
+
+.project-external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1_5);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.project-external-link svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: currentColor;
+  transition: translate 0.2s ease;
+}
+
+.project-card:hover .project-external-link svg {
+  translate: 2px -2px;
+}
+
+.project-images {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.project-images svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: currentColor;
+}

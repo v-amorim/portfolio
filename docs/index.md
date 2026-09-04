@@ -22,7 +22,7 @@ hide:
 Cinco anos em dados, três deles construindo plataformas em produção: da ingestão à camada Ouro que alimenta as decisões do negócio.
 Databricks, PySpark e Unity Catalog, em Azure e GCP.
 
-<a href="work/" class="md-button">:material-briefcase-outline: Projetos</a>
+<a href="projects/" class="md-button">:material-briefcase-outline: Projetos</a>
 <a href="mailto:vamorim.dev@gmail.com" class="md-button md-button--primary" title="vamorim.dev@gmail.com">:material-email: Entre em contato</a>
 <a href="https://www.linkedin.com/in/vinicius-amorim/" class="md-button" target="_blank" rel="noopener">:fontawesome-brands-linkedin: LinkedIn</a>
 
