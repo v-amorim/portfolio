@@ -311,6 +311,20 @@
   --md-code-fg-color: #f8eaf8;
   --md-code-bg-color: #191726;
 
+  /* Syntax highlight tokens in the Moonlight palette */
+  --md-code-hl-keyword-color: #a5a1e9;
+  --md-code-hl-string-color: #99e6b3;
+  --md-code-hl-number-color: #ffcb6b;
+  --md-code-hl-operator-color: #5dabf3;
+  --md-code-hl-punctuation-color: #acb9e6;
+  --md-code-hl-comment-color: #8b949e;
+  --md-code-hl-name-color: #f8eaf8;
+  --md-code-hl-function-color: #79c0ff;
+  --md-code-hl-constant-color: #ca5fa6;
+  --md-code-hl-special-color: #ca5f71;
+  --md-code-hl-variable-color: #cf95ca;
+  --md-code-hl-generic-color: #b8c3e4;
+
   /* Mermaid colors - light colors for dark diagram background */
   --md-mermaid-label-fg-color: #f8eaf8;
   --md-mermaid-label-bg-color: #191726;
@@ -747,11 +761,11 @@ input {
   border-radius: var(--spacing-2);
   border: 1px solid;
   margin: var(--spacing-4) 0;
-  background-color: #0d0e17;
+  background-color: var(--background);
 }
 
 [data-md-color-scheme="default"] .mermaid {
-  border-color: #30363d;
+  border-color: #d1d5db;
 }
 
 [data-md-color-scheme="slate"] .mermaid {
@@ -772,61 +786,12 @@ input {
   background-color: transparent !important;
 }
 
-.mermaid text,
-.mermaid .actor,
-.mermaid .labelText,
-.mermaid .messageText,
-.mermaid .noteText,
-.mermaid tspan {
-  fill: #f8eaf8 !important;
-  color: #f8eaf8 !important;
-}
-
-.mermaid .titleText {
-  fill: #f8eaf8 !important;
-}
-
-.mermaid line,
-.mermaid path {
-  stroke: #7386d0 !important;
-}
-
-.mermaid rect {
-  fill: #191726 !important;
-  stroke: #30363d !important;
-}
-
-.mermaid .section0,
-.mermaid .section1,
-.mermaid .section2,
-.mermaid .section3,
-.mermaid .section4,
-.mermaid .section5,
-.mermaid .section6,
-.mermaid .section7 {
-  fill: #191726 !important;
-}
-
-.mermaid .sectionTitle0,
-.mermaid .sectionTitle1,
-.mermaid .sectionTitle2,
-.mermaid .sectionTitle3,
-.mermaid .sectionTitle4,
-.mermaid .sectionTitle5,
-.mermaid .sectionTitle6,
-.mermaid .sectionTitle7 {
-  fill: #f8eaf8 !important;
-}
-
-.mermaid .mindmap-node-section-0,
-.mermaid .mindmap-node-section-1,
-.mermaid .mindmap-node-section-2,
-.mermaid .mindmap-node-section-3,
-.mermaid .mindmap-node-section-4,
-.mermaid .mindmap-node-section-5,
-.mermaid .mindmap-node-section-6,
-.mermaid .mindmap-node-section-7 {
-  stroke: #5dabf3 !important;
+.mermaid--error {
+  color: var(--destructive);
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  text-align: left;
 }
 
 /* ===================================================================

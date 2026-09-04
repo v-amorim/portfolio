@@ -649,3 +649,182 @@
     right: auto;
   }
 }
+
+/* ===================================================================
+   Mermaid fullscreen pan/zoom
+   =================================================================== */
+
+.mermaid-zoom {
+  position: relative;
+}
+
+.mermaid-zoom__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--button-border-radius);
+  background: var(--card);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, scale 0.15s ease;
+}
+
+.mermaid-zoom__btn:hover,
+.mermaid-zoom__btn:focus-visible {
+  color: var(--foreground);
+  border-color: var(--md-primary-fg-color);
+}
+
+.mermaid-zoom__btn:active {
+  scale: 0.96;
+}
+
+.mermaid-zoom__btn[hidden] {
+  display: none;
+}
+
+.mermaid-zoom__btn.is-done {
+  color: var(--success, #49ef95);
+  border-color: var(--success, #49ef95);
+}
+
+/* Compact row above the diagram, never over it */
+.mermaid-zoom__tools {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--spacing-1_5);
+  margin-top: var(--spacing-4);
+}
+
+.mermaid-zoom__tools .mermaid-zoom__btn {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.mermaid-zoom__tools .mermaid-zoom__btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.mermaid-zoom .mermaid,
+.md-typeset .mermaid-zoom .mermaid-zoom__code {
+  margin-top: var(--spacing-2);
+}
+
+.mermaid-zoom__toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: var(--button-border-radius);
+  background: var(--card);
+  overflow: hidden;
+}
+
+.mermaid-zoom__tools .mermaid-zoom__btn--text {
+  width: auto;
+  padding: 0 var(--spacing-2_5);
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.mermaid-zoom__btn--text[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.md-typeset .mermaid-zoom__code {
+  margin: var(--spacing-4) 0;
+  padding: var(--spacing-4);
+  border: 1px solid var(--border);
+  border-radius: var(--spacing-2);
+  background: var(--md-code-bg-color);
+  overflow: auto;
+}
+
+/* Material attaches its own copy button to every pre > code; the toolbar already has one */
+.md-typeset .mermaid-zoom__code .md-code__nav {
+  display: none;
+}
+
+.md-typeset .mermaid-zoom__code[hidden],
+.md-typeset .mermaid[hidden] {
+  display: none;
+}
+
+/* Material attaches its own clipboard button to every pre > code; the toolbar already has one */
+.md-typeset .mermaid-zoom__code .md-clipboard {
+  display: none;
+}
+
+.md-typeset .mermaid-zoom__code > code {
+  display: block;
+  padding: 0;
+  background: transparent;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.mermaid-zoom__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  background: oklch(0.08 0.01 280);
+}
+
+[data-md-color-scheme="default"] .mermaid-zoom__overlay {
+  background: var(--background);
+}
+
+.mermaid-zoom__overlay[hidden] {
+  display: none;
+}
+
+.mermaid-zoom__toolbar {
+  position: absolute;
+  top: var(--spacing-4);
+  inset-inline-end: var(--spacing-4);
+  z-index: 1;
+  display: inline-flex;
+  gap: var(--spacing-2);
+  padding: var(--spacing-1_5);
+  border: 1px solid var(--border);
+  border-radius: var(--button-border-radius);
+  background: var(--card);
+}
+
+.mermaid-zoom__toolbar .mermaid-zoom__btn {
+  border-color: transparent;
+}
+
+.mermaid-zoom__stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.mermaid-zoom__stage.is-dragging {
+  cursor: grabbing;
+}
+
+.mermaid-zoom__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mermaid-zoom__canvas svg {
+  display: block;
+  background: transparent;
+}

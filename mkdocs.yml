@@ -24,7 +24,9 @@ extra_css:
   - stylesheets/background-logo.css
 
 extra_javascript:
+  - https://unpkg.com/mermaid@11/dist/mermaid.min.js
   - javascripts/mermaid-config.js
+  - javascripts/mermaid-zoom.js
   - javascripts/image-placeholder.js
   - javascripts/carousel.js
   - javascripts/timeline.js
@@ -69,6 +71,7 @@ nav:
   - Blog:
       - blog/index.md
       - blog/claude-code-engenharia-dados.md
+      - blog/exemplos-mermaid.md
 
 plugins:
   - social:
@@ -137,7 +140,8 @@ markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
-          class: mermaid
+          # Not "mermaid": Material would render it in a closed shadow root with its own theme
+          class: mermaid-src
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
