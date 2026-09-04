@@ -30,9 +30,9 @@
       yellow: '#ffcb6b',
       // Series hues blended into the card color: fills for mindmap, timeline, pie and kanban sections
       tinted: ['#323656', '#2c405f', '#462f4d', '#4b2b3b', '#3d514d', '#594939', '#42445c', '#403e5d'],
-      // Strong series for git branches, sankey bars and journey boxes, with the text color that sits on them
-      mid: ['#7386d0', '#5dabf3', '#b86cb3', '#ca5f71', '#99e6b3', '#ffcb6b', '#acb9e6', '#a5a1e9'],
-      onMid: '#0d0e17',
+      // Series for git branches, sankey bars and journey boxes: a step above tinted, still muted enough for light text
+      mid: ['#4a5486', '#3f6a94', '#7d4a7a', '#8a4552', '#4f7a63', '#8a713f', '#5c6489', '#5f5c92'],
+      onMid: '#f8eaf8',
       pie: ['#323656', '#2c405f', '#462f4d', '#4b2b3b', '#3d514d', '#594939', '#42445c', '#403e5d'],
       pieExtra: ['#2f4a63', '#4b2d45', '#2b5140', '#2b4460'],
       flow: '#3c466f',
@@ -176,7 +176,7 @@
 
     commitLabelColor: c.text,
     commitLabelBackground: c.card,
-    tagLabelColor: c.onMid,
+    tagLabelColor: c.bg,
     tagLabelBackground: c.yellow,
     tagLabelBorder: c.yellow,
 
@@ -311,7 +311,8 @@
     .face { fill: ${c.yellow}; stroke: ${c.bg}; }
     .mouth, .eye { stroke: ${c.bg}; fill: ${c.bg}; }
     .actor-legend { fill: ${c.text}; }
-    .branch-label text, .tag-label text { fill: ${c.bg}; }
+    .branch-label text { fill: ${c.onMid}; }
+    .tag-label text { fill: ${c.bg}; }
     .er.attributeBoxOdd { fill: ${c.card}; } .er.attributeBoxEven { fill: ${c.cardInner}; }
     .er.entityBox { fill: ${c.card}; stroke: ${c.primary}; } .er.entityLabel, .er.relationshipLabel { fill: ${c.text}; }
     .er.relationshipLabelBox { fill: ${c.card}; opacity: 1; } .er.relationshipLine { stroke: ${c.primary}; }

@@ -282,7 +282,7 @@ pie showData
 
 ## Git graph
 
-Branches in the `mid` tones, stronger than the pie, with dark text on them; tags in yellow.
+Branches in the `mid` tones, one step above the pie, with the theme's light text on them; tags in yellow, with dark text.
 
 ```mermaid
 gitGraph

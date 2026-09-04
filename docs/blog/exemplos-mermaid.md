@@ -282,7 +282,7 @@ pie showData
 
 ## Grafo de git
 
-Branches nos tons `mid`, mais fortes que a pizza, com texto escuro sobre eles; tags em amarelo.
+Branches nos tons `mid`, um passo acima da pizza, com o texto claro do tema sobre eles; tags em amarelo, com texto escuro.
 
 ```mermaid
 gitGraph
