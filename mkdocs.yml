@@ -74,6 +74,9 @@ nav:
       - blog/claude-code-engenharia-dados.md
       - blog/exemplos-mermaid.md
 
+hooks:
+  - hooks/sitemap_copy.py
+
 plugins:
   - social:
       cards: !ENV [CI, false]
