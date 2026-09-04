@@ -3,5 +3,23 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
-  <link rel="preload" href="{{ 'assets/fonts/Mulish/Mulish-VariableFont_wght.ttf' | url }}" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="{{ 'assets/fonts/Mulish/Mulish-VariableFont_wght.woff2' | url }}" as="font" type="font/woff2" crossorigin>
+  {% if page.url in ("", "en/") %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vinicius C. Amorim",
+    "url": "{{ config.site_url }}",
+    "image": "{{ config.site_url }}assets/images/profile_picture.jpg",
+    "jobTitle": "{{ 'Data & AI Engineer' if i18n_page_locale == 'en' else 'Engenheiro de Dados e IA' }}",
+    "worksFor": { "@type": "Organization", "name": "educbank" },
+    "address": { "@type": "PostalAddress", "addressLocality": "São José dos Campos", "addressRegion": "SP", "addressCountry": "BR" },
+    "sameAs": [
+      "https://www.linkedin.com/in/vinicius-amorim/",
+      "https://github.com/v-amorim"
+    ]
+  }
+  </script>
+  {% endif %}
 {% endblock %}
