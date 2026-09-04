@@ -1,23 +1,32 @@
 ---
-title: Diagramas Mermaid com zoom
+title: Todos os diagramas Mermaid no tema Moonlight
 ---
 
-# Diagramas Mermaid com zoom
+# Todos os diagramas Mermaid no tema Moonlight
 
 <small>4 de setembro de 2026 · Ferramentas, Documentação</small>
 
-Todo diagrama Mermaid deste site tem um botão de expandir no canto superior direito. Ele abre o diagrama em tela cheia com pan e zoom: roda do mouse ou pinça para aproximar, arrastar para mover, duplo clique ou a tecla `0` para ajustar à tela, `+` e `-` para zoom, `Esc` para fechar. Esta página reúne cenários de tamanhos e formatos diferentes para testar o comportamento.
+Esta página é uma galeria de referência: os 21 tipos de diagrama que o Mermaid 11 renderiza, alguns em mais de uma orientação, todos com o tema deste site. O tema é o [Moonlight](../projects.md#visual), a mesma paleta dos meus temas para VSCode e Oh My Posh, traduzida para o Mermaid em duas variantes, escura e clara. Troque o modo de cor no topo da página e os diagramas são renderizados de novo na hora.
+
+O Mermaid expõe centenas de variáveis de tema, mas várias partes dos diagramas não obedecem a nenhuma delas: pontas de seta, relações de classe, rostos da jornada, linhas da linha do tempo, cores fixas do Sankey e do C4. O tema resolve isso em duas camadas: as variáveis, geradas a partir de uma paleta por modo de cor, e uma folha de CSS injetada no SVG para o que sobra. Cada seção abaixo diz o que observar.
+
+Todo diagrama tem uma barra de ferramentas acima dele: alternar entre diagrama e código-fonte, copiar o código e expandir em tela cheia com pan e zoom (roda do mouse ou pinça para aproximar, arrastar para mover, duplo clique ou `0` para ajustar à tela, `+` e `-` para zoom, `Esc` para fechar).
 
 ## Fluxograma pequeno, da esquerda para a direita
 
+Caso base do tema: nós com fundo do card, borda e setas na cor primária. Sub-rotinas (`[[X]]`) ganham borda amarela, a cor de destaque da paleta.
+
 ```mermaid
 graph LR
-    A[Fonte] --> B[Bronze]
+    A[Fonte] --> V[[Valida schema]]
+    V --> B[Bronze]
     B --> C[Prata]
     C --> D[Ouro]
 ```
 
 ## Fluxograma de cima para baixo, com decisão
+
+Losangos e rótulos de aresta usam o mesmo fundo dos nós. As pontas das setas recebem a cor primária via CSS, porque a variável do Mermaid não as alcança.
 
 ```mermaid
 graph TD
@@ -36,7 +45,7 @@ graph TD
 
 ## Fluxograma largo, com subgrafos
 
-Bom para testar o ajuste horizontal: em telas menores ele encolhe até ficar ilegível, e o zoom resolve.
+Bom para testar o ajuste horizontal: em telas menores ele encolhe até ficar ilegível, e o zoom resolve. Subgrafos usam o card interno com borda discreta, para agrupar sem competir com os nós.
 
 ```mermaid
 graph LR
@@ -108,6 +117,8 @@ graph BT
 
 ## Fluxograma da direita para a esquerda
 
+Mesma paleta em qualquer direção; só o layout muda.
+
 ```mermaid
 graph RL
     D[Decisão] --> C[Dashboard]
@@ -116,6 +127,8 @@ graph RL
 ```
 
 ## Diagrama de sequência
+
+Atores no card, linhas de vida e mensagens na cor primária, notas no tom `deep`; ativações no tom `accent` com borda amarela.
 
 ```mermaid
 sequenceDiagram
@@ -129,16 +142,23 @@ sequenceDiagram
     GH->>DAB: bundle deploy (dev)
     DAB->>DBX: cria jobs e pipelines
     GH->>DBX: executa testes
+    activate DBX
     DBX->>DQ: valida contratos
+    activate DQ
+    DQ-->>DBX: relatório
+    deactivate DQ
+    DBX-->>GH: resultado
+    deactivate DBX
     alt contrato quebrado
-        DQ-->>GH: falha, deploy bloqueado
+        GH->>GH: falha, deploy bloqueado
     else contrato OK
-        DQ-->>GH: sucesso
         GH->>DAB: bundle deploy (prod)
     end
 ```
 
 ## Diagrama de classes
+
+Relações e setas na cor primária, tracejadas para dependências e realizações.
 
 ```mermaid
 classDiagram
@@ -174,6 +194,8 @@ classDiagram
 
 ## Diagrama de estados
 
+Estados no card, transições na cor primária, estados compostos no card interno com título no tom `accent`.
+
 ```mermaid
 stateDiagram-v2
     [*] --> Recebido
@@ -192,6 +214,8 @@ stateDiagram-v2
 ```
 
 ## Modelo entidade-relacionamento
+
+Atributos alternam card e card interno, linha a linha; relacionamentos na cor primária.
 
 ```mermaid
 erDiagram
@@ -226,6 +250,8 @@ erDiagram
 
 ## Gantt
 
+Tarefas no tom `deep`, ativas na cor primária, concluídas no tom `accent`, críticas em vermelho. A linha de hoje é o amarelo Moonlight.
+
 ```mermaid
 gantt
     title Migração da plataforma
@@ -243,6 +269,8 @@ gantt
 
 ## Pizza
 
+Fatias nos tons `tinted`: cada matiz da série misturado ao fundo do card, para o gráfico não gritar.
+
 ```mermaid
 pie showData
     title Registros por destino no último mês
@@ -253,6 +281,8 @@ pie showData
 ```
 
 ## Grafo de git
+
+Branches nos tons `mid`, mais fortes que a pizza, com texto escuro sobre eles; tags em amarelo.
 
 ```mermaid
 gitGraph
@@ -273,6 +303,8 @@ gitGraph
 
 ## Jornada do usuário
 
+Etapas nos tons `mid`; rostos em amarelo, com olhos e boca na cor do fundo.
+
 ```mermaid
 journey
     title Um dado ruim entrando na plataforma
@@ -288,6 +320,8 @@ journey
 ```
 
 ## Mapa mental
+
+Ramos nos tons `tinted`, um por nível; a raiz com borda na cor primária.
 
 ```mermaid
 mindmap
@@ -311,6 +345,8 @@ mindmap
 
 ## Linha do tempo
 
+Eventos nos tons `tinted`. Linha e marcadores forçados para a cor primária, já que o Mermaid os desenha em preto.
+
 ```mermaid
 timeline
     title Evolução da plataforma
@@ -323,6 +359,8 @@ timeline
 ```
 
 ## Quadrantes
+
+Quadrantes alternam card e card interno; pontos em amarelo para saltar do fundo.
 
 ```mermaid
 quadrantChart
@@ -341,6 +379,8 @@ quadrantChart
 ```
 
 ## Requisitos
+
+Requisitos e elementos no card com borda primária; relações na cor primária, rótulos sobre o fundo da página.
 
 ```mermaid
 requirementDiagram
@@ -376,6 +416,8 @@ requirementDiagram
 
 ## Contexto C4
 
+Pessoas na cor primária, sistemas no tom `deep`, externos no tom `accent`. O Mermaid força texto branco nos elementos C4; o tema corrige depois da renderização.
+
 ```mermaid
 C4Context
     title Plataforma de dados: contexto
@@ -394,6 +436,8 @@ C4Context
 
 ## Sankey
 
+Fluxos nos tons `mid`: o Mermaid pinta com a paleta Tableau, e o tema remapeia cada cor por seletor de atributo.
+
 ```mermaid
 sankey-beta
     Fontes,Bronze,120
@@ -407,6 +451,8 @@ sankey-beta
 
 ## Gráfico XY
 
+Barras e linhas na ordem da série (primária, azul, rosa, vermelho, menta, amarelo, lavanda, violeta); eixos e grade na cor de borda.
+
 ```mermaid
 xychart-beta
     title "Registros em quarentena por mês"
@@ -417,6 +463,8 @@ xychart-beta
 ```
 
 ## Blocos
+
+Blocos no card, agrupamentos no card interno, setas na cor primária.
 
 ```mermaid
 block-beta
@@ -434,6 +482,8 @@ block-beta
 
 ## Pacote
 
+Herda só as variáveis base: blocos no card, borda e texto do tema, sem regra própria.
+
 ```mermaid
 packet-beta
     0-15: "Cabeçalho"
@@ -444,6 +494,8 @@ packet-beta
 ```
 
 ## Kanban
+
+Colunas nos tons `tinted`, cartões no card com borda primária.
 
 ```mermaid
 kanban
@@ -461,6 +513,8 @@ kanban
 
 ## Arquitetura
 
+Grupos com borda discreta, arestas de 2px na cor primária; os ícones vêm do próprio Mermaid.
+
 ```mermaid
 architecture-beta
     group cloud(cloud)[Azure]
@@ -477,6 +531,8 @@ architecture-beta
 
 ## Radar
 
+Uma curva por cor da série, com preenchimento translúcido; eixos na cor primária e grade na cor de borda.
+
 ```mermaid
 radar-beta
     title Cobertura por camada
@@ -486,3 +542,7 @@ radar-beta
     max 100
     min 0
 ```
+
+## Como o tema é aplicado
+
+O arquivo [`mermaid-config.js`](https://github.com/v-amorim/portfolio/blob/main/docs/javascripts/mermaid-config.js) guarda uma paleta por modo de cor e monta, a partir dela, as `themeVariables` e o `themeCSS` passados ao `mermaid.initialize`. Um observador no atributo de esquema do Material dispara a nova renderização quando o modo muda. A barra de ferramentas, o realce do código e o zoom em tela cheia ficam em [`mermaid-zoom.js`](https://github.com/v-amorim/portfolio/blob/main/docs/javascripts/mermaid-zoom.js). Para reutilizar em outro site MkDocs Material: copie os dois arquivos, ajuste as paletas e escreva os diagramas em blocos de código `mermaid`.

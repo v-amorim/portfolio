@@ -175,7 +175,10 @@
     ensureOverlay();
     const { svg } = await mermaid.render(`mermaid-zoom-${renderCount++}`, code);
     canvas.innerHTML = svg;
-    if (window.mermaidTheme) window.mermaidTheme.fixInlineText(canvas);
+    if (window.mermaidTheme) {
+      window.mermaidTheme.fixInlineText(canvas);
+      window.mermaidTheme.markSubroutines(canvas);
+    }
     const el = canvas.querySelector('svg');
     if (el) {
       // Mermaid emits width="100%" and a max-width; the viewBox carries the intrinsic size

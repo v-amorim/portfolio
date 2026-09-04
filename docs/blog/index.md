@@ -18,9 +18,9 @@ Artigos sobre engenharia de dados, ferramentas de IA e produtividade.
 <span class="tag documentação">Documentação</span>
 </div>
 
-## [Diagramas Mermaid com zoom](exemplos-mermaid.md)
+## [Todos os diagramas Mermaid no tema Moonlight](exemplos-mermaid.md)
 
-Galeria com os 21 tipos de diagrama Mermaid no tema do site, nos dois modos de cor, para testar o botão de expandir com pan e zoom, a view de código e o botão de copiar.
+Galeria de referência com os 21 tipos de diagrama do Mermaid, todos no tema Moonlight do site, nos modos escuro e claro, com o que observar em cada um, código-fonte, botão de copiar e zoom em tela cheia.
 
 <a class="post-card__link" href="exemplos-mermaid/">Ler artigo</a>
 </article>

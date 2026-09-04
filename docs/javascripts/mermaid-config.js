@@ -123,7 +123,7 @@
     noteTextColor: c.text,
     noteBorderColor: c.primary,
     activationBkgColor: c.accent,
-    activationBorderColor: c.primary,
+    activationBorderColor: c.yellow,
     sequenceNumberColor: c.bg,
 
     classText: c.text,
@@ -188,7 +188,7 @@
     quadrant2TextFill: c.text,
     quadrant3TextFill: c.text,
     quadrant4TextFill: c.text,
-    quadrantPointFill: c.primary,
+    quadrantPointFill: c.yellow,
     quadrantPointTextFill: c.text,
     quadrantXAxisTextFill: c.text,
     quadrantYAxisTextFill: c.text,
@@ -333,6 +333,7 @@
     .packetBlock { fill: ${c.card}; stroke: ${c.primary}; }
     .packetLabel, .packetTitle { fill: ${c.text}; }
     .packetByte { fill: ${c.muted}; }
+    .node polygon.subroutine { stroke: ${c.yellow}; stroke-width: 2px; }
   `;
 
   const config = {
@@ -427,7 +428,14 @@
       el.style.setProperty('fill', color, 'important');
     });
   }
-  window.mermaidTheme = { fixInlineText };
+
+  // Subroutine nodes ([[X]]) share the plain polygon class with hexagons and trapezoids; only their ten-point outline tells them apart
+  function markSubroutines(root) {
+    root.querySelectorAll('.node polygon.label-container').forEach(el => {
+      if (el.getAttribute('points').trim().split(/\s+/).length === 10) el.classList.add('subroutine');
+    });
+  }
+  window.mermaidTheme = { fixInlineText, markSubroutines };
 
   async function renderInto(host, code) {
     try {
@@ -435,6 +443,7 @@
       host.classList.remove('mermaid--error');
       host.innerHTML = svg;
       fixInlineText(host);
+      markSubroutines(host);
       if (bindFunctions) bindFunctions(host);
     } catch (error) {
       host.classList.add('mermaid--error');

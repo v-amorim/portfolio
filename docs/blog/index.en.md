@@ -18,9 +18,9 @@ Articles on data engineering, AI tooling and productivity.
 <span class="tag documentação">Documentation</span>
 </div>
 
-## [Mermaid diagrams with zoom](exemplos-mermaid.md)
+## [Every Mermaid diagram in the Moonlight theme](exemplos-mermaid.md)
 
-A gallery of all 21 Mermaid diagram types in the site theme, in both color schemes, to test the expand button with fullscreen pan and zoom, the code view and the copy button.
+A reference gallery of all 21 Mermaid diagram types in the site's Moonlight theme, dark and light, with what to look at in each one, source view, copy button and fullscreen zoom.
 
 <a class="post-card__link" href="exemplos-mermaid/">Read article</a>
 </article>
