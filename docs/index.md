@@ -118,7 +118,7 @@ Prefiro travar um dado ruim na quarentena a descobrir o problema só depois que 
 
 ### :material-school-outline: Formação
 
-Bacharelado em Ciência da Computação, Universidade Paulista (2020 a 2023)
+Bacharelado em Ciência da Computação, Universidade Paulista
 
 </div>
 </div>

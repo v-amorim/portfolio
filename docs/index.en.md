@@ -118,7 +118,7 @@ I would rather stop a bad record in quarantine than find the problem after it ha
 
 ### :material-school-outline: Education
 
-BSc in Computer Science, Universidade Paulista (2020 to 2023)
+BSc in Computer Science, Universidade Paulista
 
 </div>
 </div>
