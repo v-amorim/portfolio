@@ -651,6 +651,102 @@
 }
 
 /* ===================================================================
+   Blog index: post cards
+   =================================================================== */
+
+.md-typeset .post-list {
+  display: grid;
+  gap: var(--spacing-4);
+  margin: var(--spacing-6) 0;
+}
+
+.md-typeset .post-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding: var(--spacing-5) var(--spacing-6);
+  border: 1px solid var(--border);
+  border-radius: var(--spacing-3);
+  corner-shape: squircle;
+  background: var(--card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.md-typeset .post-card:hover,
+.md-typeset .post-card:focus-within {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 0 0 1px var(--md-primary-fg-color);
+}
+
+.md-typeset .post-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.md-typeset .post-card__meta time {
+  margin-inline-end: var(--spacing-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset .post-card h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.md-typeset .post-card h2 a {
+  color: var(--foreground);
+}
+
+/* The title link covers the whole card; the explicit link below stays for clarity */
+.md-typeset .post-card h2 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.md-typeset .post-card:hover h2 a {
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .post-card p {
+  margin: 0;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+.md-typeset .post-card__link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1_5);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .post-card__link::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.md-typeset .post-card:hover .post-card__link::after {
+  transform: translateX(4px);
+}
+
+.md-typeset .post-card .headerlink {
+  display: none;
+}
+
+/* ===================================================================
    Mermaid fullscreen pan/zoom
    =================================================================== */
 
