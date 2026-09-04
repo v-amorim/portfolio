@@ -1,3 +1,7 @@
 <!-- Elements added to "main.html" will be displayed on all pages -->
 
 {% extends "base.html" %}
+
+{% block extrahead %}
+  <link rel="preload" href="{{ 'assets/fonts/Mulish/Mulish-VariableFont_wght.ttf' | url }}" as="font" type="font/ttf" crossorigin>
+{% endblock %}

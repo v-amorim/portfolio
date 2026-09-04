@@ -85,7 +85,7 @@ Hoje, na educbank:
 - Desenho e mantenho a plataforma de dados em arquitetura medalhão (Bronze, Prata, Ouro), sobre Databricks e Unity Catalog
 - Defino a política de qualidade: contrato de schema entre camadas, quarentena para duplicados, inválidos e dados de teste, e gate no CI que bloqueia deploy quando o contrato quebra
 - Mantenho mais de 150 tabelas na camada Ouro, processadas em PySpark e orquestradas com Lakeflow
-- Uso LLMs no fluxo de trabalho (Claude Code) para boilerplate e revisão, com o processo documentado no [blog](blog/)
+- Uso LLMs no fluxo de trabalho (Claude Code) para boilerplate e revisão, com o processo documentado no [blog](blog/index.md)
 
 Fora do trabalho, mantenho projetos open source: temas e ferramentas que outros devs usam no dia a dia.
 

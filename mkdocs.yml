@@ -54,8 +54,6 @@ theme:
   features:
     - content.code.copy
     - navigation.indexes # Implied section 'index.md' files
-    - navigation.instant # Keep navigation from reloading
-    - navigation.instant.progress # Display page loading progress-bar ( > 400ms)
     - navigation.sections
     - navigation.tabs # Static upper section tabs (exist)
     - navigation.tabs.sticky # Static upper section tabs (stay)
@@ -70,6 +68,7 @@ nav:
   - Projetos: work.md
   - Blog:
       - blog/index.md
+      - blog/claude-code-engenharia-dados.md
 
 plugins:
   - social:
@@ -77,16 +76,40 @@ plugins:
   - glightbox:
       skip_classes:
         - profile-picture
-  - panzoom
   - privacy
   - search
-  - blog:
-      archive: true
-      archive_toc: true
-      blog_toc: true
-      categories: true
-      post_excerpt: required
-      post_url_date_format: yyyy/MM
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: pt-BR
+          name: Português
+          default: true
+          build: true
+        - locale: en
+          name: English
+          build: true
+          site_description: >-
+            Portfolio of Vinicius C. Amorim, Data & AI Engineer. Data platforms
+            on Databricks, PySpark, Azure and GCP, plus open source projects.
+          copyright: >
+            <a href="https://github.com/v-amorim/portfolio" target="_blank" rel="noopener" style="color: var(--md-primary-fg-color);">View this site's source code</a>
+          theme:
+            language: en
+            palette:
+              - scheme: default
+                toggle:
+                  icon: material/brightness-7
+                  name: Switch to dark mode
+              - scheme: slate
+                toggle:
+                  icon: material/brightness-4
+                  name: Switch to light mode
+          nav_translations:
+            Início: Home
+            Projetos: Projects
 
 markdown_extensions:
   - abbr

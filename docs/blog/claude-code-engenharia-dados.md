@@ -1,18 +1,12 @@
 ---
 title: Claude Code para engenharia de dados
-slug: claude-code-engenharia-dados
-date: 2026-04-21
-categories:
-  - Engenharia de Dados
-  - Ferramentas IA
-  - Produtividade
 ---
 
 # Claude Code para engenharia de dados
 
-Trabalho o dia todo com pipelines, transformações e infraestrutura, e o Claude Code virou parte fixa desse fluxo. Não escreve o pipeline por mim, mas tira da frente o boilerplate e me deixa focar nas decisões que importam. Veja como uso no dia a dia.
+<small>21 de abril de 2026 · Engenharia de Dados, Ferramentas IA, Produtividade</small>
 
-<!-- more -->
+Trabalho o dia todo com pipelines, transformações e infraestrutura, e o Claude Code virou parte fixa desse fluxo. Não escreve o pipeline por mim, mas tira da frente o boilerplate e me deixa focar nas decisões que importam. Veja como uso no dia a dia.
 
 ## Por que funciona para dados
 

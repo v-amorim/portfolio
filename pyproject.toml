@@ -8,10 +8,10 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "mkdocs>=1.5.0",
+    "mkdocs>=1.5.0,<2",
     "mkdocs-material>=9.0.0",
+    "mkdocs-static-i18n>=1.2.0",
     "mkdocs-glightbox>=0.3.0",
-    "mkdocs-panzoom-plugin>=0.1.0",
     "pillow>=10.0.0",
     "cairosvg>=2.7.0",
 ]
