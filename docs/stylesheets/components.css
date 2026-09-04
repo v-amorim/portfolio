@@ -756,6 +756,13 @@
   --lightbox-max: min(1100px, 78vw);
 }
 
+/* GLightbox hides the arrows on touch layouts, so the image can take the full width */
+@media screen and (max-width: 768px) {
+  .glightbox-container {
+    --lightbox-max: 100vw;
+  }
+}
+
 .glightbox-container .gslide-image img {
   max-width: var(--lightbox-max);
   max-height: 82vh;
@@ -887,6 +894,14 @@
 .mermaid-zoom__tools .mermaid-zoom__btn svg {
   width: 15px;
   height: 15px;
+}
+
+/* Touch targets: 44px on coarse pointers */
+@media (pointer: coarse) {
+  .mermaid-zoom__tools .mermaid-zoom__btn {
+    height: 2.2rem;
+    min-width: 2.2rem;
+  }
 }
 
 .mermaid-zoom .mermaid,

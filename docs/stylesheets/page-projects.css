@@ -81,6 +81,12 @@
   }
 }
 
+@media (pointer: coarse) {
+  .projects-filter__btn {
+    min-height: 2.2rem;
+  }
+}
+
 .projects-filter__count {
   font-size: 0.7rem;
   font-weight: 500;
