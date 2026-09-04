@@ -19,8 +19,8 @@ hide:
 
 ## Engenheiro de Dados e IA @ [educbank](https://educbank.com.br){: target="_blank" rel="noopener" }
 
-Construo plataformas de dados que saem do papel e vão pra produção: da ingestão até a camada que o negócio usa pra decidir.
-Databricks, PySpark e arquitetura em nuvem, na Azure e no GCP.
+Cinco anos em dados, três deles construindo plataformas em produção: da ingestão à camada Ouro que alimenta as decisões do negócio.
+Databricks, PySpark e Unity Catalog, em Azure e GCP.
 
 <a href="work/" class="md-button">:material-briefcase-outline: Projetos</a>
 <a href="mailto:vamorim.dev@gmail.com" class="md-button md-button--primary" title="vamorim.dev@gmail.com">:material-email: Entre em contato</a>
@@ -49,7 +49,17 @@ Arquitetura medalhão em Databricks + Unity Catalog
 
 ### :material-cloud: Azure + GCP
 
-PySpark em produção, multi-cloud
+Camadas s0 a s3 no GCP, medalhão com Unity Catalog na Azure. Mesmo princípio, duas implementações
+
+</div>
+</div>
+
+<div class="card" markdown>
+<div class="card-content" markdown>
+
+### :material-rocket-launch-outline: CI/CD
+
+Databricks Asset Bundles multi-ambiente e GitHub Actions, com gates de qualidade antes do deploy
 
 </div>
 </div>
@@ -59,7 +69,7 @@ PySpark em produção, multi-cloud
 
 ### :material-code-braces: Open Source
 
-Compartilhando ferramentas com a comunidade
+Tema VSCode no marketplace, tema Oh My Posh e template Python com uv e ruff
 
 </div>
 </div>
@@ -70,18 +80,20 @@ Compartilhando ferramentas com a comunidade
 
 ## O que eu faço
 
-No dia a dia:
+Hoje, na educbank:
 
-- Desenho e mantenho plataformas de dados em arquitetura medalhão (Bronze, Prata, Ouro), sobre Databricks e Unity Catalog
-- Cuido da qualidade e governança dos dados: contratos entre camadas, quarentena pra dado inválido e gates automatizados no CI/CD
-- Processo grandes volumes com PySpark e orquestro pipelines com Lakeflow e Airflow, na Azure e no GCP
-- Mantenho projetos open source: temas e ferramentas que outros devs usam no dia a dia
+- Desenho e mantenho a plataforma de dados em arquitetura medalhão (Bronze, Prata, Ouro), sobre Databricks e Unity Catalog
+- Defino a política de qualidade: contrato de schema entre camadas, quarentena para duplicados, inválidos e dados de teste, e gate no CI que bloqueia deploy quando o contrato quebra
+- Mantenho mais de 150 tabelas na camada Ouro, processadas em PySpark e orquestradas com Lakeflow
+- Uso LLMs no fluxo de trabalho (Claude Code) para boilerplate e revisão, com o processo documentado no [blog](blog/)
 
-Prefiro travar um dado ruim na quarentena a descobrir o problema só depois que ele já virou decisão errada lá na frente.
+Fora do trabalho, mantenho projetos open source: temas e ferramentas que outros devs usam no dia a dia.
+
+Prefiro travar um dado ruim na quarentena a descobrir o problema só depois que ele já virou decisão errada.
 
 ## Stack
 
-<div class="project-tags" markdown>
+<div class="project-tags">
 <span class="tag python">Python</span>
 <span class="tag code">SQL</span>
 <span class="tag spark">PySpark</span>
@@ -92,7 +104,45 @@ Prefiro travar um dado ruim na quarentena a descobrir o problema só depois que 
 <span class="tag etl">Airflow</span>
 <span class="tag etl">Lakeflow</span>
 <span class="tag etl">CI/CD</span>
+<span class="tag etl">Databricks Asset Bundles</span>
+<span class="tag etl">GitHub Actions</span>
 <span class="tag engenharia-de-dados">Data Quality</span>
+</div>
+
+## Formação e idiomas
+
+<div class="card-grid" markdown>
+
+<div class="card" markdown>
+<div class="card-content" markdown>
+
+### :material-school-outline: Formação
+
+Bacharelado em Ciência da Computação, Universidade Paulista (2020 a 2023)
+
+</div>
+</div>
+
+<div class="card" markdown>
+<div class="card-content" markdown>
+
+### :material-translate: Idiomas
+
+Português nativo, inglês fluente e japonês básico
+
+</div>
+</div>
+
+<div class="card" markdown>
+<div class="card-content" markdown>
+
+### :material-map-marker-outline: Base
+
+São José dos Campos, SP. Atuação remota e híbrida
+
+</div>
+</div>
+
 </div>
 
 ---

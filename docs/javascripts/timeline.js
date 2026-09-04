@@ -1,7 +1,7 @@
 // Entries are grouped by company. A company with multiple roles renders as a
 // single card with an internal mini-timeline showing the progression there.
 const careerData = {
-  "Pessoal": [
+  "Projetos pessoais": [
     {
       company: "Open Source",
       roles: [
@@ -9,7 +9,7 @@ const careerData = {
           start_date: "2020-01",
           end_date: null,
           role: "Criador de Temas",
-          description: "VSCode theme publicado no marketplace. Tema Oh-My-Posh customizado para terminal",
+          description: "Tema VSCode publicado no marketplace e tema Oh My Posh para terminal",
           tag: { text: "VSCODE", type: "hobby" }
         }
       ]
@@ -25,21 +25,9 @@ const careerData = {
           tag: { text: "AUTOMATE", type: "hobby" }
         }
       ]
-    },
-    {
-      company: "Side Projects",
-      roles: [
-        {
-          start_date: null,
-          end_date: null,
-          role: "Automação",
-          description: "Scripts PowerShell e Python para automação Windows. Ferramentas CLI experimentais",
-          tag: { text: "CLI", type: "hobby" }
-        }
-      ]
     }
   ],
-  "Em Progresso": [
+  "Atual": [
     {
       company: "Educbank",
       roles: [
@@ -53,22 +41,22 @@ const careerData = {
       ]
     }
   ],
-  "Concluído": [
+  "Anteriores": [
     {
       company: "DEEP ESG",
       roles: [
         {
           start_date: "2024-01",
           end_date: "2026-05",
-          role: "Engenheiro de Dados - Pleno",
-          description: "Ownership end-to-end: ingestão, ETL (tradução/padronização) e processamento de cálculos em PySpark/Airflow/GCP. Gestão de demandas via Jira",
+          role: "Engenheiro de Dados Pleno",
+          description: "Responsável de ponta a ponta pelos pipelines de cálculo ESG: ingestão, padronização e processamento em PySpark e Airflow no GCP",
           tag: { text: "DATA ENG", type: "done" }
         },
         {
           start_date: "2023-07",
           end_date: "2023-12",
-          role: "Engenheiro de Dados - Junior",
-          description: "Pipelines ETL/ELT com Python e PySpark em GCP. Arquitetura de data lakes e warehouses",
+          role: "Engenheiro de Dados Júnior",
+          description: "Primeiros pipelines ETL em PySpark no GCP, carregando o data lake e o warehouse do produto",
           tag: { text: "PYSPARK", type: "done" }
         }
       ]
@@ -79,14 +67,14 @@ const careerData = {
         {
           start_date: "2023-08",
           end_date: "2024-01",
-          role: "Web Operations - Líder",
-          description: "Liderança de equipe em pipelines ETL. Automação Python/Pandas para padronização e carga de dados Excel → PostgreSQL",
+          role: "Líder de Web Operations",
+          description: "Liderei time de 6 pessoas na operação de dados: automação em Python e Pandas que substituiu a carga manual de planilhas para o PostgreSQL",
           tag: { text: "LEAD", type: "done" }
         },
         {
           start_date: "2021-07",
           end_date: "2023-08",
-          role: "Web Operations - Estagiário",
+          role: "Estagiário de Web Operations",
           description: "ETL de dados de clientes via Excel/Pandas. Scripts Python para tradução, normalização e validação pré-carga em banco",
           tag: { text: "ETL", type: "done" }
         }
@@ -96,7 +84,6 @@ const careerData = {
 };
 
 function calculateDuration(start_date, end_date) {
-  // Se não houver data de início, retornar string vazia
   if (!start_date) return "";
 
   const start = new Date(start_date + "-01");
