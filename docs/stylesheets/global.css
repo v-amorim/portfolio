@@ -7,19 +7,19 @@
 [data-md-color-scheme="default"] {
   /* Custom theme variables from new_theme_light.css */
   --card: #ffffff;
-  --ring: #6366f1;
+  --ring: oklch(0.54 0.204 277);
   --input: #d1d5db;
   --muted: #f3f4f6;
   --accent: #e0e7ff;
   --border: #d1d5db;
   --radius: 0.5rem;
-  --chart-1: #6366f1;
+  --chart-1: oklch(0.54 0.204 277);
   --chart-2: #4f46e5;
   --chart-3: #4338ca;
   --chart-4: #3730a3;
   --chart-5: #312e81;
   --popover: #ffffff;
-  --primary: #6366f1;
+  --primary: oklch(0.54 0.204 277);
   --sidebar: #f3f4f6;
   --font-mono: JetBrains Mono, monospace;
   --font-sans: Inter, sans-serif;
@@ -30,7 +30,7 @@
   --destructive: #ef4444;
   --shadow-blur: 8px;
   --shadow-color: hsl(0 0% 0%);
-  --sidebar-ring: #6366f1;
+  --sidebar-ring: oklch(0.54 0.204 277);
   --shadow-spread: -1px;
   --shadow-opacity: 0.1;
   --sidebar-accent: #e0e7ff;
@@ -38,7 +38,7 @@
   --card-foreground: #1e293b;
   --shadow-offset-x: 0px;
   --shadow-offset-y: 4px;
-  --sidebar-primary: #6366f1;
+  --sidebar-primary: oklch(0.54 0.204 277);
   --muted-foreground: #6b7280;
   --accent-foreground: #374151;
   --popover-foreground: #1e293b;
@@ -52,6 +52,71 @@
   /* Header distinction */
   --header-background: #ffffff;
 
+  /* Tag colors: same hues as the Moonlight dark tags, lightness lowered for light backgrounds */
+  --tag-tools-bg: oklch(0.72 0.10 273 / 0.15);
+  --tag-tools-fg: oklch(0.45 0.12 273);
+  --tag-tools-border: oklch(0.68 0.10 273);
+
+  --tag-visual-bg: oklch(0.72 0.10 329 / 0.15);
+  --tag-visual-fg: oklch(0.45 0.13 329);
+  --tag-visual-border: oklch(0.68 0.10 329);
+
+  --tag-code-bg: oklch(0.72 0.10 248 / 0.15);
+  --tag-code-fg: oklch(0.45 0.12 248);
+  --tag-code-border: oklch(0.68 0.10 248);
+
+  --tag-data-eng-bg: oklch(0.72 0.07 273 / 0.15);
+  --tag-data-eng-fg: oklch(0.45 0.07 273);
+  --tag-data-eng-border: oklch(0.68 0.07 273);
+
+  --tag-spark-bg: oklch(0.72 0.06 302 / 0.15);
+  --tag-spark-fg: oklch(0.45 0.06 302);
+  --tag-spark-border: oklch(0.68 0.06 302);
+
+  --tag-etl-bg: oklch(0.72 0.05 278 / 0.15);
+  --tag-etl-fg: oklch(0.45 0.05 278);
+  --tag-etl-border: oklch(0.68 0.05 278);
+
+  --tag-analytics-bg: oklch(0.72 0.09 272 / 0.15);
+  --tag-analytics-fg: oklch(0.45 0.09 272);
+  --tag-analytics-border: oklch(0.68 0.09 272);
+
+  --tag-ml-bg: oklch(0.72 0.10 10 / 0.15);
+  --tag-ml-fg: oklch(0.45 0.15 10);
+  --tag-ml-border: oklch(0.68 0.10 10);
+
+  --tag-api-bg: oklch(0.72 0.10 248 / 0.15);
+  --tag-api-fg: oklch(0.45 0.12 248);
+  --tag-api-border: oklch(0.68 0.10 248);
+
+  --tag-scraping-bg: oklch(0.72 0.10 342 / 0.15);
+  --tag-scraping-fg: oklch(0.45 0.15 342);
+  --tag-scraping-border: oklch(0.68 0.10 342);
+
+  --tag-python-bg: oklch(0.72 0.10 248 / 0.15);
+  --tag-python-fg: oklch(0.45 0.12 248);
+  --tag-python-border: oklch(0.68 0.10 248);
+
+  --tag-shell-bg: oklch(0.72 0.10 155 / 0.15);
+  --tag-shell-fg: oklch(0.42 0.10 155);
+  --tag-shell-border: oklch(0.68 0.09 155);
+
+  --tag-gui-bg: oklch(0.72 0.10 329 / 0.15);
+  --tag-gui-fg: oklch(0.45 0.13 329);
+  --tag-gui-border: oklch(0.68 0.10 329);
+
+  --tag-docs-bg: oklch(0.72 0.05 278 / 0.15);
+  --tag-docs-fg: oklch(0.45 0.05 278);
+  --tag-docs-border: oklch(0.68 0.05 278);
+
+  --tag-cv-bg: oklch(0.72 0.10 155 / 0.15);
+  --tag-cv-fg: oklch(0.42 0.10 155);
+  --tag-cv-border: oklch(0.68 0.09 155);
+
+  --tag-template-bg: oklch(0.72 0.05 278 / 0.15);
+  --tag-template-fg: oklch(0.45 0.05 278);
+  --tag-template-border: oklch(0.68 0.05 278);
+
   /* Override MkDocs Material default CSS variables */
   --md-default-fg-color: #1e293b;
   --md-default-fg-color--light: #6b7280;
@@ -62,7 +127,7 @@
   --md-default-bg-color--lighter: #f3f4f6;
   --md-default-bg-color--lightest: #e5e7eb;
 
-  --md-primary-fg-color: #6366f1;
+  --md-primary-fg-color: oklch(0.54 0.204 277);
   --md-primary-fg-color--light: #818cf8;
   --md-primary-fg-color--dark: #4f46e5;
 
@@ -70,7 +135,7 @@
   --md-accent-fg-color--transparent: rgba(224, 231, 255, 0.1);
 
   --md-typeset-color: #1e293b;
-  --md-typeset-a-color: #6366f1;
+  --md-typeset-a-color: oklch(0.54 0.204 277);
 
   --md-code-fg-color: #1e293b;
   --md-code-bg-color: #f3f4f6;
@@ -101,7 +166,7 @@
   --chart-4: #58a6ff;
   --chart-5: #acb9e6;
   --popover: #191726;
-  --primary: #7386d0;
+  --primary: #4a5eaa;
   --sidebar: #010409;
   --secondary: #282e46;
   --background: #0d0e17;
@@ -133,11 +198,11 @@
 
   /* Tag colors from Moonlight theme */
   --tag-tools-bg: rgba(115, 134, 208, 0.15);
-  --tag-tools-fg: #7386d0;
+  --tag-tools-fg: #99a8e0;
   --tag-tools-border: #7386d0;
 
   --tag-visual-bg: rgba(184, 108, 179, 0.15);
-  --tag-visual-fg: #b86cb3;
+  --tag-visual-fg: #cf95ca;
   --tag-visual-border: #b86cb3;
 
   --tag-code-bg: rgba(93, 171, 243, 0.15);
@@ -163,7 +228,7 @@
 
   /* ML & API tags */
   --tag-ml-bg: rgba(202, 95, 113, 0.15);
-  --tag-ml-fg: #ca5f71;
+  --tag-ml-fg: #de7f8f;
   --tag-ml-border: #ca5f71;
 
   --tag-api-bg: rgba(93, 171, 243, 0.15);
@@ -171,7 +236,7 @@
   --tag-api-border: #5dabf3;
 
   --tag-scraping-bg: rgba(202, 95, 166, 0.15);
-  --tag-scraping-fg: #ca5fa6;
+  --tag-scraping-fg: #de81c0;
   --tag-scraping-border: #ca5fa6;
 
   /* Language & Environment tags */
@@ -184,7 +249,7 @@
   --tag-shell-border: #99e6b3;
 
   --tag-gui-bg: rgba(184, 108, 179, 0.15);
-  --tag-gui-fg: #b86cb3;
+  --tag-gui-fg: #cf95ca;
   --tag-gui-border: #b86cb3;
 
   --tag-docs-bg: rgba(203, 207, 231, 0.15);
@@ -355,6 +420,8 @@
 @font-face {
   font-family: "Mulish";
   src: url("../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf");
+  font-weight: 200 1000;
+  font-display: swap;
 }
 
 :root {
@@ -389,6 +456,17 @@
   margin: 1rem 0 .64em;
 }
 
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  text-wrap: balance;
+}
+
+.md-typeset p,
+.md-typeset li {
+  text-wrap: pretty;
+}
+
 .md-typeset ul li {
   margin-bottom: 0;
 }
@@ -416,6 +494,11 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  transition: scale 0.15s ease;
+}
+
+.md-typeset .md-button:active {
+  scale: 0.96;
 }
 
 .md-typeset .md-button .twemoji {

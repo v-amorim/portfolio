@@ -243,7 +243,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
   opacity: 0;
   pointer-events: none;
 }
@@ -274,7 +274,7 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: var(--spacing-1_5);
+  gap: var(--spacing-3);
   z-index: 10;
   padding: var(--spacing-1_5);
   background: rgba(0, 0, 0, 0.4);
@@ -282,12 +282,19 @@
 }
 
 .carousel-indicator {
+  position: relative;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-indicator::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
 }
 
 .carousel-indicator:hover {
@@ -322,9 +329,9 @@
   flex: 1;
   min-width: 280px;
   background: var(--card);
-  border-radius: 8px;
+  border-radius: var(--spacing-5);
   corner-shape: squircle;
-  padding: 1rem;
+  padding: var(--spacing-3);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -347,7 +354,7 @@
   background: var(--muted);
   color: var(--muted-foreground);
   padding: 0.25rem 0.5rem;
-  border-radius: 12px;
+  border-radius: var(--spacing-8);
   font-size: 0.875rem;
   font-weight: 500;
 }
@@ -361,11 +368,11 @@
 .kanban-card {
   background: var(--card-inner);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--spacing-2);
   corner-shape: squircle;
   padding: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, scale 0.15s ease;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease forwards;
@@ -385,13 +392,17 @@
   transform: translateY(-2px);
 }
 
+.kanban-card:active {
+  scale: 0.96;
+}
+
 [data-md-color-scheme="slate"] .kanban-card {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 [data-md-color-scheme="slate"] .kanban-card:hover {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  border-color: #7386d0;
+  border-color: var(--primary);
 }
 
 .card-header {
@@ -429,7 +440,7 @@
 .role-timeline.multi::before {
   content: "";
   position: absolute;
-  left: 5px;
+  inset-inline-start: 5px;
   top: 6px;
   bottom: 6px;
   width: 2px;
@@ -438,12 +449,12 @@
 
 .role-item {
   position: relative;
-  padding-left: 1.5rem;
+  padding-inline-start: 1.5rem;
 }
 
 .role-dot {
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 4px;
   width: 12px;
   height: 12px;
@@ -479,6 +490,7 @@
   line-height: 1.5;
   color: var(--muted-foreground);
   margin: 0;
+  text-wrap: pretty;
 }
 
 /* Responsive Timeline */
@@ -506,7 +518,7 @@
 .timeline-toggle {
   display: inline-flex;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--button-border-radius);
   overflow: hidden;
 }
 

@@ -32,13 +32,17 @@
   flex-direction: column;
   background-color: var(--card);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, scale 0.15s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   border-color: var(--primary);
+}
+
+.project-card:active {
+  scale: 0.96;
 }
 
 .project-image {
@@ -94,6 +98,7 @@
   padding: 0;
   font-weight: 700;
   color: var(--foreground);
+  text-wrap: balance;
   transition: color 0.2s ease;
 }
 
@@ -115,6 +120,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
+  text-wrap: pretty;
 }
 
 .project-external-link {
@@ -126,7 +132,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .project-external-link svg {
