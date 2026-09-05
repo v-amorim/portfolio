@@ -320,7 +320,7 @@
     .statediagram-state .divider { stroke: ${c.border}; }
     text.stateLabel, .stateLabel text, .stateGroup text { fill: ${c.text}; }
     .note-edge { stroke: ${c.border}; }
-    ${tableau.map((t, i) => `[fill="${t}"] { fill: ${c.mid[i % c.mid.length]}; } [stroke="${t}"] { stroke: ${c.mid[i % c.mid.length]}; }`).join('\n    ')}
+    ${tableau.map((t, i) => `[fill="${t}"] { fill: ${c.mid[i % 3]}; } [stroke="${t}"] { stroke: ${c.mid[i % 3]}; }`).join('\n    ')}
     .link path { stroke: ${c.flow}; stroke-opacity: ${c.flowOpacity}; }
     .link { mix-blend-mode: normal !important; }
     ${series.map((color, i) => `.radarCurve-${i} { stroke: ${color}; fill: ${color}; } .radarLegendBox-${i}, .radarLegend-${i} rect { fill: ${color}; stroke: ${color}; }`).join('\n    ')}
@@ -335,6 +335,25 @@
     .packetLabel, .packetTitle { fill: ${c.text}; }
     .packetByte { fill: ${c.muted}; }
     .node polygon.subroutine { stroke: ${c.yellow}; stroke-width: 2px; }
+    .em-swimlane rect { fill: ${c.cardInner}; stroke: ${c.border}; }
+    .em-box rect[fill="white"] { fill: ${c.card}; stroke: ${c.border}; }
+    .em-box rect[fill="#bcd6fe"] { fill: ${tinted[0]}; stroke: ${c.primary}; }
+    .em-box rect[fill="#ffb778"] { fill: ${tinted[1]}; stroke: ${c.blue}; }
+    .em-box rect[fill="#d3f1a2"] { fill: ${tinted[2]}; stroke: ${c.pink}; }
+    .treeView-node-line { stroke: ${c.border}; }
+    .treeView-node-label { fill: ${c.text}; }
+    .treeView-node-dir { fill: ${c.primary}; }
+    .treeView-node-description { fill: ${c.mint}; }
+    .treeView-highlight-bg { fill: ${c.accent}; stroke: ${c.yellow}; }
+    /* currentColor on the built-in file icons only; icon-pack logos carry their own fills */
+    .treeView-node-icon { color: ${c.muted}; }
+    ${series.slice(0, 3).map((color, i) => `.venn-set-${i} > path { fill: ${color} !important; stroke: ${color} !important; }`).join('\n    ')}
+    .venn-circle > text.label { fill: ${c.text} !important; }
+    .railroad-terminal rect { fill: ${c.accent}; }
+    .node line[stroke="red"] { stroke: ${c.red}; }
+    .node line[stroke="orange"] { stroke: ${c.yellow}; }
+    .node line[stroke="blue"] { stroke: ${c.blue}; }
+    [class^="bar-plot-"] text { fill: ${c.bg}; }
   `;
 
   const config = {

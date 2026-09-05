@@ -696,6 +696,30 @@ input {
   background-color: transparent !important;
 }
 
+/* The Wardley renderer emits no <style> element, so the themeCSS in mermaid-config.js
+   never reaches it; these four leftovers have to be recolored from the page instead.
+   The fullscreen overlay renders outside .mermaid, so it needs the same rules. */
+.mermaid .wardley-node-label,
+.mermaid-zoom__canvas .wardley-node-label {
+  fill: var(--foreground);
+}
+
+.mermaid .wardley-stages line,
+.mermaid-zoom__canvas .wardley-stages line {
+  stroke: var(--border);
+}
+
+.mermaid .wardley-map [fill="white"],
+.mermaid-zoom__canvas .wardley-map [fill="white"] {
+  fill: var(--card);
+}
+
+/* The deaccelerator arrowhead sits in <defs>, outside .wardley-map */
+.mermaid [fill="#dc3545"],
+.mermaid-zoom__canvas [fill="#dc3545"] {
+  fill: var(--destructive);
+}
+
 .mermaid--error {
   color: var(--destructive);
   font-family: var(--md-code-font-family, monospace);
