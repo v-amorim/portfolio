@@ -71,8 +71,8 @@ nav:
   - Projetos: projects.md
   - Blog:
       - blog/index.md
-      - blog/claude-code-engenharia-dados.md
-      - blog/exemplos-mermaid.md
+      - blog/claude-code-data-engineering.md
+      - blog/mermaid-examples.md
 
 hooks:
   - hooks/sitemap_copy.py

@@ -7,36 +7,36 @@ hide:
 
 # Blog
 
-Artigos sobre engenharia de dados, ferramentas de IA e produtividade.
+Articles on data engineering, AI tooling and productivity.
 
 <div class="post-list" markdown>
 
 <article class="post-card" markdown>
 <div class="post-card__meta">
-<time datetime="2026-09-04">4 de setembro de 2026</time>
-<span class="tag ferramentas">Ferramentas</span>
-<span class="tag documentação">Documentação</span>
+<time datetime="2026-09-04">September 4, 2026</time>
+<span class="tag ferramentas">Tools</span>
+<span class="tag documentação">Documentation</span>
 </div>
 
-## [Todos os diagramas Mermaid no tema Moonlight](exemplos-mermaid.md)
+## [Every Mermaid diagram in the Moonlight theme](mermaid-examples.md)
 
-Galeria de referência com os 21 tipos de diagrama do Mermaid, todos no tema Moonlight do site, nos modos escuro e claro, com o que observar em cada um, código-fonte, botão de copiar e zoom em tela cheia.
+A reference gallery of all 28 Mermaid diagram types in the site's Moonlight theme, dark and light, with what to look at in each one, source view, copy button and fullscreen zoom.
 
-<a class="post-card__link" href="exemplos-mermaid/">Ler artigo</a>
+<a class="post-card__link" href="mermaid-examples/">Read article</a>
 </article>
 
 <article class="post-card" markdown>
 <div class="post-card__meta">
-<time datetime="2026-04-21">21 de abril de 2026</time>
-<span class="tag engenharia-de-dados">Engenharia de Dados</span>
-<span class="tag ferramentas">Ferramentas IA</span>
+<time datetime="2026-04-21">April 21, 2026</time>
+<span class="tag engenharia-de-dados">Data Engineering</span>
+<span class="tag ferramentas">AI Tooling</span>
 </div>
 
-## [Claude Code para engenharia de dados](claude-code-engenharia-dados.md)
+## [Claude Code for data engineering](claude-code-data-engineering.md)
 
-Como uso o Claude Code no dia a dia com pipelines, transformações e infraestrutura: onde ele economiza tempo, como dou contexto e onde a revisão continua obrigatória.
+How I use Claude Code day to day with pipelines, transformations and infrastructure: where it saves time, how I give it context, and where review stays mandatory.
 
-<a class="post-card__link" href="claude-code-engenharia-dados/">Ler artigo</a>
+<a class="post-card__link" href="claude-code-data-engineering/">Read article</a>
 </article>
 
 </div>
