@@ -11,7 +11,7 @@
       bg: '#0d0e17',
       card: '#191726',
       cardInner: '#12131f',
-      accent: '#282e46',
+      accent: '#272d44',
       deep: '#3c466f',
       border: '#30363d',
       text: '#f8eaf8',

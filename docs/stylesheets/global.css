@@ -110,8 +110,8 @@
   --ring: #7386d0;
   --input: #0c0e17;
   --muted: #0d0e17;
-  --accent: #282e46;
-  --border: #30363d;
+  --accent: #272d44;
+  --border: #3c466f;
   --radius: 0.5rem;
   --chart-1: #7386d0;
   --chart-2: #5dabf3;
@@ -119,18 +119,18 @@
   --chart-4: #58a6ff;
   --chart-5: #acb9e6;
   --popover: #191726;
-  --primary: #4a5eaa;
+  --primary: #7386d0;
   --sidebar: #010409;
-  --secondary: #282e46;
+  --secondary: #272d44;
   --background: #0d0e17;
   --foreground: #f8eaf8;
   --destructive: #ca5f71;
   --sidebar-ring: #7386d0;
-  --sidebar-accent: #282e46;
-  --sidebar-border: #30363d;
+  --sidebar-accent: #272d44;
+  --sidebar-border: #3c466f;
   --card-foreground: #f8eaf8;
   --sidebar-primary: #7386d0;
-  --muted-foreground: #8b949e;
+  --muted-foreground: #aea4bf;
   --accent-foreground: #b8c3e4;
   --popover-foreground: #f8eaf8;
   --primary-foreground: #f8eaf8;
@@ -141,13 +141,13 @@
   --sidebar-primary-foreground: #f8eaf8;
 
   /* Header distinction */
-  --header-background: #1c1f2f;
+  --header-background: #191726;
 
   /* Card depth hierarchy - inner cards within card containers */
   --card-inner: #12131f;
 
   /* TOC hover color */
-  --toc-hover: #2a2e46;
+  --toc-hover: #272d44;
 
   /* Tag colors: one hue per project area, taken from the Mermaid Moonlight palette */
   --tag-tools-bg: rgba(115, 134, 208, 0.15);
@@ -180,7 +180,7 @@
   --markdown-heading-punct: #a5a1e9;
   --markdown-quote: #acb9e6;
   --markdown-quote-bg: #010409;
-  --markdown-quote-border: #30363d;
+  --markdown-quote-border: #3c466f;
   --markdown-code-inline: #b0b9e5;
   --markdown-code-block: #b0b9e5;
   --markdown-code-block-bg: #6e768166;
@@ -192,11 +192,11 @@
   /* Override MkDocs Material slate CSS variables */
   --md-default-fg-color: #f8eaf8;
   --md-default-fg-color--light: #b8c3e4;
-  --md-default-fg-color--lighter: #8b949e;
-  --md-default-fg-color--lightest: #30363d;
+  --md-default-fg-color--lighter: #aea4bf;
+  --md-default-fg-color--lightest: #3c466f;
   --md-default-bg-color: #0d0e17;
   --md-default-bg-color--light: #191726;
-  --md-default-bg-color--lighter: #282e46;
+  --md-default-bg-color--lighter: #272d44;
   --md-default-bg-color--lightest: #3c466f;
 
   --md-primary-fg-color: #7386d0;
@@ -212,18 +212,18 @@
   --md-code-fg-color: #f8eaf8;
   --md-code-bg-color: #191726;
 
-  /* Syntax highlight tokens in the Moonlight palette */
-  --md-code-hl-keyword-color: #a5a1e9;
-  --md-code-hl-string-color: #99e6b3;
-  --md-code-hl-number-color: #ffcb6b;
-  --md-code-hl-operator-color: #5dabf3;
-  --md-code-hl-punctuation-color: #acb9e6;
-  --md-code-hl-comment-color: #8b949e;
+  /* Syntax highlight tokens, matching the Moonlight Aurora VSCode variant */
+  --md-code-hl-keyword-color: #7386d0;
+  --md-code-hl-string-color: #a5cfff;
+  --md-code-hl-number-color: #b0c8ff;
+  --md-code-hl-operator-color: #7386d0;
+  --md-code-hl-punctuation-color: #a5a1e9;
+  --md-code-hl-comment-color: #aea4bf;
   --md-code-hl-name-color: #f8eaf8;
-  --md-code-hl-function-color: #79c0ff;
-  --md-code-hl-constant-color: #ca5fa6;
-  --md-code-hl-special-color: #ca5f71;
-  --md-code-hl-variable-color: #cf95ca;
+  --md-code-hl-function-color: #b0b9e5;
+  --md-code-hl-constant-color: #d8a8f0;
+  --md-code-hl-special-color: #c9a0ee;
+  --md-code-hl-variable-color: #97b7fa;
   --md-code-hl-generic-color: #b8c3e4;
 
   /* Mermaid colors - light colors for dark diagram background */
@@ -688,7 +688,7 @@ input {
   --mermaid-primary-color: #7386d0;
   --mermaid-secondary-color: #5dabf3;
   --mermaid-tertiary-color: #79c0ff;
-  --mermaid-note-bg-color: #282e46;
+  --mermaid-note-bg-color: #272d44;
   --mermaid-note-border-color: #7386d0;
 }
 

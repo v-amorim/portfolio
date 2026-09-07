@@ -13,6 +13,20 @@ Articles on data engineering, AI tooling and productivity.
 
 <article class="post-card" markdown>
 <div class="post-card__meta">
+<time datetime="2026-09-07">September 7, 2026</time>
+<span class="tag visual">Design</span>
+<span class="tag documentação">Documentation</span>
+</div>
+
+## [The Moonlight palette, the full guide](moonlight-palette.md)
+
+The canonical Moonlight color palette: every role, its current hex, where it lives (Oh My Posh, VS Code, mpv, Android), and the recipe for bringing it to something new.
+
+<a class="post-card__link" href="moonlight-palette/">Read article</a>
+</article>
+
+<article class="post-card" markdown>
+<div class="post-card__meta">
 <time datetime="2026-09-04">September 4, 2026</time>
 <span class="tag ferramentas">Tools</span>
 <span class="tag documentação">Documentation</span>

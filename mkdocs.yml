@@ -32,6 +32,7 @@ extra_javascript:
   - javascripts/lightbox-nav.js
   - javascripts/timeline.js
   - javascripts/background-logo.js
+  - javascripts/palette.js
 
 # Material Configuration
 theme:
@@ -73,6 +74,7 @@ nav:
       - blog/index.md
       - blog/claude-code-data-engineering.md
       - blog/mermaid-examples.md
+      - blog/moonlight-palette.md
 
 hooks:
   - hooks/sitemap_copy.py
