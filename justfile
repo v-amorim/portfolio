@@ -1,3 +1,6 @@
+# Windows has no `sh`, which just reaches for by default; use Git Bash instead.
+set windows-shell := ["C:/Program Files/Git/bin/bash.exe", "-cu"]
+
 default:
     @just --list
 
