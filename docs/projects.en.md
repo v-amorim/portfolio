@@ -42,14 +42,21 @@ work:
     categories: ["ferramentas", "visual", "shell"]
     area: "visual"
     description: "Terminal theme with git indicators, clickable URLs and a responsive layout. Full evolution documented in the repo. Stack: Oh My Posh • Shell customization"
-    images: []
+    images:
+      - "../../assets/images/screenshots/oh-my-posh-1.webp"
+      - "../../assets/images/screenshots/oh-my-posh-2.webp"
+      - "../../assets/images/screenshots/oh-my-posh-3.webp"
     url: "https://github.com/v-amorim/oh-my-posh"
 
   - title: "Moonlight: VSCode Theme"
     categories: ["visual", "ferramentas"]
     area: "visual"
     description: "Dark theme tuned for long coding sessions. Palette optimized for Python, JavaScript, SQL and more than 10 other languages. Stack: VSCode theme • Palette design"
-    images: []
+    images:
+      - "../../assets/images/screenshots/vscode-theme-1.webp"
+      - "../../assets/images/screenshots/vscode-theme-2.webp"
+      - "../../assets/images/screenshots/vscode-theme-3.webp"
+      - "../../assets/images/screenshots/vscode-theme-4.webp"
     url: "https://github.com/v-amorim/moonlight-vscode-theme"
 
   - title: "Hex to ANSI: Color Converter"
@@ -57,9 +64,19 @@ work:
     area: "ferramentas"
     description: "PyQt6 app that converts hex colors to ANSI codes (256 colors + RGB). Handy for building terminal themes with consistent palettes. Stack: PyQt6 • Color conversion"
     images:
-      - "../../assets/images/screenshots/1.webp"
-      - "../../assets/images/screenshots/2.webp"
+      - "../../assets/images/screenshots/hex-to-ansi-1.webp"
     url: "https://github.com/v-amorim/hex_to_ansi"
+
+  - title: "Moonlight: mpv Setup"
+    categories: ["visual", "ferramentas"]
+    area: "visual"
+    description: "Full mpv configuration: dark uosc theme, a keybind map with a shortcut visualizer, a cascading menu patch and a first-run installer that shows a receipt before touching any file. Stack: mpv • uosc • Lua • Python"
+    images:
+      - "../../assets/images/screenshots/mpv-1.webp"
+      - "../../assets/images/screenshots/mpv-2.webp"
+      - "../../assets/images/screenshots/mpv-3.webp"
+      - "../../assets/images/screenshots/mpv-4.webp"
+    url: "https://github.com/v-amorim/self_development/tree/main/config/moonlight-mpv"
 
   - title: "Markdown Cheatsheet: Quick Reference"
     categories: ["documentação", "ferramentas"]
