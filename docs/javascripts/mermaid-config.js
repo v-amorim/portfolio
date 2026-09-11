@@ -8,18 +8,18 @@
 
   const PALETTES = {
     slate: {
-      bg: '#0d0e17',
-      card: '#191726',
-      cardInner: '#12131f',
-      accent: '#272d44',
-      deep: '#3c466f',
-      border: '#30363d',
-      text: '#f8eaf8',
-      muted: '#8b949e',
+      bg: '#0D0E17',
+      card: '#141726',
+      cardInner: '#1C2033',
+      accent: '#252A42',
+      deep: '#7386D0',
+      border: '#252A42',
+      text: '#EEEEFA',
+      muted: '#7E86A4',
       primary: '#7386d0',
-      blue: '#5dabf3',
-      sky: '#79c0ff',
-      azure: '#58a6ff',
+      blue: '#8A9BE0',
+      sky: '#A2B0EA',
+      azure: '#B9C6F5',
       lavender: '#acb9e6',
       violet: '#a5a1e9',
       pink: '#b86cb3',
@@ -32,10 +32,10 @@
       tinted: ['#323656', '#2c405f', '#462f4d', '#4b2b3b', '#3d514d', '#594939', '#42445c', '#403e5d'],
       // Series for git branches, sankey bars and journey boxes: a step above tinted, still muted enough for light text
       mid: ['#4a5486', '#3f6a94', '#7d4a7a', '#8a4552', '#4f7a63', '#8a713f', '#5c6489', '#5f5c92'],
-      onMid: '#f8eaf8',
+      onMid: '#EEEEFA',
       pie: ['#323656', '#2c405f', '#462f4d', '#4b2b3b', '#3d514d', '#594939', '#42445c', '#403e5d'],
       pieExtra: ['#2f4a63', '#4b2d45', '#2b5140', '#2b4460'],
-      flow: '#3c466f',
+      flow: '#7386D0',
       flowOpacity: 0.55
     },
     // Same hues as slate at lightness ~0.45 so they hold contrast on white, tints at 16% over white

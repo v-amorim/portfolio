@@ -72,7 +72,7 @@
   border-radius: var(--spacing-8);
   font-family: var(--md-code-font, monospace);
   font-size: 0.75rem;
-  color: #F8EAF8;
+  color: #EEEEFA;
 }
 
 .swatch-dot {
@@ -179,6 +179,169 @@
 .palette-card[data-copied="true"] .palette-card__value::after {
   content: " copied";
   color: var(--md-default-fg-color--light);
+}
+
+/* Tonal ladder: one rung per surface, with the measured OKLCH step beside it */
+
+.tonal-ladder {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 1.5rem 0;
+}
+
+.tonal-ladder__rung {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.tonal-ladder__hex,
+.tonal-ladder__meta {
+  font-family: var(--md-code-font, monospace);
+  font-size: 0.7rem;
+  color: var(--md-default-fg-color--light);
+  font-variant-numeric: tabular-nums;
+}
+
+.tonal-ladder__meta {
+  text-align: right;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.tonal-ladder__meta b {
+  display: block;
+  font-weight: 500;
+  color: var(--md-default-fg-color);
+}
+
+.tonal-ladder__bar {
+  height: 2.5rem;
+  border-radius: var(--spacing-8);
+  border: 1px solid var(--border);
+}
+
+/* Flagged when the step against the layer below is too small to see */
+.tonal-ladder__rung[data-flat="true"] .tonal-ladder__meta b {
+  color: var(--warning);
+}
+
+/* Contrast badge, printed next to the pair it was measured on */
+
+.cr {
+  display: inline-block;
+  font-family: var(--md-code-font, monospace);
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 3px 6px;
+  border-radius: 4px;
+  vertical-align: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cr[data-level="pass"] {
+  background: color-mix(in oklab, var(--success) 15%, transparent);
+  color: var(--success);
+}
+
+.cr[data-level="large"] {
+  background: color-mix(in oklab, var(--warning) 15%, transparent);
+  color: var(--warning);
+}
+
+.cr[data-level="fail"] {
+  background: color-mix(in oklab, var(--destructive) 18%, transparent);
+  color: var(--tag-ml-fg);
+}
+
+/* Hex cell: in a migration table the value IS the color, so the cell is painted
+   with it and the hex sits on top in whichever tier reads on that background */
+
+.hexcell {
+  display: inline-block;
+  font-family: var(--md-code-font, monospace);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 1px var(--border-strong, rgba(255, 255, 255, 0.15));
+}
+
+.hexcell--none {
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+/* Token chip: a named role, so the swatch leads and the name follows */
+
+.tokenchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--md-code-font, monospace);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.tokenchip::before {
+  content: "";
+  width: 0.95em;
+  height: 0.95em;
+  border-radius: 4px;
+  background: var(--chip);
+  box-shadow: 0 0 0 1px var(--border-strong, rgba(255, 255, 255, 0.15));
+  flex: none;
+}
+
+/* Before/after pair: the v1 value beside the one that replaced it */
+
+.swap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 1.5rem 0;
+}
+
+.swap__side {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--card);
+}
+
+.swap__side[data-side="before"] {
+  border-color: color-mix(in oklab, var(--destructive) 30%, transparent);
+}
+
+.swap__side[data-side="after"] {
+  border-color: color-mix(in oklab, var(--primary) 45%, transparent);
+}
+
+.swap__tag {
+  display: inline-block;
+  font-family: var(--md-code-font, monospace);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.swap__side[data-side="before"] .swap__tag {
+  background: color-mix(in oklab, var(--destructive) 18%, transparent);
+  color: var(--tag-ml-fg);
+}
+
+.swap__side[data-side="after"] .swap__tag {
+  background: color-mix(in oklab, var(--primary) 20%, transparent);
+  color: var(--primary);
 }
 
 /* Stacked elevation mockup: each layer one role, darkest at the back */

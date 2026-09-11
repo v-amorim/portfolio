@@ -13,5 +13,9 @@ serve:
 build:
     uv run mkdocs build --strict
 
+# Re-emit docs/assets/moonlight-tokens.json from the palette page and check every contrast pair.
+tokens:
+    uv run python scripts/extract_tokens.py
+
 deploy:
     uv run mkdocs gh-deploy --force

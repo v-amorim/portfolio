@@ -94,10 +94,10 @@
   --md-code-bg-color: #f3f4f6;
 
   /* Mermaid colors - light colors for dark diagram background */
-  --md-mermaid-label-fg-color: #f8eaf8;
-  --md-mermaid-label-bg-color: #191726;
-  --md-mermaid-node-bg-color: #191726;
-  --md-mermaid-node-fg-color: #f8eaf8;
+  --md-mermaid-label-fg-color: #EEEEFA;
+  --md-mermaid-label-bg-color: #141726;
+  --md-mermaid-node-bg-color: #141726;
+  --md-mermaid-node-fg-color: #EEEEFA;
   --md-mermaid-edge-color: #7386d0;
 
   color-scheme: light;
@@ -106,120 +106,120 @@
 /* Dark mode - MkDocs Material "slate" scheme - Moonlight Theme */
 [data-md-color-scheme="slate"] {
   /* Custom theme variables based on Moonlight VSCode Theme */
-  --card: #191726;
-  --ring: #7386d0;
-  --input: #0c0e17;
-  --muted: #0d0e17;
-  --accent: #272d44;
-  --border: #3c466f;
+  --card: oklch(0.209 0.030 274.8);
+  --ring: oklch(0.637 0.114 271.9);
+  --input: oklch(0.209 0.030 274.8);
+  --muted: oklch(0.167 0.019 279.2);
+  --accent: oklch(0.292 0.044 274.3);
+  --border: oklch(0.720 0.049 274.4 / 0.12);
   --radius: 0.5rem;
-  --chart-1: #7386d0;
-  --chart-2: #5dabf3;
-  --chart-3: #79c0ff;
-  --chart-4: #58a6ff;
-  --chart-5: #acb9e6;
-  --popover: #191726;
-  --primary: #7386d0;
-  --sidebar: #010409;
-  --secondary: #272d44;
-  --background: #0d0e17;
-  --foreground: #f8eaf8;
-  --destructive: #ca5f71;
-  --sidebar-ring: #7386d0;
-  --sidebar-accent: #272d44;
-  --sidebar-border: #3c466f;
-  --card-foreground: #f8eaf8;
-  --sidebar-primary: #7386d0;
-  --muted-foreground: #aea4bf;
-  --accent-foreground: #b8c3e4;
-  --popover-foreground: #f8eaf8;
-  --primary-foreground: #f8eaf8;
-  --sidebar-foreground: #f8eaf8;
-  --secondary-foreground: #b8c3e4;
-  --destructive-foreground: #f8eaf8;
-  --sidebar-accent-foreground: #b8c3e4;
-  --sidebar-primary-foreground: #f8eaf8;
+  --chart-1: oklch(0.637 0.114 271.9);
+  --chart-2: oklch(0.703 0.103 272.9);
+  --chart-3: oklch(0.767 0.085 273.8);
+  --chart-4: oklch(0.833 0.068 272.8);
+  --chart-5: oklch(0.720 0.049 274.4);
+  --popover: oklch(0.209 0.030 274.8);
+  --primary: oklch(0.637 0.114 271.9);
+  --sidebar: oklch(0.167 0.019 279.2);
+  --secondary: oklch(0.292 0.044 274.3);
+  --background: oklch(0.167 0.019 279.2);
+  --foreground: oklch(0.953 0.016 286.1);
+  --destructive: oklch(0.620 0.137 11.4);
+  --sidebar-ring: oklch(0.637 0.114 271.9);
+  --sidebar-accent: oklch(0.292 0.044 274.3);
+  --sidebar-border: oklch(0.720 0.049 274.4 / 0.12);
+  --card-foreground: oklch(0.953 0.016 286.1);
+  --sidebar-primary: oklch(0.637 0.114 271.9);
+  --muted-foreground: oklch(0.720 0.049 274.4);
+  --accent-foreground: oklch(0.953 0.016 286.1);
+  --popover-foreground: oklch(0.953 0.016 286.1);
+  --primary-foreground: oklch(0.167 0.019 279.2);
+  --sidebar-foreground: oklch(0.953 0.016 286.1);
+  --secondary-foreground: oklch(0.953 0.016 286.1);
+  --destructive-foreground: oklch(0.167 0.019 279.2);
+  --sidebar-accent-foreground: oklch(0.953 0.016 286.1);
+  --sidebar-primary-foreground: oklch(0.167 0.019 279.2);
 
   /* Header distinction */
-  --header-background: #191726;
+  --header-background: oklch(0.167 0.019 279.2);
 
   /* Card depth hierarchy - inner cards within card containers */
-  --card-inner: #12131f;
+  --card-inner: oklch(0.249 0.037 274.3);
 
   /* TOC hover color */
-  --toc-hover: #272d44;
+  --toc-hover: oklch(0.292 0.044 274.3);
 
   /* Tag colors: one hue per project area, taken from the Mermaid Moonlight palette */
-  --tag-tools-bg: rgba(115, 134, 208, 0.15);
-  --tag-tools-fg: #99a8e0;
-  --tag-tools-border: #7386d0;
+  --tag-tools-bg: oklch(0.637 0.114 271.9 / 0.16);
+  --tag-tools-fg: oklch(0.703 0.103 272.9);
+  --tag-tools-border: oklch(0.637 0.114 271.9);
 
   --tag-visual-bg: rgba(184, 108, 179, 0.15);
   --tag-visual-fg: #cf95ca;
   --tag-visual-border: #b86cb3;
 
-  --tag-data-eng-bg: rgba(172, 185, 230, 0.15);
-  --tag-data-eng-fg: #acb9e6;
-  --tag-data-eng-border: #acb9e6;
+  --tag-data-eng-bg: oklch(0.833 0.068 272.8 / 0.16);
+  --tag-data-eng-fg: oklch(0.833 0.068 272.8);
+  --tag-data-eng-border: oklch(0.833 0.068 272.8);
 
   --tag-ml-bg: rgba(202, 95, 113, 0.15);
   --tag-ml-fg: #de7f8f;
   --tag-ml-border: #ca5f71;
 
   /* Additional Moonlight colors */
-  --success: #49ef95;
-  --warning: #ffcb6b;
-  --info: #acb9e6;
-  --highlight: #58a6ff;
-  --selection: #5b86c199;
-  --button-bg: #3c466f;
-  --button-hover: #455180;
+  --success: oklch(0.846 0.185 154.9);
+  --warning: oklch(0.869 0.128 81.1);
+  --info: oklch(0.833 0.068 272.8);
+  --highlight: oklch(0.833 0.068 272.8);
+  --selection: oklch(0.637 0.114 271.9 / 0.6);
+  --button-bg: oklch(0.637 0.114 271.9);
+  --button-hover: oklch(0.703 0.103 272.9);
 
   /* Markdown element colors from Moonlight */
-  --markdown-heading: #9cb6ed;
+  --markdown-heading: oklch(0.767 0.085 273.8);
   --markdown-heading-punct: #a5a1e9;
-  --markdown-quote: #acb9e6;
-  --markdown-quote-bg: #010409;
-  --markdown-quote-border: #3c466f;
+  --markdown-quote: oklch(0.833 0.068 272.8);
+  --markdown-quote-bg: oklch(0.209 0.030 274.8);
+  --markdown-quote-border: oklch(0.720 0.049 274.4 / 0.12);
   --markdown-code-inline: #b0b9e5;
   --markdown-code-block: #b0b9e5;
-  --markdown-code-block-bg: #6e768166;
-  --markdown-link: #7386d0;
-  --markdown-link-active: #58a6ff;
+  --markdown-code-block-bg: oklch(0.720 0.049 274.4 / 0.12);
+  --markdown-link: oklch(0.833 0.068 272.8);
+  --markdown-link-active: oklch(0.703 0.103 272.9);
   --markdown-list-bullet: #a5a1e9;
   --markdown-table: #a5a1e9;
 
   /* Override MkDocs Material slate CSS variables */
-  --md-default-fg-color: #f8eaf8;
-  --md-default-fg-color--light: #b8c3e4;
-  --md-default-fg-color--lighter: #aea4bf;
-  --md-default-fg-color--lightest: #3c466f;
-  --md-default-bg-color: #0d0e17;
-  --md-default-bg-color--light: #191726;
-  --md-default-bg-color--lighter: #272d44;
-  --md-default-bg-color--lightest: #3c466f;
+  --md-default-fg-color: oklch(0.953 0.016 286.1);
+  --md-default-fg-color--light: oklch(0.720 0.049 274.4);
+  --md-default-fg-color--lighter: oklch(0.624 0.046 273.3);
+  --md-default-fg-color--lightest: oklch(0.720 0.049 274.4 / 0.12);
+  --md-default-bg-color: oklch(0.167 0.019 279.2);
+  --md-default-bg-color--light: oklch(0.209 0.030 274.8);
+  --md-default-bg-color--lighter: oklch(0.249 0.037 274.3);
+  --md-default-bg-color--lightest: oklch(0.292 0.044 274.3);
 
-  --md-primary-fg-color: #7386d0;
-  --md-primary-fg-color--light: #acb9e6;
-  --md-primary-fg-color--dark: #5dabf3;
+  --md-primary-fg-color: oklch(0.637 0.114 271.9);
+  --md-primary-fg-color--light: oklch(0.767 0.085 273.8);
+  --md-primary-fg-color--dark: oklch(0.703 0.103 272.9);
 
-  --md-accent-fg-color: #7386d0;
-  --md-accent-fg-color--transparent: rgba(40, 46, 70, 0.1);
+  --md-accent-fg-color: oklch(0.637 0.114 271.9);
+  --md-accent-fg-color--transparent: oklch(0.292 0.044 274.3 / 0.1);
 
-  --md-typeset-color: #f8eaf8;
-  --md-typeset-a-color: #7386d0;
+  --md-typeset-color: oklch(0.953 0.016 286.1);
+  --md-typeset-a-color: oklch(0.833 0.068 272.8);
 
-  --md-code-fg-color: #f8eaf8;
-  --md-code-bg-color: #191726;
+  --md-code-fg-color: oklch(0.953 0.016 286.1);
+  --md-code-bg-color: oklch(0.209 0.030 274.8);
 
-  /* Syntax highlight tokens, matching the Moonlight Aurora VSCode variant */
+  /* Syntax highlight tokens, matching the Moonlight VSCode theme */
   --md-code-hl-keyword-color: #7386d0;
   --md-code-hl-string-color: #a5cfff;
   --md-code-hl-number-color: #b0c8ff;
   --md-code-hl-operator-color: #7386d0;
   --md-code-hl-punctuation-color: #a5a1e9;
-  --md-code-hl-comment-color: #aea4bf;
-  --md-code-hl-name-color: #f8eaf8;
+  --md-code-hl-comment-color: oklch(0.720 0.049 274.4);
+  --md-code-hl-name-color: oklch(0.953 0.016 286.1);
   --md-code-hl-function-color: #b0b9e5;
   --md-code-hl-constant-color: #d8a8f0;
   --md-code-hl-special-color: #c9a0ee;
@@ -227,11 +227,11 @@
   --md-code-hl-generic-color: #b8c3e4;
 
   /* Mermaid colors - light colors for dark diagram background */
-  --md-mermaid-label-fg-color: #f8eaf8;
-  --md-mermaid-label-bg-color: #191726;
-  --md-mermaid-node-bg-color: #191726;
-  --md-mermaid-node-fg-color: #f8eaf8;
-  --md-mermaid-edge-color: #7386d0;
+  --md-mermaid-label-fg-color: oklch(0.953 0.016 286.1);
+  --md-mermaid-label-bg-color: oklch(0.209 0.030 274.8);
+  --md-mermaid-node-bg-color: oklch(0.209 0.030 274.8);
+  --md-mermaid-node-fg-color: oklch(0.953 0.016 286.1);
+  --md-mermaid-edge-color: oklch(0.637 0.114 271.9);
 
   color-scheme: dark;
 }
@@ -679,16 +679,16 @@ input {
 }
 
 [data-md-color-scheme="slate"] .mermaid {
-  border-color: #30363d;
-  --mermaid-bg-color: #0d0e17;
-  --mermaid-node-bg-color: #191726;
-  --mermaid-node-fg-color: #f8eaf8;
+  border-color: #252A42;
+  --mermaid-bg-color: #0D0E17;
+  --mermaid-node-bg-color: #141726;
+  --mermaid-node-fg-color: #EEEEFA;
   --mermaid-edge-color: #7386d0;
-  --mermaid-border-color: #30363d;
+  --mermaid-border-color: #252A42;
   --mermaid-primary-color: #7386d0;
-  --mermaid-secondary-color: #5dabf3;
-  --mermaid-tertiary-color: #79c0ff;
-  --mermaid-note-bg-color: #272d44;
+  --mermaid-secondary-color: #8A9BE0;
+  --mermaid-tertiary-color: #A2B0EA;
+  --mermaid-note-bg-color: #252A42;
   --mermaid-note-border-color: #7386d0;
 }
 
@@ -739,15 +739,15 @@ input {
 
 [data-md-color-scheme="slate"] .md-typeset .md-button--primary {
   background-color: #7386d0;
-  color: #0d0e17;
+  color: #0D0E17;
   border: 1px solid #7386d0;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover,
 [data-md-color-scheme="slate"] .md-typeset .md-button--primary:focus {
-  background-color: #5a6cb8;
-  color: #0d0e17;
-  border-color: #5a6cb8;
+  background-color: #8A9BE0;
+  color: #0D0E17;
+  border-color: #8A9BE0;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary) {
@@ -757,7 +757,7 @@ input {
 
 [data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary):hover {
   border-color: #7386d0;
-  color: #f8eaf8;
+  color: #EEEEFA;
   background-color: rgba(115, 134, 208, 0.1);
 }
 
@@ -840,9 +840,9 @@ input {
 }
 
 [data-md-color-scheme="slate"] .project-external-link {
-  color: #58a6ff;
+  color: #B9C6F5;
 }
 
 [data-md-color-scheme="slate"] .project-external-link:hover {
-  color: #79c0ff;
+  color: #A2B0EA;
 }
