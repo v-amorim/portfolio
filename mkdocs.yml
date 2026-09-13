@@ -45,16 +45,15 @@ theme:
     repo: fontawesome/brands/github
   favicon: assets/images/branding/favicon.png
   palette:
-    # Palette toggle for light mode
-    - scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: Mudar para modo escuro
-    # Palette toggle for dark mode
+    # First entry is the default scheme
     - scheme: slate
       toggle:
         icon: material/brightness-4
         name: Mudar para modo claro
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
   features:
     - content.code.copy
     - navigation.indexes # Implied section 'index.md' files
@@ -109,14 +108,14 @@ plugins:
           theme:
             language: en
             palette:
-              - scheme: default
-                toggle:
-                  icon: material/brightness-7
-                  name: Switch to dark mode
               - scheme: slate
                 toggle:
                   icon: material/brightness-4
                   name: Switch to light mode
+              - scheme: default
+                toggle:
+                  icon: material/brightness-7
+                  name: Switch to dark mode
           nav_translations:
             Início: Home
             Projetos: Projects
