@@ -6,7 +6,7 @@ title: The Moonlight palette, the full guide
 
 <small>September 10, 2026 · Design, Documentation</small>
 
-Moonlight runs on my [prompt](https://github.com/v-amorim/moonlight-oh-my-posh), my [editor](https://github.com/v-amorim/moonlight-vscode-theme), mpv, Windows Terminal, PowerShell, bash, the YASB status bar, three Windhawk stylers, a TachiyomiJ2K fork, and this site's [diagrams](mermaid-examples.md). Ten ports, one palette.
+Moonlight runs on my [prompt](https://github.com/v-amorim/moonlight-oh-my-posh), my [editor](https://github.com/v-amorim/moonlight-vscode-theme), mpv, Windows Terminal, PowerShell, bash, the YASB status bar, three Windhawk stylers, a TachiyomiJ2K fork, [Sunshine](https://github.com/v-amorim/academia), the gym app, and this site's [diagrams](mermaid-examples.md). Eleven ports, one palette.
 
 ## Source of truth
 
@@ -293,6 +293,25 @@ The chrome rule lands on one line in `themes.xml`: `colorSurface` points at `moo
 | `moonlight_secondary` | <span class="hexcell" style="background:#7386D0;color:#0D0E17">#7386D0</span> |
 | `moonlight_secondary_variant` | <span class="hexcell" style="background:#252A42;color:#EEEEFA">#252A42</span> |
 | `moonlight_tab_bar_icon_inactive` | <span class="hexcell" style="background:#7E86A4;color:#0D0E17">#7E86A4</span> |
+
+### Sunshine
+
+The gym app names its primitives by color and its semantic tokens by job, and only the semantic layer reaches a component. Three surfaces, not four: cards sit on `surface-1`, the counter and photo on `surface-3`, and nothing needs the step between. Green does not exist in the app, and blue means one thing only, interactive.
+
+| Token | Value | Role |
+|---|---|---|
+| `--background` | <span class="hexcell" style="background:#0D0E17;color:#EEEEFA">#0D0E17</span> | `bg` |
+| `--surface` | <span class="hexcell" style="background:#141726;color:#EEEEFA">#141726</span> | `surface-1` |
+| `--surface-raised` | <span class="hexcell" style="background:#252A42;color:#EEEEFA">#252A42</span> | `surface-3` |
+| `--text` | <span class="hexcell" style="background:#EEEEFA;color:#0D0E17">#EEEEFA</span> | `on-surface` |
+| `--text-secondary` | <span class="hexcell" style="background:#9BA3C4;color:#0D0E17">#9BA3C4</span> | `on-surface-muted` |
+| `--text-unit` | <span class="hexcell" style="background:#B9C6F5;color:#0D0E17">#B9C6F5</span> | `secondary` |
+| `--accent`, `--focus` | <span class="hexcell" style="background:#8A9BE0;color:#0D0E17">#8A9BE0</span> | `primary-60` |
+| `--done`, `--gain` | <span class="hexcell" style="background:#B0B9E5;color:#0D0E17">#B0B9E5</span> | Functions and types |
+| `--alert` | <span class="hexcell" style="background:#FFCB6B;color:#0D0E17">#FFCB6B</span> | `warning` |
+| `--drop` | <span class="hexcell" style="background:#FFAFAF;color:#0D0E17">#FFAFAF</span> | Parameters |
+
+Two swaps came out of measuring on the surface that actually renders the text. `error` fails AA over the counter fill at 3.6:1, so a dropped load takes the light warm tone from the syntax family instead. The unit word beside a number, "rep", "kg", "min", takes `secondary`, the only tier between light and muted that clears 4.5:1 there.
 
 ## Syntax
 
