@@ -39,6 +39,7 @@ work:
     url: "https://github.com/v-amorim/python_sample_repository"
 
   - title: "Sunshine: Contador de Séries para Musculação"
+    featured: true
     categories: ["ferramentas", "pwa", "javascript"]
     area: "ferramentas"
     description: "PWA offline, sem build. Um toque marca a série, deslizar troca de treino. Histórico com progressão e sync entre aparelhos. Stack: JavaScript • IndexedDB • Firestore • Service Worker"
@@ -60,6 +61,7 @@ work:
     url: "https://github.com/v-amorim/oh-my-posh"
 
   - title: "Moonlight: Tema VSCode"
+    featured: true
     categories: ["visual", "ferramentas"]
     area: "visual"
     description: "Tema escuro calibrado para longas sessões de código. Paleta otimizada para Python, JavaScript, SQL e mais de 10 linguagens. Stack: Tema VSCode • Design de paleta"

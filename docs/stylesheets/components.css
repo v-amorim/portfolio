@@ -21,7 +21,9 @@
 .python,
 .shell,
 .documentação,
-.template {
+.template,
+.pwa,
+.javascript {
   background: var(--tag-tools-bg);
   color: var(--tag-tools-fg);
   border-color: var(--tag-tools-border);

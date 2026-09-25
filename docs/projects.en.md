@@ -39,6 +39,7 @@ work:
     url: "https://github.com/v-amorim/python_sample_repository"
 
   - title: "Sunshine: Set Counter for Gym Workouts"
+    featured: true
     categories: ["ferramentas", "pwa", "javascript"]
     area: "ferramentas"
     description: "Offline PWA, no build step. Tap to tick a set, swipe to the next workout. History with progression and cross-device sync. Stack: JavaScript • IndexedDB • Firestore • Service Worker"
@@ -60,6 +61,7 @@ work:
     url: "https://github.com/v-amorim/oh-my-posh"
 
   - title: "Moonlight: VSCode Theme"
+    featured: true
     categories: ["visual", "ferramentas"]
     area: "visual"
     description: "Dark theme tuned for long coding sessions. Palette optimized for Python, JavaScript, SQL and more than 10 other languages. Stack: VSCode theme • Palette design"

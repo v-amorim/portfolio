@@ -1,5 +1,6 @@
 /* ===================================================================
-   Home Reveal - staggered scroll reveal and number count-up
+   Scroll Reveal - staggered reveal and number count-up for the home
+   page and the projects grid
    Classes are added by JS only, so without JS (or with reduced motion)
    everything stays visible.
    =================================================================== */
@@ -21,13 +22,17 @@
 
   function initReveal() {
     const home = document.querySelector(".home-container");
-    if (!home || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const projects = document.querySelector(".projects-grid");
+    if ((!home && !projects) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const groups = [
-      home.querySelectorAll(".tx-hero__content > *"),
-      ...[...home.querySelectorAll(".card-grid, .bento, .principles, .stat-strip, .post-grid, .stack-groups, #career-timeline")].map((g) => g.children),
-      ...[...home.querySelectorAll(":scope > h2, :scope > p:not(.newLine), :scope > ul, :scope > blockquote, .timeline-toggle-wrap")].map((el) => [el]),
-    ];
+    const groups = home
+      ? [
+          home.querySelectorAll(".tx-hero__content > *"),
+          ...[...home.querySelectorAll(".card-grid, .bento, .principles, .stat-strip, .post-grid, .stack-groups, #career-timeline")].map((g) => g.children),
+          ...[...home.querySelectorAll(":scope > h2, :scope > p:not(.newLine), :scope > ul, :scope > blockquote, .timeline-toggle-wrap")].map((el) => [el]),
+        ]
+      : [];
+    if (projects) groups.push(projects.children);
 
     const observer = new IntersectionObserver(
       (entries) => {

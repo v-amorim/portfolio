@@ -18,9 +18,11 @@
     "shell": "Shell",
     "documentação": "Documentation",
     "computer-vision": "Computer Vision",
-    "template": "Template"
+    "template": "Template",
+    "pwa": "PWA",
+    "javascript": "JavaScript"
   } %}
-  {% set t = { "view": "View project", "all": "All", "filter": "Filter projects by area", "images": "images", "image": "image", "open": "Open screenshots" } %}
+  {% set t = { "view": "View project", "all": "All", "filter": "Filter projects by area", "images": "images", "image": "image", "open": "Open screenshots", "featured": "Featured", "intro": "Personal and study projects: data pipelines, machine learning, the tools I use every day and the Moonlight theme.", "showing": "Showing", "of": "of", "projects": "projects" } %}
   {% set areas = [("dados", "Data"), ("ml", "Machine Learning"), ("ferramentas", "Tools"), ("visual", "Visual")] %}
 {% else %}
   {% set category_labels = {
@@ -37,9 +39,11 @@
     "shell": "Shell",
     "documentação": "Documentação",
     "computer-vision": "Visão Computacional",
-    "template": "Template"
+    "template": "Template",
+    "pwa": "PWA",
+    "javascript": "JavaScript"
   } %}
-  {% set t = { "view": "Ver projeto", "all": "Todos", "filter": "Filtrar projetos por área", "images": "imagens", "image": "imagem", "open": "Abrir capturas de tela" } %}
+  {% set t = { "view": "Ver projeto", "all": "Todos", "filter": "Filtrar projetos por área", "images": "imagens", "image": "imagem", "open": "Abrir capturas de tela", "featured": "Destaque", "intro": "Projetos pessoais e de estudo: pipelines de dados, machine learning, as ferramentas que uso todo dia e o tema Moonlight.", "showing": "Mostrando", "of": "de", "projects": "projetos" } %}
   {% set areas = [("dados", "Dados"), ("ml", "Machine Learning"), ("ferramentas", "Ferramentas"), ("visual", "Visual")] %}
 {% endif %}
 
@@ -50,7 +54,79 @@
   "visual": ".icons/material/palette-outline.svg"
 } %}
 
+{% macro project_card(work, gid, featured) %}
+{% set title_parts = work.title.split(":", 1) %}
+{% set desc_parts = (work.description or "").split("Stack:", 1) %}
+<article class="project-card{% if featured %} project-card--featured{% endif %}" data-area="{{ work.area }}" style="view-transition-name: {{ gid }}">
+
+  {% if work.images %}
+  <a href="{{ work.images[0] }}" class="glightbox project-media" data-gallery="{{ gid }}" data-title="{{ work.title }}" aria-label="{{ t.open }}">
+    <img src="{{ work.images[0] }}" alt="" loading="lazy">
+  </a>
+  {% for image in work.images[1:] %}
+  <a href="{{ image }}" class="glightbox project-thumb--hidden" data-gallery="{{ gid }}" data-title="{{ work.title }}" tabindex="-1" aria-hidden="true"></a>
+  {% endfor %}
+  {% else %}
+  {# No screenshot: a typographic cover built from the area and the stack #}
+  <div class="project-media project-media--cover project-media--{{ work.area }}" aria-hidden="true">
+    <span class="project-media__icon">{% include area_icons[work.area] %}</span>
+    {% if desc_parts | length > 1 %}
+    <span class="project-media__code">{% for item in desc_parts[1].split("•") %}<span>{{ item | trim }}</span>{% endfor %}</span>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="project-head">
+    <span class="project-area project-area--{{ work.area }}" aria-hidden="true">
+      {% include area_icons[work.area] %}
+    </span>
+    <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer" class="project-link">
+      <h3 class="projectTitle">
+        {{ title_parts[0] | trim }}
+        {% if title_parts | length > 1 %}<span class="project-subtitle">{{ title_parts[1] | trim }}</span>{% endif %}
+      </h3>
+    </a>
+    {% if featured %}<span class="project-badge">{{ t.featured }}</span>{% endif %}
+  </div>
+
+  <div class="project-tags">
+    {% for category in work.categories %}
+    <span class="tag {{ category }}">{{ category_labels[category] | default(category | replace('-', ' ') | title) }}</span>
+    {% endfor %}
+  </div>
+
+  {% if desc_parts[0] | trim %}
+  <p class="project-description">{{ desc_parts[0] | trim }}</p>
+  {% endif %}
+
+  {# Without a screenshot the cover already lists the stack #}
+  {% if desc_parts | length > 1 and work.images %}
+  <ul class="project-stack">
+    {% for item in desc_parts[1].split("•") %}
+    <li>{{ item | trim }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <div class="project-foot">
+    <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer" class="project-external-link">
+      <span>{{ t.view }}</span>
+      {% include ".icons/material/open-in-new.svg" %}
+    </a>
+    {% if work.images %}
+    <span class="project-images">
+      {% include ".icons/material/image-multiple-outline.svg" %}
+      {{ work.images | length }} {{ t.images if work.images | length > 1 else t.image }}
+    </span>
+    {% endif %}
+  </div>
+
+</article>
+{% endmacro %}
+
 <h1>{{ page.title }}</h1>
+
+<p class="projects-intro">{{ t.intro }}</p>
 
 <div class="projects-filter" role="group" aria-label="{{ t.filter }}">
   <button type="button" class="projects-filter__btn" data-filter="all" aria-pressed="true">
@@ -67,65 +143,14 @@
   {% endfor %}
 </div>
 
+<p class="projects-count" aria-live="polite" data-showing="{{ t.showing }}" data-of="{{ t.of }}" data-projects="{{ t.projects }}"></p>
+
 <div class="projects-grid">
-  {% for work in page.meta.work %}
-  {% set title_parts = work.title.split(":", 1) %}
-  {% set desc_parts = (work.description or "").split("Stack:", 1) %}
-  {% set gallery = "project-" ~ loop.index0 %}
-  <article class="project-card" data-area="{{ work.area }}">
-
-    <div class="project-head">
-      <span class="project-area project-area--{{ work.area }}" aria-hidden="true">
-        {% include area_icons[work.area] %}
-      </span>
-      <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer" class="project-link">
-        <h3 class="projectTitle">
-          {{ title_parts[0] | trim }}
-          {% if title_parts | length > 1 %}<span class="project-subtitle">{{ title_parts[1] | trim }}</span>{% endif %}
-        </h3>
-      </a>
-      {% if work.images %}
-      <a href="{{ work.images[0] }}" class="glightbox project-thumb" data-gallery="{{ gallery }}" data-title="{{ work.title }}" aria-label="{{ t.open }}">
-        <img src="{{ work.images[0] }}" alt="" loading="lazy">
-      </a>
-      {% for image in work.images[1:] %}
-      <a href="{{ image }}" class="glightbox project-thumb project-thumb--hidden" data-gallery="{{ gallery }}" data-title="{{ work.title }}" tabindex="-1" aria-hidden="true"></a>
-      {% endfor %}
-      {% endif %}
-    </div>
-
-    <div class="project-tags">
-      {% for category in work.categories %}
-      <span class="tag {{ category }}">{{ category_labels[category] | default(category | replace('-', ' ') | title) }}</span>
-      {% endfor %}
-    </div>
-
-    {% if desc_parts[0] | trim %}
-    <p class="project-description">{{ desc_parts[0] | trim }}</p>
-    {% endif %}
-
-    {% if desc_parts | length > 1 %}
-    <ul class="project-stack">
-      {% for item in desc_parts[1].split("•") %}
-      <li>{{ item | trim }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-
-    <div class="project-foot">
-      <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer" class="project-external-link">
-        <span>{{ t.view }}</span>
-        {% include ".icons/material/open-in-new.svg" %}
-      </a>
-      {% if work.images %}
-      <span class="project-images">
-        {% include ".icons/material/image-multiple-outline.svg" %}
-        {{ work.images | length }} {{ t.images if work.images | length > 1 else t.image }}
-      </span>
-      {% endif %}
-    </div>
-
-  </article>
+  {% for work in page.meta.work | selectattr("featured") %}
+  {{ project_card(work, "featured-" ~ loop.index0, true) }}
+  {% endfor %}
+  {% for work in page.meta.work | rejectattr("featured") %}
+  {{ project_card(work, "project-" ~ loop.index0, false) }}
   {% endfor %}
 </div>
 
