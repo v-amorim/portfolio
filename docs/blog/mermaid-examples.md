@@ -1,10 +1,11 @@
 ---
 title: Every Mermaid diagram in the Moonlight theme
+template: blog-post.html
+date: 2026-09-04
+topics:
+  - [Tools, ferramentas]
+  - [Documentation, documentação]
 ---
-
-# Every Mermaid diagram in the Moonlight theme
-
-<small>September 4, 2026 · Tools, Documentation</small>
 
 This page is a reference gallery: the 28 diagram types Mermaid 11 renders, some in more than one orientation or notation, all in this site's theme. The theme is [Moonlight](../projects.md#visual), the same palette as my VSCode and Oh My Posh themes, translated to Mermaid in a dark and a light variant. Switch the color scheme at the top of the page and every diagram re-renders on the spot.
 

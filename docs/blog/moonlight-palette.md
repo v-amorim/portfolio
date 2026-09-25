@@ -1,10 +1,11 @@
 ---
 title: The Moonlight palette, the full guide
+template: blog-post.html
+date: 2026-09-10
+topics:
+  - [Design, visual]
+  - [Documentation, documentação]
 ---
-
-# The Moonlight palette, the full guide
-
-<small>September 10, 2026 · Design, Documentation</small>
 
 Moonlight runs on my [prompt](https://github.com/v-amorim/moonlight-oh-my-posh), my [editor](https://github.com/v-amorim/moonlight-vscode-theme), mpv, Windows Terminal, PowerShell, bash, the YASB status bar, three Windhawk stylers, a TachiyomiJ2K fork, [Sunshine](https://github.com/v-amorim/academia), the gym app, and this site's [diagrams](mermaid-examples.md). Eleven ports, one palette.
 

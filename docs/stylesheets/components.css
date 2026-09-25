@@ -909,10 +909,148 @@
    Blog index: post cards
    =================================================================== */
 
+/* The newest post spans the row; the rest pair up below it */
 .md-typeset .post-list {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--spacing-4);
   margin: var(--spacing-6) 0;
+}
+
+.md-typeset .post-card--featured {
+  grid-column: 1 / -1;
+}
+
+@media screen and (max-width: 52rem) {
+  .md-typeset .post-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.md-typeset .post-card {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.md-typeset .post-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    22rem circle at var(--spot-x, 50%) var(--spot-y, 0%),
+    color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.md-typeset .post-card:hover::before {
+  opacity: 1;
+}
+
+.md-typeset .post-card__read {
+  margin-inline-end: var(--spacing-2);
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.7rem;
+}
+
+/* Covers: each post shows its own motif, bleeding to the card edges */
+.post-cover {
+  display: flex;
+  height: 8rem;
+  margin: calc(-1 * var(--spacing-5)) calc(-1 * var(--spacing-6)) var(--spacing-1);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: var(--md-default-bg-color);
+}
+
+.post-card--featured .post-cover {
+  height: 11rem;
+}
+
+/* The strip separates into chips on hover (the title link overlays the card, so hover is card-level) */
+.post-cover--palette {
+  gap: 0;
+  padding: 0;
+  transition: gap 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-cover--palette span {
+  flex: 1;
+  border-radius: 0;
+  transition: border-radius 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-card:hover .post-cover--palette {
+  gap: 6px;
+  padding: 12px;
+}
+
+.post-card:hover .post-cover--palette span {
+  border-radius: 8px;
+}
+
+.post-cover--diagram {
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(color-mix(in srgb, var(--md-primary-fg-color) 7%, transparent) 1px, transparent 1px) 0 0 / 1.25rem 1.25rem,
+    linear-gradient(90deg, color-mix(in srgb, var(--md-primary-fg-color) 7%, transparent) 1px, transparent 1px) 0 0 / 1.25rem 1.25rem,
+    var(--md-default-bg-color);
+}
+
+.post-cover--diagram svg {
+  width: min(80%, 20rem);
+  transition: scale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-card:hover .post-cover--diagram svg {
+  scale: 1.06;
+}
+
+.post-cover--diagram .edge {
+  fill: none;
+  stroke: var(--muted-foreground);
+  stroke-width: 1.5;
+}
+
+.post-cover--diagram .node {
+  fill: var(--card);
+  stroke: var(--md-primary-fg-color);
+  stroke-width: 1.5;
+}
+
+.post-cover--diagram .node--accent {
+  fill: var(--md-primary-fg-color);
+}
+
+.post-cover--terminal {
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0 var(--spacing-6);
+}
+
+.md-typeset .post-cover--terminal code:not(.highlight code) {
+  padding: 0;
+  background: none;
+  font-size: 0.72rem;
+  color: var(--foreground);
+}
+
+.md-typeset .post-cover--terminal code.t-dim:not(.highlight code) {
+  color: var(--muted-foreground);
+}
+
+.post-cover--terminal .t-prompt {
+  color: var(--md-primary-fg-color);
+}
+
+.post-cover--terminal .t-ok {
+  color: var(--success);
 }
 
 .md-typeset .post-card {
@@ -1276,4 +1414,146 @@
 .mermaid-zoom__canvas svg {
   display: block;
   background: transparent;
+}
+
+/* ===================================================================
+   Blog post page (templates/blog-post.html)
+   =================================================================== */
+
+/* Reading progress, driven by the page scroll itself; hidden where unsupported */
+.post-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10;
+  height: 3px;
+  background: var(--md-primary-fg-color);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: post-progress linear both;
+  animation-timeline: scroll(root);
+}
+
+@keyframes post-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports not (animation-timeline: scroll()) {
+  .post-progress {
+    display: none;
+  }
+}
+
+.md-typeset .post-header {
+  margin-bottom: var(--spacing-6);
+  padding-bottom: var(--spacing-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.md-typeset .post-back {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--muted-foreground);
+}
+
+.md-typeset .post-back:hover {
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .post-title {
+  margin: var(--spacing-3) 0 var(--spacing-4);
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset .post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.md-typeset .post-meta time,
+.md-typeset .post-meta__read {
+  margin-inline-end: var(--spacing-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset .post-meta__read {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.7rem;
+}
+
+/* The opening paragraph reads as a lead */
+.md-typeset .post-body > p:first-child {
+  font-size: 1.1em;
+  line-height: 1.65;
+  color: var(--foreground);
+}
+
+.md-typeset .post-pager {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-8);
+  padding-top: var(--spacing-6);
+  border-top: 1px solid var(--border);
+}
+
+.md-typeset .post-pager__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1_5);
+  padding: var(--spacing-4) var(--spacing-5);
+  border: 1px solid var(--border);
+  border-radius: var(--spacing-3);
+  corner-shape: squircle;
+  background: var(--card);
+  color: var(--foreground);
+  transition: border-color 0.2s ease-out, translate 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.md-typeset .post-pager__link:hover {
+  border-color: var(--md-primary-fg-color);
+  translate: 0 -2px;
+}
+
+.md-typeset .post-pager__link--next {
+  grid-column: 2;
+  text-align: right;
+}
+
+.post-pager__dir {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--muted-foreground);
+}
+
+.md-typeset .post-pager__link strong {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .post-pager__back {
+  margin-top: var(--spacing-4);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 40rem) {
+  .md-typeset .post-pager {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .md-typeset .post-pager__link--next {
+    grid-column: 1;
+  }
 }

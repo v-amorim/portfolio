@@ -1,6 +1,6 @@
 /* ===================================================================
    Scroll Reveal - staggered reveal and number count-up for the home
-   page and the projects grid
+   page, the projects grid and the blog index
    Classes are added by JS only, so without JS (or with reduced motion)
    everything stays visible.
    =================================================================== */
@@ -20,10 +20,22 @@
     requestAnimationFrame(step);
   }
 
+  // Spotlight: project and post cards glow under the pointer (CSS reads --spot-x/--spot-y)
+  function initSpotlight() {
+    document.querySelectorAll(".project-card, .post-card").forEach((card) => {
+      card.addEventListener("pointermove", (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--spot-x", `${e.clientX - r.left}px`);
+        card.style.setProperty("--spot-y", `${e.clientY - r.top}px`);
+      });
+    });
+  }
+
   function initReveal() {
+    initSpotlight();
     const home = document.querySelector(".home-container");
-    const projects = document.querySelector(".projects-grid");
-    if ((!home && !projects) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const cardGrid = document.querySelector(".projects-grid, .post-list");
+    if ((!home && !cardGrid) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const groups = home
       ? [
@@ -32,7 +44,7 @@
           ...[...home.querySelectorAll(":scope > h2, :scope > p:not(.newLine), :scope > ul, :scope > blockquote, .timeline-toggle-wrap")].map((el) => [el]),
         ]
       : [];
-    if (projects) groups.push(projects.children);
+    if (cardGrid) groups.push(cardGrid.children);
 
     const observer = new IntersectionObserver(
       (entries) => {

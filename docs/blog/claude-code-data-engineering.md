@@ -1,10 +1,12 @@
 ---
 title: Claude Code for data engineering
+template: blog-post.html
+date: 2026-04-21
+topics:
+  - [Data Engineering, engenharia-de-dados]
+  - [AI Tooling, ferramentas]
+  - [Productivity, ferramentas]
 ---
-
-# Claude Code for data engineering
-
-<small>April 21, 2026 · Data Engineering, AI Tooling, Productivity</small>
 
 I spend the whole day on pipelines, transformations and infrastructure, and Claude Code has become a fixed part of that flow. It does not write the pipeline for me, but it clears the boilerplate out of the way and lets me focus on the decisions that matter. Here is how I use it day to day.
 

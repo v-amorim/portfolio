@@ -39,15 +39,6 @@
     // Deep link: /projects/#ml opens with that filter active
     const fromHash = location.hash.slice(1);
     apply([...buttons].some(b => b.dataset.filter === fromHash) ? fromHash : 'all');
-
-    // Spotlight follows the pointer across each card
-    cards.forEach(card => {
-      card.addEventListener('pointermove', e => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--spot-x', `${e.clientX - r.left}px`);
-        card.style.setProperty('--spot-y', `${e.clientY - r.top}px`);
-      });
-    });
   }
 
   initFilter();

@@ -1,0 +1,51 @@
+{% extends "main.html" %}
+
+{# Blog posts: header with date, reading time and topics, a reading progress
+   bar, and previous/next posts at the end. The title carries the same
+   view-transition-name as its card on the blog index, so it morphs across pages. #}
+
+{% macro is_post(p) -%}
+{{ p and p.url and "blog/" in p.url and not p.url.endswith("blog/") }}
+{%- endmacro %}
+
+{% block content %}
+{% set slug = page.file.name %}
+{% set minutes = ((page.content | striptags | wordcount) / 220) | round(0, "ceil") | int %}
+{% set date = page.meta.date %}
+
+<div class="post-progress" aria-hidden="true"></div>
+
+<header class="post-header">
+  <a class="post-back" href="../">← Blog</a>
+  <h1 class="post-title" style="view-transition-name: post-{{ slug }}">{{ page.title }}</h1>
+  <div class="post-meta">
+    {% if date %}<time datetime="{{ date }}">{{ date.strftime("%B") }} {{ date.day }}, {{ date.year }}</time>{% endif %}
+    <span class="post-meta__read">{{ [minutes, 1] | max }} min read</span>
+    {% for label, css in page.meta.topics or [] %}
+    <span class="tag {{ css }}">{{ label }}</span>
+    {% endfor %}
+  </div>
+</header>
+
+<div class="post-body">
+{{ page.content }}
+</div>
+
+{% set prev = page.previous_page if is_post(page.previous_page) == "True" else none %}
+{% set next = page.next_page if is_post(page.next_page) == "True" else none %}
+<nav class="post-pager" aria-label="More posts">
+  {% if prev %}
+  <a class="post-pager__link post-pager__link--prev" href="{{ prev.url | url }}">
+    <span class="post-pager__dir">← Previous</span>
+    <strong>{{ prev.title }}</strong>
+  </a>
+  {% endif %}
+  {% if next %}
+  <a class="post-pager__link post-pager__link--next" href="{{ next.url | url }}">
+    <span class="post-pager__dir">Next →</span>
+    <strong>{{ next.title }}</strong>
+  </a>
+  {% endif %}
+</nav>
+<p class="post-pager__back"><a href="../">Back to all posts</a></p>
+{% endblock %}
