@@ -44,6 +44,69 @@
     0 0 0 1px oklch(1 0 0 / 0.1);
 }
 
+/* Hero reel: the canvas holds its end card after playing, so the stage never goes blank */
+.hero-reel-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  border-radius: 20px;
+  corner-shape: squircle;
+  overflow: hidden;
+  background: #0D0E17;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    0 0 0 1px #9BA3C41F;
+}
+
+.hero-reel-stage:empty {
+  display: none;
+}
+
+.hero-reel {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-reel__replay {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #FFFFFF26;
+  color: #EEEEFA;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.hero-reel__replay:hover {
+  transform: scale(1.08);
+}
+
+.hero-reel__replay svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.hero-reel-stage.is-playing .hero-reel__replay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 30rem) {
+  .hero-reel-stage {
+    aspect-ratio: 1;
+  }
+}
+
 .tx-hero__content {
   padding-bottom: 1rem;
   margin: 0 auto;
@@ -124,6 +187,82 @@
 
 .md-button--primary[title] {
   position: relative;
+}
+
+/* ===================================================================
+   Section Headers - mono index over a heavy title, same voice as the reel
+   =================================================================== */
+
+.home-container {
+  counter-reset: home-section;
+}
+
+.home-container > h2 {
+  counter-increment: home-section;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 3.5rem 0 1.25rem;
+}
+
+.home-container > h2::before {
+  content: counter(home-section, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.35rem;
+  font: 600 0.65rem/1.4 var(--md-code-font-family, monospace);
+  letter-spacing: 0.14em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ===================================================================
+   Scroll Reveal (classes added by reveal.js)
+   =================================================================== */
+
+.reveal {
+  --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s var(--reveal-ease),
+    transform 0.7s var(--reveal-ease),
+    border-color 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+  transition-delay: calc(var(--reveal-i, 0) * 60ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.card.reveal.is-visible:hover {
+  transform: translateY(-3px);
+}
+
+/* Hero cards take the accent of the reel scene they describe */
+.newLine + .card-grid .card {
+  position: relative;
+  overflow: hidden;
+}
+
+.newLine + .card-grid .card:nth-child(1) { --scene: #DBB060; }
+.newLine + .card-grid .card:nth-child(2) { --scene: #79C0FF; }
+.newLine + .card-grid .card:nth-child(3) { --scene: #8A9BE0; }
+.newLine + .card-grid .card:nth-child(4) { --scene: #A2B0EA; }
+
+.newLine + .card-grid .card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--scene);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.newLine + .card-grid .card:hover::before {
+  transform: scaleX(1);
 }
 
 /* ===================================================================
@@ -286,10 +425,8 @@
 
 @media screen and (min-width: 60rem) {
   .tx-hero {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
+    gap: 2.5rem;
+    align-items: stretch;
   }
 
   .tx-hero__image {
@@ -301,17 +438,39 @@
     height: 210px;
   }
 
+  /* Text on the left, the three buttons stacked on the right, both under the reel */
   .tx-hero__content {
-    order: 2;
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 3rem;
     text-align: left;
     color: var(--md-default-fg-color);
     margin: 0;
-    padding-left: 0;
+    padding: 0 0.5rem;
+  }
+
+  .tx-hero__content > * {
+    grid-column: 1;
   }
 
   .tx-hero__content p {
     margin: 0 0 1rem 0;
+    max-width: 36rem;
+  }
+
+  .tx-hero__content > p:last-child {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+  }
+
+  .tx-hero__content > p:last-child .md-button {
+    margin: 0;
+    text-align: center;
   }
 
   .card-grid {

@@ -9,9 +9,7 @@ hide:
 
 <div class="tx-hero" markdown>
 
-<div class="tx-hero__image">
-  <img src="assets/images/profile_picture.jpg" alt="Vinicius C. Amorim" class="profile-picture" data-glightbox="false">
-</div>
+<div class="hero-reel-stage"></div>
 
 <div class="tx-hero__content" markdown>
 
@@ -84,7 +82,7 @@ Hoje, na educbank:
 
 - Desenho e mantenho a plataforma de dados em arquitetura medalhão (Bronze, Prata, Ouro), sobre Databricks e Unity Catalog
 - Defino a política de qualidade: contrato de schema entre camadas, quarentena para duplicados, inválidos e dados de teste, e gate no CI que bloqueia deploy quando o contrato quebra
-- Mantenho mais de 150 tabelas na camada Ouro, processadas em PySpark e orquestradas com Lakeflow
+- Mantenho mais de <span data-count="150">150</span> tabelas na camada Ouro, processadas em PySpark e orquestradas com Lakeflow
 - Uso LLMs no fluxo de trabalho (Claude Code) para boilerplate e revisão, com o processo documentado no [blog](blog/index.md)
 
 Fora do trabalho, mantenho projetos open source: temas e ferramentas que outros devs usam no dia a dia.
@@ -145,7 +143,6 @@ São José dos Campos, SP. Atuação remota e híbrida
 
 </div>
 
----
 
 ## Linha do tempo da carreira
 

@@ -9,9 +9,7 @@ hide:
 
 <div class="tx-hero" markdown>
 
-<div class="tx-hero__image">
-  <img src="../assets/images/profile_picture.jpg" alt="Vinicius C. Amorim" class="profile-picture" data-glightbox="false">
-</div>
+<div class="hero-reel-stage"></div>
 
 <div class="tx-hero__content" markdown>
 
@@ -84,7 +82,7 @@ Today, at educbank:
 
 - Design and maintain the data platform in medallion architecture (Bronze, Silver, Gold) on Databricks and Unity Catalog
 - Own the data quality policy: schema contracts between layers, quarantine for duplicates, invalid rows and test data, and a CI gate that blocks deploys when a contract breaks
-- Maintain more than 150 Gold tables, processed in PySpark and orchestrated with Lakeflow
+- Maintain more than <span data-count="150">150</span> Gold tables, processed in PySpark and orchestrated with Lakeflow
 - Use LLMs in the workflow (Claude Code) for boilerplate and review, with the process written up on the [blog](blog/index.md)
 
 Outside work, I maintain open source projects: themes and tools other developers use every day.
@@ -145,7 +143,6 @@ São José dos Campos, Brazil. Remote and hybrid
 
 </div>
 
----
 
 ## Career timeline
 

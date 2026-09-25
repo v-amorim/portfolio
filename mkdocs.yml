@@ -32,6 +32,8 @@ extra_javascript:
   - javascripts/lightbox-nav.js
   - javascripts/timeline.js
   - javascripts/background-logo.js
+  - javascripts/hero-reel.js
+  - javascripts/reveal.js
   - javascripts/palette.js
 
 # Material Configuration
