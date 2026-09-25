@@ -21,9 +21,9 @@ Construo as plataformas de dados em que o negócio se apoia para decidir: da ing
 Databricks, PySpark e Unity Catalog, em Azure e GCP.
 
 <a href="projects/" class="md-button">:material-briefcase-outline: Projetos</a>
-<a href="mailto:vamorim.dev@gmail.com" class="md-button md-button--primary" title="vamorim.dev@gmail.com">:material-email: Entre em contato</a>
+<a href="mailto:vamorim.dev@gmail.com" class="md-button md-button--primary" title="vamorim.dev@gmail.com">:material-email: Contato</a>
 <a href="https://www.linkedin.com/in/vinicius-amorim/" class="md-button" target="_blank" rel="noopener">:fontawesome-brands-linkedin: LinkedIn</a>
-<a href="assets/cv-vinicius-amorim.pdf" class="md-button" download>:material-file-download-outline: Baixar CV</a>
+<a class="md-button" aria-disabled="true">:material-file-download-outline: Baixar CV</a>
 
 </div>
 

@@ -23,7 +23,7 @@ Databricks, PySpark and Unity Catalog, on Azure and GCP.
 <a href="projects/" class="md-button">:material-briefcase-outline: Projects</a>
 <a href="mailto:vamorim.dev@gmail.com" class="md-button md-button--primary" title="vamorim.dev@gmail.com">:material-email: Get in touch</a>
 <a href="https://www.linkedin.com/in/vinicius-amorim/" class="md-button" target="_blank" rel="noopener">:fontawesome-brands-linkedin: LinkedIn</a>
-<a href="../assets/cv-vinicius-amorim-en.pdf" class="md-button" download>:material-file-download-outline: Download CV</a>
+<a class="md-button" aria-disabled="true">:material-file-download-outline: Download CV</a>
 
 </div>
 

@@ -189,6 +189,11 @@
   position: relative;
 }
 
+.md-typeset .md-button[aria-disabled="true"] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 /* ===================================================================
    Section Headers - mono index over a heavy title, same voice as the reel
    =================================================================== */
@@ -763,7 +768,8 @@
 
   .tx-hero__content > p:last-child .md-button {
     margin: 0;
-    text-align: center;
+    padding: 0.625em 1.75em;
+    font-weight: 700;
   }
 
   .card-grid {
