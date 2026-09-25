@@ -613,10 +613,28 @@ input {
 }
 
 /* ===================================================================
+   Page Transitions - cross-document view transitions (full page loads,
+   since navigation.instant stays off for the language switcher)
+   =================================================================== */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.28s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===================================================================
    Accessibility - Reduced Motion
    =================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
 
   *,
   *::before,

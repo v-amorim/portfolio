@@ -25,8 +25,8 @@
 
     const groups = [
       home.querySelectorAll(".tx-hero__content > *"),
-      ...[...home.querySelectorAll(".card-grid, .project-tags, #career-timeline")].map((g) => g.children),
-      ...[...home.querySelectorAll(":scope > h2, :scope > p:not(.newLine), :scope > ul, .timeline-toggle-wrap")].map((el) => [el]),
+      ...[...home.querySelectorAll(".card-grid, .bento, .principles, .stat-strip, .post-grid, .stack-groups, #career-timeline")].map((g) => g.children),
+      ...[...home.querySelectorAll(":scope > h2, :scope > p:not(.newLine), :scope > ul, :scope > blockquote, .timeline-toggle-wrap")].map((el) => [el]),
     ];
 
     const observer = new IntersectionObserver(

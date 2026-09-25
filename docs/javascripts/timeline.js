@@ -412,10 +412,32 @@ function initTimelineToggle() {
   });
 }
 
+// Collapsed by JS only, so without JS the whole career stays readable
+function initCareerCollapse() {
+  const wrap = document.querySelector('.career-collapse');
+  if (!wrap || wrap.dataset.ready) return;
+  wrap.dataset.ready = 'true';
+  wrap.classList.add('is-collapsed');
+
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'md-button career-collapse__toggle';
+  button.setAttribute('aria-expanded', 'false');
+  button.textContent = wrap.dataset.labelMore;
+  button.addEventListener('click', () => {
+    const collapsed = wrap.classList.toggle('is-collapsed');
+    button.setAttribute('aria-expanded', String(!collapsed));
+    button.textContent = collapsed ? wrap.dataset.labelMore : wrap.dataset.labelLess;
+    if (collapsed) wrap.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  });
+  wrap.after(button);
+}
+
 function initTimeline() {
   createKanbanBoard();
   createVerticalTimeline();
   initTimelineToggle();
+  initCareerCollapse();
 }
 
 // Initial load

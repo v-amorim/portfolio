@@ -239,18 +239,70 @@
   transform: translateY(-3px);
 }
 
-/* Hero cards take the accent of the reel scene they describe */
-.newLine + .card-grid .card {
+/* ===================================================================
+   Stat Strip - verified numbers right under the hero
+   =================================================================== */
+
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  corner-shape: squircle;
+  background: var(--card);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.stat + .stat {
+  border-left: 1px solid var(--border);
+}
+
+.stat__value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--md-primary-fg-color);
+}
+
+.stat__label {
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ===================================================================
+   Bento - what I build; each cell takes the accent of its reel scene
+   =================================================================== */
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "platform platform cloud ci"
+    "platform platform ai oss";
+  gap: 1rem;
+}
+
+.bento__platform { grid-area: platform; --scene: #DBB060; }
+.bento__cloud { grid-area: cloud; --scene: #79C0FF; }
+.bento__ci { grid-area: ci; --scene: #8A9BE0; }
+.bento__ai { grid-area: ai; --scene: #B9C6F5; }
+.bento__oss { grid-area: oss; --scene: #A2B0EA; }
+
+.bento .card {
   position: relative;
   overflow: hidden;
 }
 
-.newLine + .card-grid .card:nth-child(1) { --scene: #DBB060; }
-.newLine + .card-grid .card:nth-child(2) { --scene: #79C0FF; }
-.newLine + .card-grid .card:nth-child(3) { --scene: #8A9BE0; }
-.newLine + .card-grid .card:nth-child(4) { --scene: #A2B0EA; }
-
-.newLine + .card-grid .card::before {
+.bento .card::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
@@ -261,8 +313,226 @@
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.newLine + .card-grid .card:hover::before {
+.bento .card:hover::before {
   transform: scaleX(1);
+}
+
+.bento .bento__platform .card-content h3 {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem) !important;
+}
+
+.bento .bento__platform .card-content p {
+  font-size: 0.9rem !important;
+  max-width: 34rem;
+}
+
+/* Bronze, Silver, Gold as pills on one rail */
+.layer-flow {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.layer-flow::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: var(--border);
+}
+
+.layer {
+  position: relative;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--layer) 55%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--layer) 16%, var(--card));
+  font: 600 0.7rem/1.4 var(--md-code-font-family, monospace);
+  letter-spacing: 0.08em;
+  color: var(--md-default-fg-color);
+}
+
+.layer--bronze { --layer: #F2B199; }
+.layer--silver { --layer: #CDCFE7; }
+.layer--gold { --layer: #DBB060; }
+
+/* ===================================================================
+   Principles and Pull Quote
+   =================================================================== */
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.principles .card-content h3 {
+  white-space: normal !important;
+}
+
+.principle__index {
+  font: 600 0.7rem/1.4 var(--md-code-font-family, monospace);
+  letter-spacing: 0.14em;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .pull-quote {
+  margin: 2.5rem 0 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 3px solid var(--md-primary-fg-color);
+}
+
+.md-typeset .pull-quote p {
+  max-width: 40rem;
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--md-default-fg-color);
+}
+
+/* ===================================================================
+   Recent Writing
+   =================================================================== */
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.md-typeset .post-teaser {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  corner-shape: squircle;
+  background: var(--card);
+  color: var(--md-default-fg-color);
+  transition: border-color 0.2s ease-out, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.md-typeset .post-teaser:hover {
+  border-color: var(--md-primary-fg-color);
+  transform: translateY(-3px);
+}
+
+.post-teaser time {
+  font: 600 0.65rem/1.4 var(--md-code-font-family, monospace);
+  letter-spacing: 0.08em;
+  color: var(--md-default-fg-color--light);
+}
+
+.post-teaser strong {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--md-primary-fg-color);
+}
+
+.post-teaser span {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ===================================================================
+   Stack Groups
+   =================================================================== */
+
+.stack-groups {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.stack-group {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stack-group__label {
+  font: 600 0.65rem/1.4 var(--md-code-font-family, monospace);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+}
+
+.stack-group .project-tags {
+  margin: 0;
+}
+
+/* ===================================================================
+   Career Collapse (class added by timeline.js)
+   =================================================================== */
+
+.career-collapse.is-collapsed {
+  max-height: 30rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent);
+  mask-image: linear-gradient(to bottom, #000 65%, transparent);
+}
+
+.md-typeset .career-collapse__toggle {
+  display: table;
+  margin: 1rem auto 0;
+}
+
+/* ===================================================================
+   New Sections - Responsive
+   =================================================================== */
+
+@media screen and (max-width: 60rem) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "platform platform"
+      "cloud ci"
+      "ai oss";
+  }
+}
+
+@media screen and (max-width: 52rem) {
+  .principles,
+  .post-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  .stat-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat:nth-child(3) {
+    border-left: none;
+  }
+
+  .stat:nth-child(n + 3) {
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .bento {
+    grid-template-columns: 1fr;
+    grid-template-areas: "platform" "cloud" "ci" "ai" "oss";
+  }
+
+  .stack-group {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .stat__value {
+    font-size: 1.8rem;
+  }
 }
 
 /* ===================================================================
