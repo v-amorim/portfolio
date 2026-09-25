@@ -66,6 +66,7 @@ function createLogoField() {
   }
 
   const fragment = document.createDocumentFragment();
+  const logos = [];
 
   for (let i = 0; i < count; i++) {
     // Find a non-overlapping position
@@ -84,8 +85,7 @@ function createLogoField() {
     const size = 40 + rng() * 100; // 40px - 140px
     const opacity = 0.015 + rng() * 0.04; // 0.015 - 0.055
     const rotation = -30 + rng() * 60; // -30deg to +30deg
-    const animDelay = rng() * -20; // stagger float start
-    const animDuration = 15 + rng() * 15; // 15s - 30s
+    const depth = (size - 40) / 100; // 0 (far) - 1 (near)
 
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", LOGO_VIEWBOX);
@@ -96,12 +96,18 @@ function createLogoField() {
     svg.style.cssText = [
       `left:${x}%`,
       `top:${y}%`,
-      `opacity:${opacity}`,
-      `transform:rotate(${rotation}deg)`,
-      `animation-delay:${animDelay}s`,
-      `animation-duration:${animDuration}s`,
+      `--base-opacity:${opacity}`,
       `--base-rotation:${rotation}deg`,
+      `--drift-x:${(12 + rng() * 24) * (rng() < 0.5 ? -1 : 1)}px`,
+      `--drift-y:${12 + rng() * 24}px`,
+      `--float-duration:${14 + rng() * 14}s`,
+      `--float-delay:${rng() * -28}s`,
+      `--twinkle-duration:${4 + rng() * 6}s`,
+      `--twinkle-delay:${rng() * -10}s`,
+      `--split-duration:${10 + rng() * 16}s`,
+      `--split-delay:${rng() * -26}s`,
     ].join(";");
+    logos.push({ el: svg, y, depth });
 
     for (const d of LOGO_PATHS) {
       const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -114,11 +120,65 @@ function createLogoField() {
   }
 
   container.appendChild(fragment);
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    startParallax(logos);
+  }
+}
+
+// Near logos move more on scroll and lean more toward the pointer.
+// Scroll offsets wrap inside the -10%..110% band, where the mask hides the jump.
+let stopParallax = null;
+
+function startParallax(logos) {
+  let pointerX = 0;
+  let pointerY = 0;
+  let leanX = 0;
+  let leanY = 0;
+  let raf = 0;
+
+  const update = () => {
+    raf = 0;
+    leanX += (pointerX - leanX) * 0.06;
+    leanY += (pointerY - leanY) * 0.06;
+    const vh = window.innerHeight;
+    const band = vh * 1.2;
+    for (const logo of logos) {
+      const baseY = (logo.y / 100) * vh;
+      const scrolled = baseY + vh * 0.1 - window.scrollY * (0.05 + logo.depth * 0.25);
+      const wrapped = (((scrolled % band) + band) % band) - vh * 0.1;
+      const reach = 10 + logo.depth * 34;
+      logo.el.style.translate = `${leanX * reach}px ${wrapped - baseY + leanY * reach}px`;
+    }
+    if (Math.abs(pointerX - leanX) > 0.001 || Math.abs(pointerY - leanY) > 0.001) schedule();
+  };
+  const schedule = () => {
+    if (!raf) raf = requestAnimationFrame(update);
+  };
+  const onPointer = (e) => {
+    pointerX = e.clientX / window.innerWidth - 0.5;
+    pointerY = e.clientY / window.innerHeight - 0.5;
+    schedule();
+  };
+
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule);
+  window.addEventListener("pointermove", onPointer, { passive: true });
+  schedule();
+
+  stopParallax = () => {
+    cancelAnimationFrame(raf);
+    window.removeEventListener("scroll", schedule);
+    window.removeEventListener("resize", schedule);
+    window.removeEventListener("pointermove", onPointer);
+  };
 }
 
 function destroyLogoField() {
   const el = document.getElementById("logo-constellation");
   if (el) el.remove();
+  if (stopParallax) stopParallax();
+  stopParallax = null;
 }
 
 function initLogoField() {

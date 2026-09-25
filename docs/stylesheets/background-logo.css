@@ -42,32 +42,77 @@
    Individual Logo Instances
    =================================================================== */
 
+/* Three layers of motion: transform drifts (CSS), opacity twinkles (CSS),
+   translate carries scroll and pointer parallax (JS). They compose because
+   `translate` and `transform` are separate properties. */
 .constellation-logo {
   position: absolute;
   color: var(--md-default-fg-color);
-  will-change: transform;
-  animation: constellationFloat linear infinite;
+  opacity: var(--base-opacity);
+  transform: rotate(var(--base-rotation, 0deg));
+  will-change: transform, translate, opacity;
+  animation:
+    constellationFloat var(--float-duration, 20s) ease-in-out var(--float-delay, 0s) infinite,
+    constellationTwinkle var(--twinkle-duration, 6s) ease-in-out var(--twinkle-delay, 0s) infinite;
 }
 
-/* Gentle organic float: small vertical drift + subtle rotation
-   oscillation. The var(--base-rotation) preserves each instance's
-   initial random rotation so the animation adds to it rather
-   than overriding it. */
+/* Wandering drift on a per-logo path, added on top of the base rotation */
 @keyframes constellationFloat {
-  0% {
-    transform: rotate(var(--base-rotation, 0deg)) translateY(0);
+  0%,
+  100% {
+    transform: rotate(var(--base-rotation, 0deg)) translate(0, 0);
   }
   25% {
-    transform: rotate(calc(var(--base-rotation, 0deg) + 2deg)) translateY(-8px);
+    transform: rotate(calc(var(--base-rotation, 0deg) + 5deg)) translate(var(--drift-x), calc(var(--drift-y) * -1));
   }
   50% {
-    transform: rotate(var(--base-rotation, 0deg)) translateY(-3px);
+    transform: rotate(calc(var(--base-rotation, 0deg) + 1deg)) translate(calc(var(--drift-x) * -0.4), calc(var(--drift-y) * -0.3));
   }
   75% {
-    transform: rotate(calc(var(--base-rotation, 0deg) - 1.5deg)) translateY(-10px);
+    transform: rotate(calc(var(--base-rotation, 0deg) - 4deg)) translate(calc(var(--drift-x) * -1), calc(var(--drift-y) * -0.8));
   }
+}
+
+@keyframes constellationTwinkle {
+  0%,
   100% {
-    transform: rotate(var(--base-rotation, 0deg)) translateY(0);
+    opacity: var(--base-opacity);
+  }
+  50% {
+    opacity: calc(var(--base-opacity) * 2.4);
+  }
+}
+
+/* Now and then the mark splits like the hero reel's ending, then rejoins */
+.constellation-logo path:first-child {
+  animation: constellationSplitA var(--split-duration, 16s) ease-in-out var(--split-delay, 0s) infinite;
+}
+
+.constellation-logo path:last-child {
+  animation: constellationSplitV var(--split-duration, 16s) ease-in-out var(--split-delay, 0s) infinite;
+}
+
+@keyframes constellationSplitA {
+  0%,
+  86%,
+  100% {
+    transform: translateY(0);
+  }
+  90%,
+  95% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes constellationSplitV {
+  0%,
+  86%,
+  100% {
+    transform: translateY(0);
+  }
+  90%,
+  95% {
+    transform: translateY(4px);
   }
 }
 
@@ -101,7 +146,8 @@
    =================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .constellation-logo {
+  .constellation-logo,
+  .constellation-logo path {
     animation: none !important;
   }
 }
