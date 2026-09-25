@@ -1,0 +1,96 @@
+# Social card in the site's slate palette; colors mirror global.css
+
+definitions:
+
+  - &page_title >-
+    {%- if layout.title -%}
+      {{ layout.title }}
+    {%- else -%}
+      {{ page.meta.get("title", page.title) }}
+    {%- endif -%}
+
+  - &page_title_with_site_name >-
+    {%- if not page.is_homepage -%}
+      {{ page.meta.get("title", page.title) }} - {{ config.site_name }}
+    {%- else -%}
+      {{ config.site_name }}
+    {%- endif -%}
+
+  - &page_description >-
+    {{ page.meta.get("description", config.site_description) | x }}
+
+  - &site_host >-
+    {{ config.site_url | replace("https://", "") | trim("/") }}
+
+tags:
+  og:type: website
+  og:title: *page_title_with_site_name
+  og:description: *page_description
+  og:image: "{{ image.url }}"
+  og:image:type: "{{ image.type }}"
+  og:image:width: "{{ image.width }}"
+  og:image:height: "{{ image.height }}"
+  og:url: "{{ page.canonical_url }}"
+  twitter:card: summary_large_image
+  twitter:title: *page_title_with_site_name
+  twitter:description: *page_description
+  twitter:image: "{{ image.url }}"
+
+size: { width: 1200, height: 630 }
+layers:
+
+  - background:
+      image: layouts/card-background.svg
+
+  - size: { width: 1200, height: 8 }
+    background:
+      color: "#7386d0"
+
+  - size: { width: 56, height: 56 }
+    offset: { x: 64, y: 64 }
+    background:
+      image: docs/assets/images/branding/logo.svg
+
+  - size: { width: 800, height: 40 }
+    offset: { x: 140, y: 72 }
+    typography:
+      content: "{{ config.site_name }}"
+      color: "#eef0fa"
+      font:
+        family: Mulish
+        style: Bold
+
+  - size: { width: 920, height: 220 }
+    offset: { x: 62, y: 180 }
+    typography:
+      content: *page_title
+      align: start
+      color: "#eef0fa"
+      line:
+        amount: 2
+        height: 1.2
+      font:
+        family: Mulish
+        style: ExtraBold
+
+  - size: { width: 860, height: 84 }
+    offset: { x: 64, y: 430 }
+    typography:
+      content: *page_description
+      align: start
+      color: "#a3aac8"
+      line:
+        amount: 2
+        height: 1.5
+      font:
+        family: Mulish
+        style: Regular
+
+  - size: { width: 700, height: 30 }
+    offset: { x: 64, y: 548 }
+    typography:
+      content: *site_host
+      color: "#a2b0ea"
+      font:
+        family: Mulish
+        style: SemiBold

@@ -1,5 +1,8 @@
 ---
 title: Início
+social:
+  cards_layout_options:
+    title: Engenheiro de Dados e IA
 hide:
   - navigation
   - toc

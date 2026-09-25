@@ -1,5 +1,8 @@
 ---
 title: Home
+social:
+  cards_layout_options:
+    title: Data & AI Engineer
 hide:
   - navigation
   - toc

@@ -83,6 +83,7 @@ hooks:
 plugins:
   - social:
       cards: !ENV [CI, false]
+      cards_layout: portfolio
   - glightbox:
       loop: true
       skip_classes:
