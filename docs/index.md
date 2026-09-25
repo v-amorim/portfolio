@@ -96,6 +96,8 @@ Tema VS Code no marketplace, tema Oh My Posh e um template Python com uv e ruff.
 
 ## Como eu trabalho
 
+As mesmas regras valem para pipeline, para código e para como trabalho com IA.
+
 <div class="principles" markdown>
 
 <div class="card principle" markdown>
@@ -103,9 +105,11 @@ Tema VS Code no marketplace, tema Oh My Posh e um template Python com uv e ruff.
 
 <span class="principle__index">01</span>
 
-### Contrato entre camadas
+### Prova, não promessa
 
-Cada camada declara o schema que entrega. Se o contrato quebra, o gate no CI bloqueia o deploy antes que o problema chegue à próxima camada.
+"Pronto" é um check que passou, com a evidência ao lado. Se dá para medir, eu meço antes de afirmar.
+
+<code class="principle__rule">done = gates ok + evidência</code>
 
 </div>
 </div>
@@ -115,9 +119,11 @@ Cada camada declara o schema que entrega. Se o contrato quebra, o gate no CI blo
 
 <span class="principle__index">02</span>
 
-### Quarentena, não descarte
+### Causa antes da correção
 
-Duplicados, inválidos e dados de teste vão para a quarentena. Ficam fora da camada Ouro, mas continuam visíveis para quem precisa investigar.
+Parto do erro bruto, não de palpite. Cada hipótese é confirmada ou descartada com evidência antes de qualquer correção.
+
+<code class="principle__rule">hipótese → CONFIRMADA | DESCARTADA</code>
 
 </div>
 </div>
@@ -127,9 +133,53 @@ Duplicados, inválidos e dados de teste vão para a quarentena. Ficam fora da ca
 
 <span class="principle__index">03</span>
 
-### Processo por escrito
+### A menor mudança que resolve
 
-Decisões, investigações e o uso de IA ficam documentados. Quem chega depois entende o porquê, não só o quê.
+Mudo só o que o problema pede. Nada de abstração especulativa nem de refatorar o que não quebrou.
+
+<code class="principle__rule">cada linha alterada → o pedido</code>
+
+</div>
+</div>
+
+<div class="card principle" markdown>
+<div class="card-content" markdown>
+
+<span class="principle__index">04</span>
+
+### Contrato entre camadas
+
+Cada camada declara o schema que entrega. Se o contrato quebra, o gate no CI bloqueia o deploy.
+
+<code class="principle__rule">schema quebrou → deploy bloqueado</code>
+
+</div>
+</div>
+
+<div class="card principle" markdown>
+<div class="card-content" markdown>
+
+<span class="principle__index">05</span>
+
+### Quarentena, não descarte
+
+Duplicados, inválidos e dados de teste vão para a quarentena: fora da camada Ouro, mas visíveis para investigar.
+
+<code class="principle__rule">dado ruim → quarentena, não /dev/null</code>
+
+</div>
+</div>
+
+<div class="card principle" markdown>
+<div class="card-content" markdown>
+
+<span class="principle__index">06</span>
+
+### Todo erro vira regra
+
+Cada correção vira uma regra escrita, e decisões e investigações ficam documentadas. O mesmo erro não volta.
+
+<code class="principle__rule">correção → regra escrita</code>
 
 </div>
 </div>

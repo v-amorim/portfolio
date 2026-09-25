@@ -96,6 +96,8 @@ A VS Code theme on the marketplace, an Oh My Posh theme and a Python template wi
 
 ## How I work
 
+The same rules apply to pipelines, to code and to how I work with AI.
+
 <div class="principles" markdown>
 
 <div class="card principle" markdown>
@@ -103,9 +105,11 @@ A VS Code theme on the marketplace, an Oh My Posh theme and a Python template wi
 
 <span class="principle__index">01</span>
 
-### Contracts between layers
+### Proof, not promises
 
-Every layer declares the schema it delivers. When a contract breaks, the CI gate blocks the deploy before the problem reaches the next layer.
+"Done" is a check that passed, with the evidence next to it. If it can be measured, I measure before I claim.
+
+<code class="principle__rule">done = gates met + evidence</code>
 
 </div>
 </div>
@@ -115,9 +119,11 @@ Every layer declares the schema it delivers. When a contract breaks, the CI gate
 
 <span class="principle__index">02</span>
 
-### Quarantine, not delete
+### Cause before fix
 
-Duplicates, invalid rows and test data go to quarantine. They stay out of the Gold layer but remain visible to whoever needs to investigate.
+I start from the raw error, not a hunch. Every hypothesis is confirmed or killed with evidence before any fix.
+
+<code class="principle__rule">hypothesis → CONFIRMED | KILLED</code>
 
 </div>
 </div>
@@ -127,9 +133,53 @@ Duplicates, invalid rows and test data go to quarantine. They stay out of the Go
 
 <span class="principle__index">03</span>
 
-### Written process
+### The smallest change that works
 
-Decisions, investigations and how AI is used get written down. Whoever comes next understands the why, not just the what.
+I touch only what the problem asks for. No speculative abstractions, no refactoring what is not broken.
+
+<code class="principle__rule">every changed line → the request</code>
+
+</div>
+</div>
+
+<div class="card principle" markdown>
+<div class="card-content" markdown>
+
+<span class="principle__index">04</span>
+
+### Contracts between layers
+
+Every layer declares the schema it delivers. When a contract breaks, the CI gate blocks the deploy.
+
+<code class="principle__rule">schema break → deploy blocked</code>
+
+</div>
+</div>
+
+<div class="card principle" markdown>
+<div class="card-content" markdown>
+
+<span class="principle__index">05</span>
+
+### Quarantine, not delete
+
+Duplicates, invalid rows and test data go to quarantine: out of the Gold layer, still visible to investigate.
+
+<code class="principle__rule">bad rows → quarantine, not /dev/null</code>
+
+</div>
+</div>
+
+<div class="card principle" markdown>
+<div class="card-content" markdown>
+
+<span class="principle__index">06</span>
+
+### Every mistake becomes a rule
+
+Every correction turns into a written rule, and decisions and investigations get documented. The same mistake does not come back.
+
+<code class="principle__rule">correction → written rule</code>
 
 </div>
 </div>
