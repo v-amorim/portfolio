@@ -38,6 +38,18 @@ work:
     images: []
     url: "https://github.com/v-amorim/python_sample_repository"
 
+  - title: "Claude Code Mods: Moonlight"
+    featured: true
+    categories: ["ferramentas", "visual", "typescript"]
+    area: "ferramentas"
+    description: "13 mods for the Claude Code terminal: folded turns, chat bubbles, agent progress, a hold on risky commands and a manager that installs the rest. Built with Claude Code. Stack: TypeScript • Claude Code plugins"
+    images:
+      - "../../assets/images/screenshots/moonlight-claude-mods/with-mods.webp"
+      - "../../assets/images/screenshots/moonlight-claude-mods/progress-panel.webp"
+      - "../../assets/images/screenshots/moonlight-claude-mods/skill-panel.webp"
+      - "../../assets/images/screenshots/moonlight-claude-mods/blast-radius-hold.webp"
+    url: "https://github.com/v-amorim/moonlight-claude-mods"
+
   - title: "Sunshine: Set Counter for Gym Workouts"
     featured: true
     categories: ["ferramentas", "pwa", "javascript"]
@@ -50,7 +62,7 @@ work:
       - "../../assets/images/screenshots/sunshine-4.webp"
     url: "https://github.com/v-amorim/academia"
 
-  - title: "Moonlight: Oh My Posh Theme"
+  - title: "Oh My Posh Theme: Moonlight"
     categories: ["ferramentas", "visual", "shell"]
     area: "visual"
     description: "Terminal theme with git indicators, clickable URLs and a responsive layout. Full evolution documented in the repo. Stack: Oh My Posh • Shell customization"
@@ -60,7 +72,7 @@ work:
       - "../../assets/images/screenshots/oh-my-posh-3.webp"
     url: "https://github.com/v-amorim/oh-my-posh"
 
-  - title: "Moonlight: VSCode Theme"
+  - title: "VSCode Theme: Moonlight"
     featured: true
     categories: ["visual", "ferramentas"]
     area: "visual"
@@ -80,7 +92,7 @@ work:
       - "../../assets/images/screenshots/hex-to-ansi-1.webp"
     url: "https://github.com/v-amorim/hex_to_ansi"
 
-  - title: "Moonlight: mpv Setup"
+  - title: "mpv Setup: Moonlight"
     categories: ["visual", "ferramentas"]
     area: "visual"
     description: "Dark uosc theme, shortcut visualizer, cascading menu and an installer that shows a receipt before touching any file. Stack: mpv • uosc • Lua • Python"

@@ -38,6 +38,18 @@ work:
     images: []
     url: "https://github.com/v-amorim/python_sample_repository"
 
+  - title: "Mods para o Claude Code: Moonlight"
+    featured: true
+    categories: ["ferramentas", "visual", "typescript"]
+    area: "ferramentas"
+    description: "13 mods para o terminal do Claude Code: turnos recolhidos, balões de chat, progresso dos agentes, uma trava para comandos arriscados e um gerenciador que instala o resto. Feito com o Claude Code. Stack: TypeScript • Plugins do Claude Code"
+    images:
+      - "../assets/images/screenshots/moonlight-claude-mods/with-mods.webp"
+      - "../assets/images/screenshots/moonlight-claude-mods/progress-panel.webp"
+      - "../assets/images/screenshots/moonlight-claude-mods/skill-panel.webp"
+      - "../assets/images/screenshots/moonlight-claude-mods/blast-radius-hold.webp"
+    url: "https://github.com/v-amorim/moonlight-claude-mods"
+
   - title: "Sunshine: Contador de Séries para Musculação"
     featured: true
     categories: ["ferramentas", "pwa", "javascript"]
@@ -50,7 +62,7 @@ work:
       - "../assets/images/screenshots/sunshine-4.webp"
     url: "https://github.com/v-amorim/academia"
 
-  - title: "Moonlight: Tema Oh My Posh"
+  - title: "Tema Oh My Posh: Moonlight"
     categories: ["ferramentas", "visual", "shell"]
     area: "visual"
     description: "Tema de terminal com indicadores de git, URLs clicáveis e layout responsivo. Evolução completa documentada no repo. Stack: Oh My Posh • Customização de shell"
@@ -60,7 +72,7 @@ work:
       - "../assets/images/screenshots/oh-my-posh-3.webp"
     url: "https://github.com/v-amorim/oh-my-posh"
 
-  - title: "Moonlight: Tema VSCode"
+  - title: "Tema VSCode: Moonlight"
     featured: true
     categories: ["visual", "ferramentas"]
     area: "visual"
@@ -80,7 +92,7 @@ work:
       - "../assets/images/screenshots/hex-to-ansi-1.webp"
     url: "https://github.com/v-amorim/hex_to_ansi"
 
-  - title: "Moonlight: Setup do mpv"
+  - title: "Setup do mpv: Moonlight"
     categories: ["visual", "ferramentas"]
     area: "visual"
     description: "Tema uosc escuro, visualizador de atalhos, menu em cascata e instalador que mostra o recibo antes de tocar nos arquivos. Stack: mpv • uosc • Lua • Python"

@@ -23,7 +23,8 @@
 .documentação,
 .template,
 .pwa,
-.javascript {
+.javascript,
+.typescript {
   background: var(--tag-tools-bg);
   color: var(--tag-tools-fg);
   border-color: var(--tag-tools-border);
