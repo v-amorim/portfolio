@@ -1,5 +1,5 @@
 ---
-title: 13 mods in 19 days, built with Claude Code
+title: "What hooks couldn't do: building mods for Claude Code"
 template: blog-post.html
 date: 2026-10-21
 topics:
@@ -7,7 +7,7 @@ topics:
   - [Design, visual]
 ---
 
-As soon as I saw that Claude Code was getting mods, I knew what I'd do with them. Mods are plugins that draw their own UI inside the Claude Code terminal: buttons, cards above the prompt, side panes. I had a list of things that bothered me in the terminal and features I wanted, and now I could build them myself. Nineteen days after the first commit, on October 21, I made [moonlight-claude-mods](https://github.com/v-amorim/moonlight-claude-mods) public: 13 mods, each one working alone, all sharing one look. Claude Code wrote the code. I owned everything around it: what each mod does, how it looks, and when it's done, checked by eye before every commit. Here's how that went, and what went wrong.
+As soon as I saw that Claude Code was getting mods, I knew what I'd do with them. Mods are plugins that draw their own UI inside the Claude Code terminal: buttons, cards above the prompt, side panes. I had a list of things that bothered me in the terminal and features I wanted, and now I could build them myself. On October 21, I made [moonlight-claude-mods](https://github.com/v-amorim/moonlight-claude-mods) public: 13 mods, each one working alone, all sharing one look. Claude Code wrote the code. I owned everything around it: what each mod does, how it looks, and when it's done, checked by eye before every commit. Here's how that went, and what went wrong.
 
 <div class="grid" markdown>
 
@@ -25,7 +25,7 @@ I use Claude Code all day, and a few things kept getting in my way. Long turns s
 
 Some of this I had already patched with hooks. A hook can stop a command or add a note to the conversation, so blocking the risky commands was doable. But a hook can't draw anything. All I got back was a line of text, and the terminal looked the same as before. Folding turns or watching subagents was out of reach.
 
-Mods changed that. A mod can draw its own UI, so my workarounds could become features, and the wishes that hooks couldn't touch were finally possible. I wrote the first mod on October 3 and had all 13 by October 7. Two became the backbone: **mod-transcript** restyles the conversation with chat bubbles, folded turns and a copy button on each reply, and **mod-manager** lists every mod, installs the ones you tick and edits their settings. The rest add panels (skills, prompts, files, agent progress), safety checks (a hold on risky commands, a warning when another session just edited the same file) and a handoff that carries the work to a fresh session.
+Mods changed that. A mod can draw its own UI, so my workarounds could become features, and the wishes that hooks couldn't touch were finally possible. Two became the backbone: **mod-transcript** restyles the conversation with chat bubbles, folded turns and a copy button on each reply, and **mod-manager** lists every mod, installs the ones you tick and edits their settings. The rest add panels (skills, prompts, files, agent progress), safety checks (a hold on risky commands, a warning when another session just edited the same file) and a handoff that carries the work to a fresh session.
 
 ## How we split the work
 

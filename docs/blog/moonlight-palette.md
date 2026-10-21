@@ -7,7 +7,7 @@ topics:
   - [Documentation, documentação]
 ---
 
-Moonlight runs on my [prompt](https://github.com/v-amorim/moonlight-oh-my-posh), my [editor](https://github.com/v-amorim/moonlight-vscode-theme), mpv, Windows Terminal, PowerShell, bash, the YASB status bar, three Windhawk stylers, a TachiyomiJ2K fork, [Sunshine](https://github.com/v-amorim/academia), the gym app, and this site's [diagrams](mermaid-examples.md). Eleven ports, one palette.
+Moonlight runs on my [prompt](https://github.com/v-amorim/moonlight-oh-my-posh), my [editor](https://github.com/v-amorim/moonlight-vscode-theme), mpv, Windows Terminal, PowerShell, bash, the YASB status bar, three Windhawk stylers, a TachiyomiJ2K fork, [Sunshine](https://github.com/v-amorim/academia), the gym app, the Claude Code terminal through my [mods](moonlight-claude-mods.md), and this site's [diagrams](mermaid-examples.md). Twelve ports, one palette.
 
 ## Source of truth
 

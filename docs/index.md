@@ -80,7 +80,7 @@ Databricks Asset Bundles multiambiente e GitHub Actions. Quando um contrato queb
 
 ### :material-robot-outline: IA no fluxo
 
-Claude Code para boilerplate e revisão, com o processo documentado no [blog](blog/claude-code-data-engineering.md).
+Claude Code para boilerplate e revisão, com o processo documentado no [blog](blog/claude-code-data-engineering.md), e [13 mods](blog/moonlight-claude-mods.md) que criei para o terminal dele.
 
 </div>
 </div>
@@ -196,6 +196,7 @@ Cada correção vira uma regra escrita, e decisões e investigações ficam docu
 Artigos em inglês sobre engenharia de dados, ferramentas de IA e design.
 
 <div class="post-grid">
+<a class="post-teaser" href="blog/moonlight-claude-mods/"><time datetime="2026-10-21">21 de outubro de 2026</time><strong style="view-transition-name: post-moonlight-claude-mods">What hooks couldn't do: building mods for Claude Code</strong><span>Por que comecei a criar mods para o terminal do Claude Code, como dividimos o trabalho e os bugs que passavam em todos os testes.</span></a>
 <a class="post-teaser" href="blog/moonlight-palette/"><time datetime="2026-09-10">10 de setembro de 2026</time><strong style="view-transition-name: post-moonlight-palette">The Moonlight palette, the full guide</strong><span>Cada papel da paleta, o hex atual, onde ele vive e a receita para levar o tema para outras ferramentas.</span></a>
 <a class="post-teaser" href="blog/mermaid-examples/"><time datetime="2026-09-04">4 de setembro de 2026</time><strong style="view-transition-name: post-mermaid-examples">Every Mermaid diagram in the Moonlight theme</strong><span>Os 28 tipos de diagrama Mermaid no tema do site, claro e escuro, com o que observar em cada um.</span></a>
 <a class="post-teaser" href="blog/claude-code-data-engineering/"><time datetime="2026-04-21">21 de abril de 2026</time><strong style="view-transition-name: post-claude-code-data-engineering">Claude Code for data engineering</strong><span>Como uso o Claude Code com pipelines, transformações e infraestrutura: onde economiza tempo e onde a revisão continua obrigatória.</span></a>

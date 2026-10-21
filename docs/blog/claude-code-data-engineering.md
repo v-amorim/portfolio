@@ -53,6 +53,8 @@ What makes the difference is not the perfect prompt, it is the context. In pract
 - **I am specific**: "process 10M rows a day with under 5 minutes of latency" gets far better results than "fast pipeline".
 - **I iterate in stages**: high-level logic first, then edge cases, then tests.
 
+When the terminal itself got in my way, I built [13 mods](moonlight-claude-mods.md) for it.
+
 ## Where to be careful
 
 It speeds things up, but it does not replace review. The points I always check:

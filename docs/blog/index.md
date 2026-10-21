@@ -24,7 +24,7 @@ Articles on data engineering, AI tooling and productivity.
 <span class="tag visual">Design</span>
 </div>
 
-## [13 mods in 19 days, built with Claude Code](moonlight-claude-mods.md) {: style="view-transition-name: post-moonlight-claude-mods" }
+## [What hooks couldn't do: building mods for Claude Code](moonlight-claude-mods.md) {: style="view-transition-name: post-moonlight-claude-mods" }
 
 How I built moonlight-claude-mods with Claude Code writing the code: how we split the work, the bugs every test missed, and what I'd tell someone starting.
 

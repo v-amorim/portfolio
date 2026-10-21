@@ -80,7 +80,7 @@ Multi-environment Databricks Asset Bundles and GitHub Actions. When a contract b
 
 ### :material-robot-outline: AI in the loop
 
-Claude Code for boilerplate and review, with the process written up on the [blog](blog/claude-code-data-engineering.md).
+Claude Code for boilerplate and review, with the process written up on the [blog](blog/claude-code-data-engineering.md), plus [13 mods](blog/moonlight-claude-mods.md) I built for its terminal.
 
 </div>
 </div>
@@ -196,6 +196,7 @@ Every correction turns into a written rule, and decisions and investigations get
 Articles on data engineering, AI tooling and design.
 
 <div class="post-grid">
+<a class="post-teaser" href="blog/moonlight-claude-mods/"><time datetime="2026-10-21">October 21, 2026</time><strong style="view-transition-name: post-moonlight-claude-mods">What hooks couldn't do: building mods for Claude Code</strong><span>Why I started building mods for the Claude Code terminal, how we split the work, and the bugs that passed every test.</span></a>
 <a class="post-teaser" href="blog/moonlight-palette/"><time datetime="2026-09-10">September 10, 2026</time><strong style="view-transition-name: post-moonlight-palette">The Moonlight palette, the full guide</strong><span>Every palette role, its current hex, where it lives, and the recipe for bringing the theme somewhere new.</span></a>
 <a class="post-teaser" href="blog/mermaid-examples/"><time datetime="2026-09-04">September 4, 2026</time><strong style="view-transition-name: post-mermaid-examples">Every Mermaid diagram in the Moonlight theme</strong><span>All 28 Mermaid diagram types in the site's theme, dark and light, with what to look at in each one.</span></a>
 <a class="post-teaser" href="blog/claude-code-data-engineering/"><time datetime="2026-04-21">April 21, 2026</time><strong style="view-transition-name: post-claude-code-data-engineering">Claude Code for data engineering</strong><span>How I use Claude Code with pipelines, transformations and infrastructure: where it saves time and where review stays mandatory.</span></a>
