@@ -1377,8 +1377,9 @@
 
 .mermaid-zoom__toolbar {
   position: absolute;
-  top: var(--spacing-4);
-  inset-inline-end: var(--spacing-4);
+  bottom: var(--spacing-4);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
   display: inline-flex;
   gap: var(--spacing-2);
