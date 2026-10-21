@@ -16,7 +16,7 @@
       buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === filter)));
       let shown = 0;
       cards.forEach(card => {
-        card.hidden = filter !== 'all' && card.dataset.area !== filter;
+        card.hidden = filter !== 'all' && !card.dataset.areas.split(' ').includes(filter);
         if (!card.hidden) shown++;
       });
       if (count) {

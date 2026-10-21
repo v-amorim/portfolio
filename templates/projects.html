@@ -54,10 +54,17 @@
   "visual": ".icons/material/palette-outline.svg"
 } %}
 
+{# A card shows under its own area and under every area its tags name #}
+{% set area_tags = {"dados": "engenharia-de-dados", "ml": "machine-learning", "ferramentas": "ferramentas", "visual": "visual"} %}
+
+{% macro card_areas(work) -%}
+{% for key, tag in area_tags.items() if work.area == key or tag in work.categories %}{{ key }} {% endfor %}
+{%- endmacro %}
+
 {% macro project_card(work, gid, featured) %}
 {% set title_parts = work.title.split(":", 1) %}
 {% set desc_parts = (work.description or "").split("Stack:", 1) %}
-<article class="project-card{% if featured %} project-card--featured{% endif %}" data-area="{{ work.area }}" style="view-transition-name: {{ gid }}">
+<article class="project-card{% if featured %} project-card--featured{% endif %}" data-area="{{ work.area }}" data-areas="{{ card_areas(work) | trim }}" style="view-transition-name: {{ gid }}">
 
   {% if work.images %}
   <a href="{{ work.images[0] }}" class="glightbox project-media" data-gallery="{{ gid }}" data-title="{{ work.title }}" aria-label="{{ t.open }}">
@@ -133,7 +140,9 @@
     {{ t.all }} <span class="projects-filter__count">{{ page.meta.work | length }}</span>
   </button>
   {% for key, label in areas %}
-  {% set count = page.meta.work | selectattr("area", "equalto", key) | list | length %}
+  {% set ns = namespace(count=0) %}
+  {% for work in page.meta.work if key in card_areas(work).split() %}{% set ns.count = ns.count + 1 %}{% endfor %}
+  {% set count = ns.count %}
   {% if count > 0 %}
   <button type="button" class="projects-filter__btn projects-filter__btn--{{ key }}" data-filter="{{ key }}" aria-pressed="false">
     <span class="projects-filter__icon" aria-hidden="true">{% include area_icons[key] %}</span>
