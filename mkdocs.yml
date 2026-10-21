@@ -73,6 +73,7 @@ nav:
   - Projetos: projects.md
   - Blog:
       - blog/index.md
+      - blog/moonlight-claude-mods.md
       - blog/claude-code-data-engineering.md
       - blog/mermaid-examples.md
       - blog/moonlight-palette.md

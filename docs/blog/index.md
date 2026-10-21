@@ -12,6 +12,26 @@ Articles on data engineering, AI tooling and productivity.
 <div class="post-list" markdown>
 
 <article class="post-card post-card--featured" markdown>
+<div class="post-cover post-cover--terminal" aria-hidden="true">
+<code><span class="t-prompt">❯</span> claude plugin install mod-manager</code>
+<code class="t-dim">13 mods · 337 commits · 1,286 tests</code>
+<code><span class="t-ok">✓</span> public on GitHub</code>
+</div>
+<div class="post-card__meta">
+<time datetime="2026-10-21">October 21, 2026</time>
+<span class="post-card__read">7 min read</span>
+<span class="tag ferramentas">AI Tooling</span>
+<span class="tag visual">Design</span>
+</div>
+
+## [13 mods in 19 days, built with Claude Code](moonlight-claude-mods.md) {: style="view-transition-name: post-moonlight-claude-mods" }
+
+How I built moonlight-claude-mods with Claude Code writing the code: how we split the work, the bugs every test missed, and what I'd tell someone starting.
+
+<a class="post-card__link" href="moonlight-claude-mods/">Read article</a>
+</article>
+
+<article class="post-card" markdown>
 <div class="post-cover post-cover--palette" aria-hidden="true">
 <span style="background:#0D0E17"></span><span style="background:#141726"></span><span style="background:#1C2033"></span><span style="background:#252A42"></span><span style="background:#7386D0"></span><span style="background:#8A9BE0"></span><span style="background:#A2B0EA"></span><span style="background:#B9C6F5"></span><span style="background:#49EF95"></span><span style="background:#FFCB6B"></span><span style="background:#CA5F71"></span>
 </div>
