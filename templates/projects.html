@@ -22,7 +22,7 @@
     "pwa": "PWA",
     "javascript": "JavaScript"
   } %}
-  {% set t = { "view": "View project", "all": "All", "filter": "Filter projects by area", "images": "images", "image": "image", "open": "Open screenshots", "featured": "Featured", "intro": "Personal and study projects: data pipelines, machine learning, the tools I use every day and the Moonlight theme.", "showing": "Showing", "of": "of", "projects": "projects" } %}
+  {% set t = { "view": "View project", "clear_all": "Clear all", "picked": "Picked areas", "filter": "Filter projects by area", "images": "images", "image": "image", "open": "Open screenshots", "featured": "Featured", "intro": "Personal and study projects: data pipelines, machine learning, the tools I use every day and the Moonlight theme.", "showing": "Showing", "of": "of", "projects": "projects" } %}
   {% set areas = [("dados", "Data"), ("ml", "Machine Learning"), ("ferramentas", "Tools"), ("visual", "Visual")] %}
 {% else %}
   {% set category_labels = {
@@ -43,7 +43,7 @@
     "pwa": "PWA",
     "javascript": "JavaScript"
   } %}
-  {% set t = { "view": "Ver projeto", "all": "Todos", "filter": "Filtrar projetos por área", "images": "imagens", "image": "imagem", "open": "Abrir capturas de tela", "featured": "Destaque", "intro": "Projetos pessoais e de estudo: pipelines de dados, machine learning, as ferramentas que uso todo dia e o tema Moonlight.", "showing": "Mostrando", "of": "de", "projects": "projetos" } %}
+  {% set t = { "view": "Ver projeto", "clear_all": "Limpar tudo", "picked": "Áreas escolhidas", "filter": "Filtrar projetos por área", "images": "imagens", "image": "imagem", "open": "Abrir capturas de tela", "featured": "Destaque", "intro": "Projetos pessoais e de estudo: pipelines de dados, machine learning, as ferramentas que uso todo dia e o tema Moonlight.", "showing": "Mostrando", "of": "de", "projects": "projetos" } %}
   {% set areas = [("dados", "Dados"), ("ml", "Machine Learning"), ("ferramentas", "Ferramentas"), ("visual", "Visual")] %}
 {% endif %}
 
@@ -135,10 +135,12 @@
 
 <p class="projects-intro">{{ t.intro }}</p>
 
+{# The standard's filter chips: picked areas move up into this row as removable tags, the rest stay below as "+ area" #}
+<div class="projects-picked" role="group" aria-label="{{ t.picked }}" hidden>
+  <button type="button" class="projects-clear">{{ t.clear_all }}</button>
+</div>
+
 <div class="projects-filter" role="group" aria-label="{{ t.filter }}">
-  <button type="button" class="projects-filter__btn" data-filter="all" aria-pressed="true">
-    {{ t.all }} <span class="projects-filter__count">{{ page.meta.work | length }}</span>
-  </button>
   {% for key, label in areas %}
   {% set ns = namespace(count=0) %}
   {% for work in page.meta.work if key in card_areas(work).split() %}{% set ns.count = ns.count + 1 %}{% endfor %}

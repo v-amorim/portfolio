@@ -480,13 +480,6 @@
   margin: 0;
 }
 
-.stack-group .project-tags > .tag {
-  border: none;
-  border-radius: 4px;
-  background: #252A42;
-  color: #9BA3C4;
-}
-
 /* ===================================================================
    Career Collapse (class added by timeline.js)
    =================================================================== */

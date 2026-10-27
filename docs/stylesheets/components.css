@@ -6,57 +6,47 @@
    Tags (used in work page and blog)
    =================================================================== */
 
+/* Round 3 pick D: one tag look on every page, a neutral 4 px badge led by a dot in its area's hue */
 .tag {
-  padding: 3px 12px 5px 12px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 8px;
-}
-
-/* Tags carry the color of the area they belong to, not one hue each */
-.tools,
-.ferramentas,
-.code,
-.código,
-.python,
-.shell,
-.documentação,
-.template,
-.pwa,
-.javascript,
-.typescript {
-  background: var(--tag-tools-bg);
-  color: var(--tag-tools-fg);
-  border-color: var(--tag-tools-border);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--muted);
+  color: var(--muted-foreground);
   font-weight: 500;
 }
 
-.visual,
-.gui,
-.web-scraping {
-  background: var(--tag-visual-bg);
-  color: var(--tag-visual-fg);
-  border-color: var(--tag-visual-border);
-  font-weight: 500;
+.tag::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tag-dot, var(--muted-foreground));
 }
 
-.engenharia-de-dados,
-.spark,
-.etl,
-.analytics {
-  background: var(--tag-data-eng-bg);
-  color: var(--tag-data-eng-fg);
-  border-color: var(--tag-data-eng-border);
-  font-weight: 500;
+[data-md-color-scheme="slate"] .tag {
+  background: #252A42;
+  color: #9BA3C4;
 }
 
-.machine-learning,
-.computer-vision,
-.api {
-  background: var(--tag-ml-bg);
-  color: var(--tag-ml-fg);
-  border-color: var(--tag-ml-border);
-  font-weight: 500;
+/* The dot carries the colour of the area a tag belongs to, not one hue each */
+.tag:is(.tools, .ferramentas, .code, .código, .python, .shell, .documentação, .template, .pwa, .javascript, .typescript) {
+  --tag-dot: var(--tag-tools-fg);
+}
+
+.tag:is(.visual, .gui, .web-scraping) {
+  --tag-dot: var(--tag-visual-fg);
+}
+
+.tag:is(.engenharia-de-dados, .spark, .etl, .analytics) {
+  --tag-dot: var(--tag-data-eng-fg);
+}
+
+.tag:is(.machine-learning, .computer-vision, .api) {
+  --tag-dot: var(--tag-ml-fg);
 }
 
 /* ===================================================================

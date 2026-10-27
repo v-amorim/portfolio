@@ -41,9 +41,9 @@
 }
 
 .projects-filter__btn[aria-pressed="true"] {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: var(--primary-foreground);
+  background: var(--accent);
+  border-color: transparent;
+  color: var(--primary);
 }
 
 /* Selected is surface-3 with primary-70: a primary fill is kept for the view's one action */
@@ -51,6 +51,48 @@
   background: #252A42;
   border-color: transparent;
   color: #A2B0EA;
+}
+
+/* Round 3 pick E, the standard's filter chips: picked areas sit in their own row as removable tags with an ×,
+   then a "Clear all" link; the areas left below read "+ area" and add to the pick */
+.projects-picked:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin: var(--spacing-4) 0 calc(-1 * var(--spacing-2));
+}
+
+.projects-filter__btn:not([aria-pressed="true"])::before {
+  content: "+";
+  opacity: 0.7;
+}
+
+.projects-filter__btn[aria-pressed="true"]::after {
+  content: "×";
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  background: var(--muted);
+}
+
+[data-md-color-scheme="slate"] .projects-filter__btn[aria-pressed="true"]::after {
+  background: #2F3654;
+}
+
+.projects-clear {
+  padding: 0 var(--spacing-1);
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.projects-clear:hover {
+  color: var(--foreground);
 }
 
 /* Area icon slides in on hover, focus and while the filter is active */
@@ -132,6 +174,21 @@
 
 .projects-grid > .project-card--featured {
   grid-column: span 3;
+}
+
+/* Round 3 pick G, a gallery wall: each card shows its screenshot and title; the rest lives behind the links */
+.projects-grid > .project-card > :not(.project-media):not(.project-head),
+.projects-grid .project-badge {
+  display: none;
+}
+
+/* An odd number of featured cards would leave the last one beside a regular card with a gap; it takes the whole row instead */
+.projects-grid > .project-card--featured:nth-child(odd):not(:has(+ .project-card--featured)) {
+  grid-column: 1 / -1;
+}
+
+.md-typeset .projects-grid > .project-card--featured:nth-child(odd):not(:has(+ .project-card--featured)) .project-media {
+  aspect-ratio: 3 / 1;
 }
 
 @media screen and (max-width: 64rem) {
