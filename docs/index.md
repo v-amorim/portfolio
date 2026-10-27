@@ -18,7 +18,7 @@ hide:
 
 # Vinicius C. Amorim
 
-## Engenheiro de Dados e IA @ [educbank](https://educbank.com.br){: target="_blank" rel="noopener" }
+## Engenheiro de *Dados e IA*{: .hero-key } @ [educbank](https://educbank.com.br){: target="_blank" rel="noopener" }
 
 Construo as plataformas de dados em que o negócio se apoia para decidir: da ingestão à camada Ouro, com contrato de schema entre as camadas e uma quarentena que barra o dado ruim antes que ele chegue a um dashboard.
 Databricks, PySpark e Unity Catalog, em Azure e GCP.

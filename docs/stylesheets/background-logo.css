@@ -117,6 +117,27 @@
 }
 
 /* ===================================================================
+   Round 1 pick D: a uniform faint dot grid behind the page, the logos held
+   still (no drift, twinkle, split or parallax)
+   =================================================================== */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(#9BA3C42E 1px, transparent 1.2px) 0 0 / 20px 20px;
+  opacity: 0.6;
+}
+
+.constellation-logo,
+.constellation-logo path {
+  animation: none !important;
+  translate: none !important;
+}
+
+/* ===================================================================
    Dark Mode - Boost visibility slightly
    =================================================================== */
 

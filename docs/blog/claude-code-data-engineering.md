@@ -17,7 +17,7 @@ Data engineering is polyglot: SQL, Python, YAML, Terraform, Airflow, all in the 
 ## In practice
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#191726','primaryTextColor':'#f8eaf8','primaryBorderColor':'#7386d0','lineColor':'#7386d0','secondaryColor':'#272d44','secondaryTextColor':'#f8eaf8','secondaryBorderColor':'#5dabf3','tertiaryColor':'#3c466f','tertiaryTextColor':'#f8eaf8','tertiaryBorderColor':'#79c0ff','background':'transparent','mainBkg':'#191726','textColor':'#f8eaf8','fontSize':'14px','fontFamily':'Mulish, system-ui, sans-serif'}}}%%
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#191726','primaryTextColor':'#f8eaf8','primaryBorderColor':'#7386d0','lineColor':'#7386d0','secondaryColor':'#272d44','secondaryTextColor':'#f8eaf8','secondaryBorderColor':'#5dabf3','tertiaryColor':'#3c466f','tertiaryTextColor':'#f8eaf8','tertiaryBorderColor':'#79c0ff','background':'transparent','mainBkg':'#191726','textColor':'#f8eaf8','fontSize':'14px','fontFamily':'Inter, system-ui, sans-serif'}}}%%
 graph LR
     A[Requirements] --> B[Claude Code]
     B --> C[Generate code]

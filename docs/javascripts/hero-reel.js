@@ -38,7 +38,7 @@
       BRONZE: "#F2B199", SILVER: "#CDCFE7", GOLD: "#DBB060",
       BLUE: "#8A9BE0", GREEN: "#49EF95", ACCENT: "#A2B0EA",
       LOGO_TOP: "#B9C6F5", LOGO_BOTTOM: "#7386D0",
-      AZURE: "#79C0FF", GCP: ["#7386D0", "#B86CB3", "#FF72B0", "#DBB060"],
+      AZURE: "#8A9BE0", GCP: ["#7386D0", "#8A9BE0", "#B86CB3", "#CA5F71"],
     }),
     // The first cut of the reel, kept for the exported videos
     classic: palette({
@@ -61,8 +61,8 @@
   const END = 13.4;
   const SPLIT = 13.0;
 
-  const MONO = 'ui-monospace, "JetBrains Mono", Consolas, monospace';
-  const SANS = "Mulish, system-ui, sans-serif";
+  const MONO = '"Fira Code", ui-monospace, Consolas, monospace';
+  const SANS = "Inter, system-ui, sans-serif";
 
   function initHeroReel() {
     const stage = document.querySelector(".hero-reel-stage");

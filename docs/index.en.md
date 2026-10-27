@@ -18,7 +18,7 @@ hide:
 
 # Vinicius C. Amorim
 
-## Data & AI Engineer @ [educbank](https://educbank.com.br){: target="_blank" rel="noopener" }
+## *Data & AI*{: .hero-key } Engineer @ [educbank](https://educbank.com.br){: target="_blank" rel="noopener" }
 
 I build the data platforms a business relies on to make decisions: from ingestion to the Gold layer, with schema contracts between layers and a quarantine that stops bad data before it reaches a dashboard.
 Databricks, PySpark and Unity Catalog, on Azure and GCP.

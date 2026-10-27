@@ -49,13 +49,11 @@
   position: relative;
   width: 100%;
   aspect-ratio: 2 / 1;
-  border-radius: 20px;
+  border-radius: 12px;
   corner-shape: squircle;
   overflow: hidden;
   background: #0D0E17;
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.35),
-    0 0 0 1px #9BA3C41F;
+  box-shadow: 0 0 0 1px #9BA3C41F;
 }
 
 .hero-reel-stage:empty {
@@ -83,11 +81,11 @@
   color: #EEEEFA;
   backdrop-filter: blur(6px);
   cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.2s ease;
+  transition: opacity 150ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .hero-reel__replay:hover {
-  transform: scale(1.08);
+  background: #FFFFFF40;
 }
 
 .hero-reel__replay svg {
@@ -116,7 +114,6 @@
 
 .tx-hero__content h1 {
   margin-bottom: 1rem;
-  font-family: var(--md-typeset-heading);
 }
 
 .tx-hero__content h2 {
@@ -141,6 +138,7 @@
    Email Tooltip
    =================================================================== */
 
+/* The standard tooltip: surface-3, 8 px, 11 px text, no arrow, a 100 ms fade */
 .md-button--primary[title]:hover::after {
   content: attr(title);
   position: absolute;
@@ -149,39 +147,26 @@
   transform: translateX(-50%) translateY(-8px);
   background: var(--card);
   color: var(--md-default-fg-color);
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--spacing-2);
   border: 1px solid var(--border);
-  font-size: 0.85rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.55rem;
   white-space: nowrap;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   pointer-events: none;
-  animation: fadeIn 0.2s ease-out;
+  animation: tooltipIn 100ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.md-button--primary[title]:hover::before {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-2px);
-  border: 6px solid transparent;
-  border-top-color: var(--card);
-  z-index: 1000;
-  pointer-events: none;
-  animation: fadeIn 0.2s ease-out;
+[data-md-color-scheme="slate"] .md-button--primary[title]:hover::after {
+  background: #252A42;
+  border-color: transparent;
+  box-shadow: 0 12px 32px #000a;
 }
 
-@keyframes fadeIn {
+@keyframes tooltipIn {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(-4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-8px);
   }
 }
 
@@ -195,54 +180,65 @@
 }
 
 /* ===================================================================
-   Section Headers - mono index over a heavy title, same voice as the reel
+   Section Headers - the standard's section header (round 1 pick B): the
+   index and name in 9 px mono caps, dim, on a hairline that runs right
    =================================================================== */
 
 .home-container {
   counter-reset: home-section;
 }
 
-.home-container > h2 {
+.md-typeset .home-container > h2 {
   counter-increment: home-section;
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin: 3.5rem 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 3rem 0 1rem;
+  font: 600 0.45rem/1 var(--md-code-font-family, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7E86A4;
 }
 
 .home-container > h2::before {
   content: counter(home-section, decimal-leading-zero);
-  display: block;
-  margin-bottom: 0.35rem;
-  font: 600 0.65rem/1.4 var(--md-code-font-family, monospace);
-  letter-spacing: 0.14em;
-  color: var(--md-default-fg-color--light);
+}
+
+.home-container > h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* The key word of the hero title (round 1 pick C) */
+.md-typeset em.hero-key {
+  font-style: normal;
+  color: var(--primary);
+}
+
+[data-md-color-scheme="slate"] .md-typeset em.hero-key {
+  color: #A2B0EA;
 }
 
 /* ===================================================================
    Scroll Reveal (classes added by reveal.js)
    =================================================================== */
 
+/* At most the standard's slow step (250 ms); hover colour changes stay instant */
 .reveal {
-  --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   opacity: 0;
   transform: translateY(18px);
   transition:
-    opacity 0.7s var(--reveal-ease),
-    transform 0.7s var(--reveal-ease),
-    border-color 0.2s ease-out,
-    translate 0.2s ease-out,
-    box-shadow 0.2s ease-out;
+    opacity 250ms var(--reveal-ease),
+    transform 250ms var(--reveal-ease);
   transition-delay: calc(var(--reveal-i, 0) * 60ms);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
-}
-
-.card.reveal.is-visible:hover {
-  transform: translateY(-3px);
 }
 
 /* ===================================================================
@@ -254,7 +250,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 0.5rem;
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 12px;
   corner-shape: squircle;
   background: var(--card);
 }
@@ -272,20 +268,22 @@
 
 .stat__value {
   font-size: 2.2rem;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
-  color: var(--md-primary-fg-color);
+  color: var(--md-default-fg-color);
 }
 
 .stat__label {
-  font-size: 0.75rem;
-  color: var(--md-default-fg-color--light);
+  font: 600 0.45rem/1.2 var(--md-code-font-family, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7E86A4;
 }
 
 /* ===================================================================
-   Bento - what I build; each cell takes the accent of its reel scene
+   Bento - what I build
    =================================================================== */
 
 .bento {
@@ -297,30 +295,20 @@
   gap: 1rem;
 }
 
-.bento__platform { grid-area: platform; --scene: #DBB060; }
-.bento__cloud { grid-area: cloud; --scene: #79C0FF; }
-.bento__ci { grid-area: ci; --scene: #8A9BE0; }
-.bento__ai { grid-area: ai; --scene: #B9C6F5; }
-.bento__oss { grid-area: oss; --scene: #A2B0EA; }
+.bento__platform { grid-area: platform; }
+.bento__cloud { grid-area: cloud; }
+.bento__ci { grid-area: ci; }
+.bento__ai { grid-area: ai; }
+.bento__oss { grid-area: oss; }
 
-.bento .card {
-  position: relative;
-  overflow: hidden;
+/* The state ladder's hover step: these cards are not links, so no edge colour */
+.bento .card:hover {
+  border-color: var(--border);
+  background: var(--muted);
 }
 
-.bento .card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 3px;
-  background: var(--scene);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bento .card:hover::before {
-  transform: scaleX(1);
+[data-md-color-scheme="slate"] .bento .card:hover {
+  background: #1C2033;
 }
 
 .bento .bento__platform .card-content h3 {
@@ -359,9 +347,9 @@
   color: var(--md-default-fg-color);
 }
 
-.layer--bronze { --layer: #F2B199; }
-.layer--silver { --layer: #CDCFE7; }
-.layer--gold { --layer: #DBB060; }
+.layer--bronze { --layer: #1C2033; }
+.layer--silver { --layer: #252A42; }
+.layer--gold { --layer: #2F3654; }
 
 /* ===================================================================
    Principles and Pull Quote
@@ -387,7 +375,7 @@
   display: inline-block;
   padding: 0.3rem 0.6rem;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 0.65rem;
   color: var(--md-default-fg-color--light);
   background: color-mix(in srgb, var(--md-primary-fg-color) 8%, transparent);
@@ -409,7 +397,7 @@
   max-width: 40rem;
   margin: 0;
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.01em;
   color: var(--md-default-fg-color);
@@ -432,16 +420,18 @@
   gap: 0.45rem;
   padding: 1.25rem 1.5rem;
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 12px;
   corner-shape: squircle;
   background: var(--card);
   color: var(--md-default-fg-color);
-  transition: border-color 0.2s ease-out, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-teaser:first-child {
+  grid-column: 1 / -1;
 }
 
 .md-typeset .post-teaser:hover {
   border-color: var(--md-primary-fg-color);
-  transform: translateY(-3px);
 }
 
 .post-teaser time {
@@ -452,9 +442,9 @@
 
 .post-teaser strong {
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.3;
-  color: var(--md-primary-fg-color);
+  color: var(--md-default-fg-color);
 }
 
 .post-teaser span {
@@ -488,6 +478,13 @@
 
 .stack-group .project-tags {
   margin: 0;
+}
+
+.stack-group .project-tags > .tag {
+  border: none;
+  border-radius: 4px;
+  background: #252A42;
+  color: #9BA3C4;
 }
 
 /* ===================================================================
@@ -584,13 +581,10 @@
   flex-direction: column;
   height: 100%;
   background: var(--card);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
 .card:hover {
   border-color: var(--md-primary-fg-color);
-  box-shadow: 0 0 0 1px var(--md-primary-fg-color);
 }
 
 .card-content {
@@ -606,9 +600,9 @@
 .card-grid .card-content h3,
 .card-content h3 {
   font-size: clamp(1.1rem, 1.6vw, 1.4rem) !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
   letter-spacing: -0.02em !important;
-  color: var(--md-primary-fg-color) !important;
+  color: var(--md-default-fg-color) !important;
   text-transform: none !important;
   text-align: left !important;
   text-decoration: none !important;
@@ -632,7 +626,7 @@
 
 .card-grid .card-content p,
 .card-content p {
-  font-size: 0.8rem !important;
+  font-size: 0.65rem !important;
   font-weight: 400 !important;
   color: var(--md-default-fg-color--light) !important;
   text-align: left !important;

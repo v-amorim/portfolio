@@ -70,6 +70,11 @@
   --tag-ml-fg: oklch(0.45 0.15 10);
   --tag-ml-border: oklch(0.68 0.10 10);
 
+  --success: #C3E598;
+  --information: #64C3DC;
+  --warning: #FF936D;
+  --error: #FF929E;
+
   /* Override MkDocs Material default CSS variables */
   --md-default-fg-color: #1e293b;
   --md-default-fg-color--light: #6b7280;
@@ -169,6 +174,7 @@
   /* Additional Moonlight colors */
   --success: oklch(0.846 0.185 154.9);
   --warning: oklch(0.869 0.128 81.1);
+  --error: #CA5F71;
   --info: oklch(0.833 0.068 272.8);
   --highlight: oklch(0.833 0.068 272.8);
   --selection: oklch(0.637 0.114 271.9 / 0.6);
@@ -298,11 +304,6 @@
   --tags: var(--muted-foreground);
   --input-caption: var(--muted-foreground);
 
-  --success: #C3E598;
-  --information: #64C3DC;
-  --warning: #FF936D;
-  --error: #FF929E;
-
   /* Legacy compatibility */
   --primary-light: var(--primary-foreground);
   --primary-light-020: rgba(99, 102, 241, 0.2);
@@ -331,41 +332,50 @@
   --disabled: var(--muted-foreground);
 }
 
+/* Latin slices of the variable fonts: Portuguese and English need nothing more */
 @font-face {
-  font-family: "Mulish";
-  src: url("../assets/fonts/Mulish/Mulish-VariableFont_wght.woff2") format("woff2");
-  font-weight: 200 1000;
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter/Inter-latin-wght.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "Mulish";
-  src: url("../assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.woff2") format("woff2");
-  font-weight: 200 1000;
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter/Inter-Italic-latin-wght.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: italic;
-  font-display: block;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("../assets/fonts/FiraCode/FiraCode-latin-wght.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
-  --md-text-font: 'Mulish', system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --md-typeset-heading: 'Mulish', system-ui, sans-serif;
+  --md-text-font: "Inter", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --md-code-font: "Fira Code", ui-monospace, Consolas, monospace;
 }
 
 /* ===================================================================
-   Typography
+   Typography: Inter (body 500, headings 600) per the Moonlight standard
    =================================================================== */
 
 .md-typeset {
-  font-family: var(--md-text-font);
   font-size: .9rem;
+  font-weight: 500;
 }
 
 .md-typeset h1 {
   font-size: 1.8rem;
   color: var(--foreground);
-  font-family: var(--md-typeset-heading);
-  font-weight: 900;
+  font-weight: 600;
+  letter-spacing: -.03em;
   margin: 0 0 var(--spacing-3);
 }
 
@@ -375,7 +385,7 @@
 }
 
 .md-typeset h3 {
-  font-weight: 500;
+  font-weight: 600;
   margin: 1rem 0 .64em;
 }
 
@@ -385,8 +395,10 @@
   text-wrap: balance;
 }
 
+/* Round 1b pick A: body copy at the standard's 13 px page tier (15 px is the fallback if it reads too small) */
 .md-typeset p,
 .md-typeset li {
+  font-size: 0.65rem;
   text-wrap: pretty;
 }
 
@@ -429,11 +441,10 @@ code {
   width: 1.25em;
 }
 
-.md-typeset .md-button:hover,
-.md-typeset .md-button:focus {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  border: 0.1rem solid var(--primary);
+/* Keyboard focus only, never a click: 3 px primary ring 2 px outside */
+:focus-visible {
+  outline: 3px solid #7386D0;
+  outline-offset: 2px;
 }
 
 .md-typeset .md-button--primary {
@@ -447,7 +458,6 @@ code {
   font-weight: 600;
 }
 
-.md-typeset .md-button--primary:focus,
 .md-typeset .md-button--primary:hover {
   background-color: var(--primary);
   opacity: 0.9;
@@ -470,6 +480,118 @@ code {
   color: var(--foreground);
 }
 
+/* Round 1b pick A3 (templates/partials/header.html): the tabs as a centred pill nav, the tools on the right as icons */
+.md-header__inner {
+  position: relative;
+}
+
+.md-header__pills {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.md-header__pills .md-tabs {
+  overflow: visible;
+  background: none !important;
+}
+
+.md-header__pills .md-grid {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.md-header__pills .md-tabs__list {
+  display: flex;
+  gap: 2px;
+  margin: 0;
+  padding: 3px;
+  white-space: nowrap;
+  contain: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.md-header__pills .md-tabs__item {
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.md-header__pills .md-tabs__link {
+  display: block;
+  margin: 0;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  opacity: 1;
+}
+
+.md-header__pills .md-tabs__link:hover {
+  color: var(--foreground);
+}
+
+.md-header__pills .md-tabs__item--active .md-tabs__link {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+[data-md-color-scheme="slate"] .md-header__pills .md-tabs__list {
+  background: #141726;
+}
+
+[data-md-color-scheme="slate"] .md-header__pills .md-tabs__link:hover {
+  background: #1C2033;
+}
+
+[data-md-color-scheme="slate"] .md-header__pills .md-tabs__item--active .md-tabs__link {
+  background: #252A42;
+  color: #A2B0EA;
+}
+
+.md-header__tools {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* GitHub as its icon alone */
+.md-header__tools .md-header__source {
+  width: auto;
+  margin-left: 0.2rem;
+}
+
+.md-header__tools .md-source__repository {
+  display: none;
+}
+
+/* Search folds to its icon until it is opened, then Material widens it */
+@media screen and (min-width: 60em) {
+  [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__inner {
+    width: 2.2rem;
+  }
+
+  [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form {
+    background: none !important;
+  }
+
+  [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__input {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__input::placeholder {
+    color: transparent;
+  }
+}
+
 .md-search__input+.md-search__icon {
   color: var(--foreground);
 }
@@ -489,6 +611,12 @@ code {
   border-radius: var(--spacing-8);
   color: var(--foreground);
   background-color: var(--input);
+}
+
+/* An inset well: bg fill, hairline, inner shadow */
+[data-md-color-scheme="slate"] .md-search__input {
+  background-color: var(--background);
+  box-shadow: inset 0 2px 4px #0008;
 }
 
 .md-search__input::placeholder {
@@ -620,10 +748,15 @@ input {
   navigation: auto;
 }
 
-::view-transition-old(root),
+/* Fade through: out in 100 ms, the new page in over 150 ms */
+::view-transition-old(root) {
+  animation-duration: 100ms;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 ::view-transition-new(root) {
-  animation-duration: 0.28s;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-duration: 150ms;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* ===================================================================
@@ -756,22 +889,23 @@ input {
   border: 1px solid #7386d0;
 }
 
-[data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover,
-[data-md-color-scheme="slate"] .md-typeset .md-button--primary:focus {
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover {
   background-color: #8A9BE0;
   color: #0D0E17;
   border-color: #8A9BE0;
 }
 
+/* Secondary buttons are tonal: surface-3, hover surface-4, no outline */
 [data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary) {
-  border-color: #7386d0;
-  color: #7386d0;
+  border-color: transparent;
+  background-color: #252A42;
+  color: #EEEEFA;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary):hover {
-  border-color: #7386d0;
+  border-color: transparent;
+  background-color: #2F3654;
   color: #EEEEFA;
-  background-color: rgba(115, 134, 208, 0.1);
 }
 
 [data-md-color-scheme="slate"] ::selection {
@@ -785,13 +919,14 @@ input {
 [data-md-color-scheme="slate"] .md-typeset h4,
 [data-md-color-scheme="slate"] .md-typeset h5,
 [data-md-color-scheme="slate"] .md-typeset h6 {
-  color: var(--markdown-heading);
+  color: var(--foreground);
 }
 
+/* Green is a status colour, so the quote bar takes the hairline instead */
 [data-md-color-scheme="slate"] .md-typeset blockquote {
   color: var(--markdown-quote);
   background-color: var(--markdown-quote-bg);
-  border-left: 4px solid rgba(73, 239, 149, 0.4);
+  border-left: 4px solid var(--border);
 }
 
 [data-md-color-scheme="slate"] .md-typeset code:not(.highlight code) {
@@ -803,13 +938,13 @@ input {
   color: var(--markdown-code-block);
 }
 
+/* Links are secondary; hover brightens to on-surface */
 [data-md-color-scheme="slate"] .md-typeset a {
-  color: var(--markdown-link-active);
+  color: #B9C6F5;
 }
 
-[data-md-color-scheme="slate"] .md-typeset a:hover,
-[data-md-color-scheme="slate"] .md-typeset a:focus {
-  color: var(--markdown-link);
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  color: var(--foreground);
 }
 
 [data-md-color-scheme="slate"] .md-typeset ul>li::marker,
@@ -840,15 +975,11 @@ input {
 }
 
 [data-md-color-scheme="slate"] .card-grid .card-content h3 {
-  color: var(--markdown-heading) !important;
+  color: var(--foreground) !important;
 }
 
-[data-md-color-scheme="slate"] .project-card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
+/* Cards rest on a hairline with no shadow; hover only brightens the edge */
 [data-md-color-scheme="slate"] .project-card:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   border-color: #7386d0;
 }
 
@@ -858,4 +989,35 @@ input {
 
 [data-md-color-scheme="slate"] .project-external-link:hover {
   color: #A2B0EA;
+}
+
+/* The /deck pointer; pointer.js adds .has-pointer only for a fine pointer with motion allowed */
+.has-pointer,
+.has-pointer * {
+  cursor: none !important;
+}
+
+.pointer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border-radius: 50%;
+  background: #B9C6F5;
+  box-shadow: 0 0 0 5px #7386D04D, 0 0 24px 10px #7386D0A6;
+  pointer-events: none;
+  z-index: 1000;
+  will-change: translate;
+  opacity: 0;
+  transition: opacity 200ms cubic-bezier(0.2, 0.8, 0.2, 1), scale 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.pointer.on {
+  opacity: 1;
+}
+
+.pointer.down {
+  scale: 1.6;
 }

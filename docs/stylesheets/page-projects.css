@@ -46,6 +46,13 @@
   color: var(--primary-foreground);
 }
 
+/* Selected is surface-3 with primary-70: a primary fill is kept for the view's one action */
+[data-md-color-scheme="slate"] .projects-filter__btn[aria-pressed="true"] {
+  background: #252A42;
+  border-color: transparent;
+  color: #A2B0EA;
+}
+
 /* Area icon slides in on hover, focus and while the filter is active */
 .projects-filter__icon {
   display: inline-flex;
@@ -153,44 +160,21 @@
   gap: var(--spacing-3);
   padding: var(--spacing-4) var(--spacing-5);
   border: 1px solid var(--border);
-  border-radius: var(--spacing-5);
+  border-radius: 12px;
   corner-shape: squircle;
   background-color: var(--card);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, translate 0.2s ease;
 }
 
+/* Hover is an instant colour change: no lift, no shadow, no glow */
 .md-typeset .project-card:hover,
 .md-typeset .project-card:focus-within {
   border-color: var(--primary);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-  translate: 0 -3px;
 }
 
-/* Spotlight: a soft glow that follows the pointer (position set by projects-filter.js) */
-.md-typeset .project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(
-    22rem circle at var(--spot-x, 50%) var(--spot-y, 0%),
-    color-mix(in srgb, var(--md-primary-fg-color) 14%, transparent),
-    transparent 65%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.md-typeset .project-card:hover::before {
-  opacity: 1;
-}
-
-/* Filter reflow: every card animates from its old slot to its new one */
+/* Filter reflow: every card moves from its old slot to its new one */
 ::view-transition-group(*) {
-  animation-duration: 0.35s;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-duration: 250ms;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Media band: the screenshot bleeds to the card edges */
@@ -213,11 +197,6 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
-  transition: scale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.project-card:hover .project-media img {
-  scale: 1.04;
 }
 
 /* Cover for projects without a screenshot: area glow, grid and the stack as code */
@@ -243,11 +222,6 @@
   width: 2.75rem;
   height: 2.75rem;
   fill: var(--area);
-  transition: scale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.project-card:hover .project-media__icon svg {
-  scale: 1.1;
 }
 
 .project-media__code {
@@ -321,11 +295,10 @@
 .md-typeset .project-link h3 {
   margin: 0;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.3;
   color: var(--foreground);
   text-wrap: balance;
-  transition: color 0.2s ease;
 }
 
 .project-card:hover .project-link h3 {
@@ -409,11 +382,6 @@
   width: 0.9rem;
   height: 0.9rem;
   fill: currentColor;
-  transition: translate 0.2s ease;
-}
-
-.project-card:hover .project-external-link svg {
-  translate: 2px -2px;
 }
 
 .project-images {

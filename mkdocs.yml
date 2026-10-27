@@ -35,9 +35,11 @@ extra_javascript:
   - javascripts/hero-reel.js
   - javascripts/reveal.js
   - javascripts/palette.js
+  - javascripts/pointer.js
 
 # Material Configuration
 theme:
+  # Inter and Fira Code are self-hosted in global.css: the privacy plugin's font symlinks fail on Windows and abort strict builds
   font: false
   name: material
   language: pt-BR

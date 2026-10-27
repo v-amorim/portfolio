@@ -20,19 +20,7 @@
     requestAnimationFrame(step);
   }
 
-  // Spotlight: project and post cards glow under the pointer (CSS reads --spot-x/--spot-y)
-  function initSpotlight() {
-    document.querySelectorAll(".project-card, .post-card").forEach((card) => {
-      card.addEventListener("pointermove", (e) => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty("--spot-x", `${e.clientX - r.left}px`);
-        card.style.setProperty("--spot-y", `${e.clientY - r.top}px`);
-      });
-    });
-  }
-
   function initReveal() {
-    initSpotlight();
     const home = document.querySelector(".home-container");
     const cardGrid = document.querySelector(".projects-grid, .post-list");
     if ((!home && !cardGrid) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;

@@ -99,7 +99,7 @@
     lineColor: c.primary,
     textColor: c.text,
     titleColor: c.text,
-    fontFamily: 'Mulish, system-ui, sans-serif',
+    fontFamily: 'Inter, system-ui, sans-serif',
     fontSize: '14px',
 
     nodeBorder: c.primary,
@@ -361,7 +361,7 @@
     theme: 'base',
     themeVariables,
     themeCSS,
-    fontFamily: 'Mulish, system-ui, sans-serif',
+    fontFamily: 'Inter, system-ui, sans-serif',
     sequence: { actorFontSize: 14, messageFontSize: 14, noteFontSize: 14 },
     gantt: { fontSize: 13, barHeight: 24, barGap: 8, topPadding: 56, leftPadding: 96, gridLineStartPadding: 32, numberSectionStyles: 2 },
     pie: { textPosition: 0.7 },
