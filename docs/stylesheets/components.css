@@ -893,22 +893,56 @@
    Blog index: post cards
    =================================================================== */
 
-/* The newest post spans the row; the rest pair up below it */
-.md-typeset .post-list {
+/* Round 4b pick B: the topic chips (blog-filter.js) in a column at the left of the posts, kept in view while scrolling */
+.blog-layout {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--spacing-4);
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: var(--spacing-6);
+  align-items: start;
   margin: var(--spacing-6) 0;
 }
 
-.md-typeset .post-card--featured {
-  grid-column: 1 / -1;
+.blog-filter {
+  position: sticky;
+  top: 4rem;
 }
 
+.blog-layout .blog-filter :is(.projects-picked, .projects-filter) {
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 var(--spacing-2);
+}
+
+.md-typeset .blog-layout .post-list {
+  margin: 0;
+}
+
+/* Outranks the row layout below, which sets display on every card */
+.md-typeset .post-list .post-card[hidden] {
+  display: none;
+}
+
+/* Narrow: the chips run above the posts as a wrapping row */
 @media screen and (max-width: 52rem) {
-  .md-typeset .post-list {
+  .blog-layout {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .blog-filter {
+    position: static;
+  }
+
+  .blog-layout .blog-filter :is(.projects-picked, .projects-filter) {
+    flex-direction: row;
+  }
+}
+
+/* Round 4 pick D: one post per row, its cover as a thumbnail at the left */
+.md-typeset .post-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-4);
+  margin: var(--spacing-6) 0;
 }
 
 .md-typeset .post-card {
@@ -934,6 +968,24 @@
 
 .post-card--featured .post-cover {
   height: 11rem;
+}
+
+/* Wide enough for a row: the cover becomes a thumbnail filling the card's left side (scoped to the list so it outranks the card rules further down) */
+@media screen and (min-width: 52rem) {
+  .md-typeset .post-list .post-card {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    column-gap: var(--spacing-6);
+    align-content: start;
+  }
+
+  .md-typeset .post-list .post-card .post-cover {
+    grid-row: 1 / span 6;
+    height: auto;
+    margin: calc(-1 * var(--spacing-5)) 0 calc(-1 * var(--spacing-5)) calc(-1 * var(--spacing-6));
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+  }
 }
 
 /* The strip separates into chips on hover (the title link overlays the card, so hover is card-level) */
@@ -1436,8 +1488,37 @@
   color: var(--md-primary-fg-color);
 }
 
+/* Round 4 pick B: the date, read time and topics sit above the title as a mono caps line */
+.md-typeset .post-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.md-typeset .post-header .post-meta {
+  order: 1;
+  margin-top: var(--spacing-3);
+  font: 600 0.45rem/1.4 var(--md-code-font-family, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* The date, read time and topics each have their own size elsewhere; in the caps line they all take its one size */
+.md-typeset .post-header .post-meta > * {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .post-header .post-meta {
+  color: #7E86A4;
+}
+
+.md-typeset .post-header .post-title {
+  order: 2;
+}
+
 .md-typeset .post-title {
-  margin: var(--spacing-3) 0 var(--spacing-4);
+  margin: var(--spacing-2) 0 0;
   font-size: clamp(1.8rem, 3.2vw, 2.4rem);
   font-weight: 600;
   line-height: 1.15;
@@ -1464,6 +1545,30 @@
   font-size: 0.7rem;
 }
 
+/* Round 4 pick E: images and the italic caption under them share one card; the caption reads upright and muted */
+.md-typeset .post-body :is(.grid, p:has(> img)):has(+ p > em:only-child) {
+  margin-bottom: 0;
+  padding: var(--spacing-3) var(--spacing-3) 0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  background: var(--card);
+}
+
+.md-typeset .post-body :is(.grid, p:has(> img)) + p:has(> em:only-child) {
+  margin-top: 0;
+  padding: var(--spacing-2) var(--spacing-4) var(--spacing-3);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  background: var(--card);
+  color: var(--muted-foreground);
+}
+
+.md-typeset .post-body :is(.grid, p:has(> img)) + p > em:only-child {
+  font-style: normal;
+}
+
 /* The opening paragraph reads as a lead */
 /* One ladder step over the 13 px body */
 .md-typeset .post-body > p:first-child {
@@ -1481,20 +1586,18 @@
   border-top: 1px solid var(--border);
 }
 
+/* Round 4 pick C: plain links under the hairline, no boxes; hover underlines the title */
 .md-typeset .post-pager__link {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-1_5);
-  padding: var(--spacing-4) var(--spacing-5);
-  border: 1px solid var(--border);
-  border-radius: var(--spacing-3);
-  corner-shape: squircle;
-  background: var(--card);
+  padding: var(--spacing-2) 0;
   color: var(--foreground);
 }
 
-.md-typeset .post-pager__link:hover {
-  border-color: var(--md-primary-fg-color);
+.md-typeset .post-pager__link:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .md-typeset .post-pager__link--next {
@@ -1529,4 +1632,88 @@
   .md-typeset .post-pager__link--next {
     grid-column: 1;
   }
+}
+
+/* ===================================================================
+   Post contents: round 4 pick E. On a post, the list of other posts goes
+   and the contents move to the left as the standard's sidebar panel;
+   toc-toggle.js folds it to its header and remembers the choice
+   =================================================================== */
+
+.md-main__inner:has(.post-header) {
+  flex-direction: row-reverse;
+}
+
+.md-main__inner:has(.post-header) .md-sidebar--primary {
+  display: none;
+}
+
+.md-main__inner:has(.post-header) .md-nav--secondary {
+  padding: var(--spacing-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.md-main__inner:has(.post-header) .md-nav--secondary > .md-nav__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+  margin: 0 0 var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-2) var(--spacing-2);
+  border-bottom: 1px solid var(--border);
+  background: none;
+  box-shadow: none;
+  font: 600 0.45rem/1.4 var(--md-code-font-family, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.md-main__inner:has(.post-header) .md-nav--secondary .md-nav__link {
+  font-size: 0.6rem;
+  color: var(--muted-foreground);
+}
+
+.md-main__inner:has(.post-header) .md-nav--secondary .md-nav__link:hover {
+  color: var(--foreground);
+}
+
+.toc-toggle {
+  padding: 0 var(--spacing-1);
+  border: none;
+  border-radius: 4px;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.toc-toggle:hover {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+/* Folded: only the header with its toggle stays, and the column narrows to it */
+.toc-folded .md-main__inner:has(.post-header) .md-sidebar--secondary {
+  width: auto;
+}
+
+.toc-folded .md-main__inner:has(.post-header) .md-nav--secondary > .md-nav__list {
+  display: none;
+}
+
+.toc-folded .md-main__inner:has(.post-header) .md-nav--secondary > .md-nav__title {
+  margin: 0;
+  padding-bottom: var(--spacing-1);
+  border-bottom: none;
+}
+
+[data-md-color-scheme="slate"] .md-main__inner:has(.post-header) .md-nav--secondary > .md-nav__title {
+  color: #7E86A4;
+}
+
+[data-md-color-scheme="slate"] .toc-toggle:hover {
+  background: #252A42;
 }

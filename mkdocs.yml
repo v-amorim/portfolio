@@ -36,6 +36,8 @@ extra_javascript:
   - javascripts/reveal.js
   - javascripts/palette.js
   - javascripts/sky.js
+  - javascripts/toc-toggle.js
+  - javascripts/blog-filter.js
 
 # Material Configuration
 theme:
