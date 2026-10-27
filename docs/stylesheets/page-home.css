@@ -242,6 +242,7 @@
   border-radius: 12px;
   corner-shape: squircle;
   background: var(--card);
+  overflow: hidden;
 }
 
 .stat {
@@ -289,16 +290,6 @@
 .bento__ci { grid-area: ci; }
 .bento__ai { grid-area: ai; }
 .bento__oss { grid-area: oss; }
-
-/* The state ladder's hover step: these cards are not links, so no edge colour */
-.bento .card:hover {
-  border-color: var(--border);
-  background: var(--muted);
-}
-
-[data-md-color-scheme="slate"] .bento .card:hover {
-  background: #1C2033;
-}
 
 .bento .bento__platform .card-content h3 {
   font-size: clamp(1.3rem, 2.2vw, 1.8rem) !important;
@@ -419,10 +410,6 @@
   grid-column: 1 / -1;
 }
 
-.md-typeset .post-teaser:hover {
-  border-color: var(--md-primary-fg-color);
-}
-
 .post-teaser time {
   font: 600 0.65rem/1.4 var(--md-code-font-family, monospace);
   letter-spacing: 0.08em;
@@ -451,11 +438,15 @@
   gap: 0.75rem;
 }
 
+/* The negative margin keeps the text in line while the hover fill gets room around it */
 .stack-group {
   display: grid;
   grid-template-columns: 7rem 1fr;
   align-items: center;
   gap: 1rem;
+  margin: 0 -0.6rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
 }
 
 .stack-group__label {
@@ -565,8 +556,17 @@
   background: var(--card);
 }
 
-.card:hover {
-  border-color: var(--md-primary-fg-color);
+/* Every box on the page shares the state ladder's hover step: one surface up, the edge stays the hairline */
+.card:hover,
+.md-typeset .post-teaser:hover,
+.stat:hover,
+.stack-group:hover {
+  border-color: var(--border);
+  background: var(--muted);
+}
+
+[data-md-color-scheme="slate"] :is(.card, .md-typeset .post-teaser, .stat, .stack-group):hover {
+  background: #1C2033;
 }
 
 .card-content {

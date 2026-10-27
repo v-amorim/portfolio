@@ -132,8 +132,13 @@
   color: inherit;
 }
 
+/* In light mode the card already rests on muted, so its step up is accent */
 .palette-card:hover {
-  border-color: var(--md-accent-fg-color);
+  background: var(--accent);
+}
+
+[data-md-color-scheme="slate"] .palette-card:hover {
+  background: #1C2033;
 }
 
 .palette-card__chip {
@@ -400,9 +405,13 @@
   }
 }
 
-/* Hover is an instant colour change: no lift, no shadow */
+/* Hover is an instant step one surface up: no lift, no shadow, no edge colour */
 .kanban-card:hover {
-  border-color: var(--primary);
+  background: var(--muted);
+}
+
+[data-md-color-scheme="slate"] .kanban-card:hover {
+  background: #2F3654;
 }
 
 .kanban-card:active {
@@ -760,26 +769,14 @@
   }
 }
 
-/* The strip separates into chips on hover (the title link overlays the card, so hover is card-level) */
 .post-cover--palette {
   gap: 0;
   padding: 0;
-  transition: gap 250ms cubic-bezier(0.2, 0.8, 0.2, 1), padding 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .post-cover--palette span {
   flex: 1;
   border-radius: 0;
-  transition: border-radius 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.post-card:hover .post-cover--palette {
-  gap: 6px;
-  padding: 12px;
-}
-
-.post-card:hover .post-cover--palette span {
-  border-radius: 8px;
 }
 
 .post-cover--diagram {
