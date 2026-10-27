@@ -5,7 +5,6 @@
 
 /* Light mode - MkDocs Material "default" scheme */
 [data-md-color-scheme="default"] {
-  /* Round 2g pick D, Moonlit paper: Moonlight hue and strength on a page tinted toward it */
   --card: #F9FAFD;
   --ring: oklch(0.48 0.10 274);
   --input: #CDD2E2;
@@ -379,7 +378,6 @@
   text-wrap: balance;
 }
 
-/* Round 1b pick A: body copy at the standard's 13 px page tier (15 px is the fallback if it reads too small) */
 .md-typeset p,
 .md-typeset li {
   font-size: 0.65rem;
@@ -482,7 +480,7 @@ code {
   color: var(--foreground);
 }
 
-/* Round 1b pick A3 (templates/partials/header.html): the tabs as a centred pill nav, the tools on the right as icons */
+/* The pills markup lives in templates/partials/header.html */
 .md-header__inner {
   position: relative;
 }
@@ -556,6 +554,41 @@ code {
   color: #A2B0EA;
 }
 
+/* Material's breakpoint for hiding tabs; posts keep the menu button because their contents live in the drawer */
+@media screen and (max-width: 76.234375em) {
+  .md-header__pills {
+    position: fixed;
+    top: auto;
+    bottom: 1rem;
+    transform: translateX(-50%);
+  }
+
+  .md-header__pills .md-tabs {
+    display: block;
+  }
+
+  .md-header__pills .md-tabs__list {
+    box-shadow: 0 8px 24px #0002;
+  }
+
+  [data-md-color-scheme="slate"] .md-header__pills .md-tabs__list {
+    box-shadow: 0 12px 32px #000a;
+  }
+
+  .md-header__pills .md-tabs__link {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.7rem;
+  }
+
+  body:not(:has(.post-header)) .md-header__button[for="__drawer"] {
+    display: none;
+  }
+
+  .md-footer {
+    padding-bottom: 4.5rem;
+  }
+}
+
 .md-header__tools {
   display: flex;
   align-items: center;
@@ -570,6 +603,36 @@ code {
 
 .md-header__tools .md-source__repository {
   display: none;
+}
+
+/* Material centres the menu under a button at the screen edge, so the closed menu widened the page on phones */
+.md-header__tools .md-select__inner {
+  left: auto;
+  right: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transform: translate3d(0, 0.3rem, 0);
+}
+
+.md-header__tools .md-select:is(:hover, :focus-within) .md-select__inner {
+  transform: translate3d(0, 0, 0);
+}
+
+.md-header__tools .md-select__link {
+  border-radius: 8px;
+}
+
+.md-header__tools .md-select__link:is(:hover, :focus) {
+  background-color: var(--muted);
+}
+
+[data-md-color-scheme="slate"] .md-header__tools .md-select__inner {
+  background-color: #141726;
+  box-shadow: 0 12px 32px #000a;
+}
+
+[data-md-color-scheme="slate"] .md-header__tools .md-select__link:is(:hover, :focus) {
+  background-color: #1C2033;
 }
 
 /* Search folds to its icon until it is opened, then Material widens it */
@@ -998,7 +1061,6 @@ input {
   color: #A2B0EA;
 }
 
-/* Round 2e pick G: the footer is one quiet mono line on the page, small icons at the end */
 /* Material colours the footer for its dark band, so its footer colour variables are reset to the page's */
 .md-footer {
   --md-footer-fg-color: var(--md-default-fg-color);

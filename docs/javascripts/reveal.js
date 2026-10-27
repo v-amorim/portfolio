@@ -1,12 +1,11 @@
 /* ===================================================================
-   Scroll Reveal - staggered reveal and number count-up for the home
+   Scroll Reveal - reveal and number count-up for the home
    page, the projects grid and the blog index
    Classes are added by JS only, so without JS (or with reduced motion)
    everything stays visible.
    =================================================================== */
 
 (function () {
-  const STAGGER_MS = 60;
   const easeOutExpo = (k) => (k >= 1 ? 1 : 1 - Math.pow(2, -10 * k));
 
   function countUp(el) {
@@ -42,17 +41,14 @@
           observer.unobserve(el);
           el.classList.add("is-visible");
           el.querySelectorAll("[data-count]").forEach(countUp);
-          // Drop the stagger once revealed so hover transitions respond immediately
-          setTimeout(() => el.style.setProperty("--reveal-i", 0), 1200);
         });
       },
       { rootMargin: "0px 0px -8% 0px", threshold: 0.1 },
     );
 
     groups.forEach((group) => {
-      [...group].forEach((el, i) => {
+      [...group].forEach((el) => {
         el.classList.add("reveal");
-        el.style.setProperty("--reveal-i", i);
         observer.observe(el);
       });
     });

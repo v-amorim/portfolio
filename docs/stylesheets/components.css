@@ -6,7 +6,6 @@
    Tags (used in work page and blog)
    =================================================================== */
 
-/* Round 3 pick D: one tag look on every page, a neutral 4 px badge led by a dot in its area's hue */
 .tag {
   display: inline-flex;
   align-items: center;
@@ -893,7 +892,6 @@
    Blog index: post cards
    =================================================================== */
 
-/* Round 4b pick B: the topic chips (blog-filter.js) in a column at the left of the posts, kept in view while scrolling */
 .blog-layout {
   display: grid;
   grid-template-columns: 12rem minmax(0, 1fr);
@@ -937,7 +935,6 @@
   }
 }
 
-/* Round 4 pick D: one post per row, its cover as a thumbnail at the left */
 .md-typeset .post-list {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -1488,7 +1485,6 @@
   color: var(--md-primary-fg-color);
 }
 
-/* Round 4 pick B: the date, read time and topics sit above the title as a mono caps line */
 .md-typeset .post-header {
   display: flex;
   flex-direction: column;
@@ -1545,7 +1541,6 @@
   font-size: 0.7rem;
 }
 
-/* Round 4 pick E: images and the italic caption under them share one card; the caption reads upright and muted */
 .md-typeset .post-body :is(.grid, p:has(> img)):has(+ p > em:only-child) {
   margin-bottom: 0;
   padding: var(--spacing-3) var(--spacing-3) 0;
@@ -1586,7 +1581,6 @@
   border-top: 1px solid var(--border);
 }
 
-/* Round 4 pick C: plain links under the hairline, no boxes; hover underlines the title */
 .md-typeset .post-pager__link {
   display: flex;
   flex-direction: column;
@@ -1635,9 +1629,7 @@
 }
 
 /* ===================================================================
-   Post contents: round 4 pick E. On a post, the list of other posts goes
-   and the contents move to the left as the standard's sidebar panel;
-   toc-toggle.js folds it to its header and remembers the choice
+   Post contents
    =================================================================== */
 
 .md-main__inner:has(.post-header) {

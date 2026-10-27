@@ -180,8 +180,7 @@
 }
 
 /* ===================================================================
-   Section Headers - the standard's section header (round 1 pick B): the
-   index and name in 9 px mono caps, dim, on a hairline that runs right
+   Section Headers
    =================================================================== */
 
 .home-container {
@@ -211,7 +210,6 @@
   background: var(--border);
 }
 
-/* The key word of the hero title (round 1 pick C) */
 .md-typeset em.hero-key {
   font-style: normal;
   color: var(--primary);
@@ -225,15 +223,13 @@
    Scroll Reveal (classes added by reveal.js)
    =================================================================== */
 
-/* At most the standard's slow step (250 ms); hover colour changes stay instant */
 .reveal {
   --reveal-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(8px);
   transition:
-    opacity 250ms var(--reveal-ease),
-    transform 250ms var(--reveal-ease);
-  transition-delay: calc(var(--reveal-i, 0) * 60ms);
+    opacity 150ms var(--reveal-ease),
+    transform 150ms var(--reveal-ease);
 }
 
 .reveal.is-visible {
@@ -648,10 +644,19 @@
     font-size: .8rem;
   }
 
+  .tx-hero__content > p:last-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
   .tx-hero__content .md-button {
     font-size: 0.875rem;
-    padding: 0.5rem 1rem;
-    margin: 0.25rem;
+    padding: 0.5rem 0.6rem;
+    margin: 0;
+    width: 100%;
+    white-space: nowrap;
+    justify-content: center;
   }
 
   .card-grid {

@@ -53,8 +53,6 @@
   color: #A2B0EA;
 }
 
-/* Round 3 pick E, the standard's filter chips: picked areas sit in their own row as removable tags with an ×,
-   then a "Clear all" link; the areas left below read "+ area" and add to the pick */
 .projects-picked:not([hidden]) {
   display: flex;
   flex-wrap: wrap;
@@ -176,7 +174,6 @@
   grid-column: span 3;
 }
 
-/* Round 3 pick G, a gallery wall: each card shows its screenshot and title; the rest lives behind the links */
 .projects-grid > .project-card > :not(.project-media):not(.project-head),
 .projects-grid .project-badge {
   display: none;

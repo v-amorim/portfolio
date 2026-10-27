@@ -1,5 +1,5 @@
 /* ===================================================================
-   Blog filter - round 4b pick B. The posts' own topic tags become the
+   Blog filter. The posts' own topic tags become the
    projects page's multi-select chips, in a column at the left of the
    list: "+ topic" adds, a picked topic's × takes it off, Clear all
    resets. A post shows when it has any picked topic.
