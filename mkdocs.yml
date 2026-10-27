@@ -83,6 +83,7 @@ nav:
       - blog/moonlight-palette.md
 
 hooks:
+  - hooks/header_guard.py
   - hooks/sitemap_copy.py
 
 plugins:

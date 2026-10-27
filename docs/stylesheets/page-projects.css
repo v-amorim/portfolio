@@ -174,7 +174,7 @@
   grid-column: span 3;
 }
 
-.projects-grid > .project-card > :not(.project-media):not(.project-head),
+.projects-grid > .project-card > :not(.project-media):not(.project-head):not(.project-tags),
 .projects-grid .project-badge {
   display: none;
 }
