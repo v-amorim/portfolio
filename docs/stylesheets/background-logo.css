@@ -131,6 +131,26 @@ body::before {
   opacity: 0.6;
 }
 
+/* Round 2d pick B: dark mode swaps the grid for the starfield of sky.js */
+.sky {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  /* Round 2f pick D: behind the content column the stars keep a third of their light, so text reads clearly */
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(50% - 32rem), #0005 calc(50% - 28rem), #0005 calc(50% + 28rem), #000 calc(50% + 32rem));
+  mask-image: linear-gradient(90deg, #000 calc(50% - 32rem), #0005 calc(50% - 28rem), #0005 calc(50% + 28rem), #000 calc(50% + 32rem));
+}
+
+/* The old scattered logos live on in the sky as small hidden constellations */
+body[data-md-color-scheme="slate"]::before,
+body[data-md-color-scheme="slate"] #logo-constellation,
+body:not([data-md-color-scheme="slate"]) .sky {
+  display: none;
+}
+
 .constellation-logo,
 .constellation-logo path {
   animation: none !important;

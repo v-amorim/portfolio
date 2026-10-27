@@ -991,33 +991,49 @@ input {
   color: #A2B0EA;
 }
 
-/* The /deck pointer; pointer.js adds .has-pointer only for a fine pointer with motion allowed */
-.has-pointer,
-.has-pointer * {
-  cursor: none !important;
+/* Round 2e pick G: the footer is one quiet mono line on the page, small icons at the end */
+/* Material colours the footer for its dark band, so its footer colour variables are reset to the page's */
+.md-footer {
+  --md-footer-fg-color: var(--md-default-fg-color);
+  --md-footer-fg-color--light: var(--md-default-fg-color--light);
+  --md-footer-fg-color--lighter: var(--md-default-fg-color--light);
+  background: none;
 }
 
-.pointer {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 16px;
-  height: 16px;
-  margin: -8px 0 0 -8px;
-  border-radius: 50%;
-  background: #B9C6F5;
-  box-shadow: 0 0 0 5px #7386D04D, 0 0 24px 10px #7386D0A6;
-  pointer-events: none;
-  z-index: 1000;
-  will-change: translate;
-  opacity: 0;
-  transition: opacity 200ms cubic-bezier(0.2, 0.8, 0.2, 1), scale 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+.md-footer-meta {
+  background: none;
 }
 
-.pointer.on {
-  opacity: 1;
+.md-footer-meta__inner {
+  align-items: center;
+  padding: 0.4rem 0;
 }
 
-.pointer.down {
-  scale: 1.6;
+.md-social {
+  padding: 0;
 }
+
+.md-copyright {
+  margin: 0 0.6rem;
+  font: 600 0.45rem/1.4 var(--md-code-font-family, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+}
+
+html .md-footer-meta.md-typeset .md-copyright a {
+  color: var(--md-primary-fg-color);
+}
+
+.md-social__link svg {
+  max-height: 0.65rem;
+}
+
+[data-md-color-scheme="slate"] .md-copyright {
+  color: #7E86A4;
+}
+
+html [data-md-color-scheme="slate"] .md-footer-meta.md-typeset .md-copyright a {
+  color: #A2B0EA;
+}
+

@@ -14,7 +14,7 @@ repo_url: https://github.com/v-amorim/portfolio
 repo_name: v-amorim/portfolio
 
 copyright: >
-  <a href="https://github.com/v-amorim/portfolio" target="_blank" rel="noopener" style="color: var(--md-primary-fg-color);">Ver o código-fonte deste site</a>
+  Vinicius C. Amorim · 2026 · <a href="https://github.com/v-amorim/portfolio" target="_blank" rel="noopener">código-fonte</a> · MkDocs
 
 extra_css:
   - stylesheets/global.css
@@ -35,7 +35,7 @@ extra_javascript:
   - javascripts/hero-reel.js
   - javascripts/reveal.js
   - javascripts/palette.js
-  - javascripts/pointer.js
+  - javascripts/sky.js
 
 # Material Configuration
 theme:
@@ -110,7 +110,7 @@ plugins:
             Portfolio of Vinicius C. Amorim, Data & AI Engineer. Data platforms
             on Databricks, PySpark, Azure and GCP, plus open source projects.
           copyright: >
-            <a href="https://github.com/v-amorim/portfolio" target="_blank" rel="noopener" style="color: var(--md-primary-fg-color);">View this site's source code</a>
+            Vinicius C. Amorim · 2026 · <a href="https://github.com/v-amorim/portfolio" target="_blank" rel="noopener">source code</a> · MkDocs
           theme:
             language: en
             palette:
@@ -169,6 +169,8 @@ watch:
   - templates
 
 extra:
+  # The copyright line credits MkDocs itself, so Material's "Made with" line is off
+  generator: false
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/vinicius-amorim/
