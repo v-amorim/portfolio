@@ -15,13 +15,6 @@
   position: relative;
 }
 
-.tx-hero__image {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .profile-picture {
   width: 220px;
   height: 220px;
@@ -717,10 +710,6 @@
   .tx-hero {
     gap: 2.5rem;
     align-items: stretch;
-  }
-
-  .tx-hero__image {
-    order: 1;
   }
 
   .profile-picture {

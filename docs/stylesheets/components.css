@@ -36,7 +36,7 @@
   --tag-dot: var(--tag-tools-fg);
 }
 
-.tag:is(.visual, .gui, .web-scraping) {
+.tag:is(.visual, .gui) {
   --tag-dot: var(--tag-visual-fg);
 }
 
@@ -263,12 +263,6 @@
   box-shadow: 0 0 0 1px var(--border-strong, rgba(255, 255, 255, 0.15));
 }
 
-.hexcell--none {
-  background: transparent;
-  color: var(--md-default-fg-color--light);
-  box-shadow: 0 0 0 1px var(--border);
-}
-
 /* Token chip: a named role, so the swatch leads and the name follows */
 
 .tokenchip {
@@ -290,91 +284,6 @@
   flex: none;
 }
 
-/* Before/after pair: the v1 value beside the one that replaced it */
-
-.swap {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin: 1.5rem 0;
-}
-
-.swap__side {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-  background: var(--card);
-}
-
-.swap__side[data-side="before"] {
-  border-color: color-mix(in oklab, var(--destructive) 30%, transparent);
-}
-
-.swap__side[data-side="after"] {
-  border-color: color-mix(in oklab, var(--primary) 45%, transparent);
-}
-
-.swap__tag {
-  display: inline-block;
-  font-family: var(--md-code-font, monospace);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 4px;
-  margin-bottom: 12px;
-}
-
-.swap__side[data-side="before"] .swap__tag {
-  background: color-mix(in oklab, var(--destructive) 18%, transparent);
-  color: var(--tag-ml-fg);
-}
-
-.swap__side[data-side="after"] .swap__tag {
-  background: color-mix(in oklab, var(--primary) 20%, transparent);
-  color: var(--primary);
-}
-
-/* Stacked elevation mockup: each layer one role, darkest at the back */
-.elevation-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 1.5rem 0;
-  max-width: 420px;
-}
-
-.elevation-stack__layer {
-  padding: 14px 18px;
-  border-radius: 10px;
-  font-family: var(--md-code-font, monospace);
-  font-size: 0.8rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Fake terminal prompt mockup, one pill per Oh My Posh segment */
-.prompt-mockup {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0;
-  margin: 1.5rem 0;
-  padding: 10px 6px;
-  border-radius: 10px;
-  background: #0D0E17;
-  font-family: var(--md-code-font, monospace);
-  font-size: 0.8rem;
-  overflow-x: auto;
-}
-
-.prompt-mockup__segment {
-  padding: 6px 14px;
-  white-space: nowrap;
-}
-
 /* ===================================================================
    Image Placeholder System (used in work page)
    =================================================================== */
@@ -383,26 +292,10 @@
   position: relative;
   overflow: hidden;
   background-color: var(--muted);
-  display: inline-block;
-  min-width: 150px;
-  min-height: 150px;
-}
-
-.image-container-with-placeholder:not(.align-left):not(.align-right) {
   display: block;
   width: 100%;
-}
-
-.image-container-with-placeholder.align-left {
-  float: left;
-  margin-right: var(--spacing-4);
-  margin-bottom: var(--spacing-4);
-}
-
-.image-container-with-placeholder.align-right {
-  float: right;
-  margin-left: var(--spacing-4);
-  margin-bottom: var(--spacing-4);
+  min-width: 150px;
+  min-height: 150px;
 }
 
 .image-placeholder {
@@ -427,130 +320,12 @@
   object-fit: contain;
 }
 
-.img-with-fallback.img-error,
-.project-img.img-error {
+.img-with-fallback.img-error {
   opacity: 0;
 }
 
-.img-with-fallback.img-error~.image-placeholder,
-.project-img.img-error~.image-placeholder {
+.img-with-fallback.img-error~.image-placeholder {
   opacity: 1;
-}
-
-/* ===================================================================
-   Carousel (used in work page for project images)
-   =================================================================== */
-
-.carousel-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.3s ease-in-out;
-}
-
-.carousel-slide {
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
-  display: none;
-  position: relative;
-}
-
-.carousel-slide.active {
-  display: block;
-}
-
-.carousel-slide a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  color: var(--primary);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.carousel-container:hover .carousel-arrow {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.carousel-arrow:hover {
-  background: rgba(0, 0, 0, 0.8);
-  color: var(--primary);
-  opacity: 1;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-arrow-left {
-  left: var(--spacing-2);
-}
-
-.carousel-arrow-right {
-  right: var(--spacing-2);
-}
-
-.carousel-indicators {
-  position: absolute;
-  bottom: var(--spacing-2);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: var(--spacing-3);
-  z-index: 10;
-  padding: var(--spacing-1_5);
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: var(--spacing-4);
-}
-
-.carousel-indicator {
-  position: relative;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.carousel-indicator::before {
-  content: "";
-  position: absolute;
-  inset: -6px;
-}
-
-.carousel-indicator:hover {
-  background: rgba(255, 255, 255, 0.8);
-  transform: scale(1.2);
-}
-
-.carousel-indicator.active {
-  background: var(--primary);
-  width: 24px;
-  border-radius: var(--spacing-2);
 }
 
 /* ===================================================================
