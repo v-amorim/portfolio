@@ -27,13 +27,13 @@
     const wrapper = document.createElement('div');
     wrapper.className = `${PLACEHOLDER_CLASS} image-container-with-placeholder`;
 
-    // Preserve any inline styles from the original image (like width/alignment)
+    // Preserve any inline styles from the original image (like width)
     if (img.style.cssText) {
       wrapper.style.cssText = img.style.cssText;
     }
     if (img.className) {
       wrapper.className += ' ' + img.className.split(' ')
-        .filter(c => c.includes('align-') || c.includes('width'))
+        .filter(c => c.includes('width'))
         .join(' ');
     }
 
