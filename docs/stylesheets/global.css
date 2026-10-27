@@ -5,52 +5,52 @@
 
 /* Light mode - MkDocs Material "default" scheme */
 [data-md-color-scheme="default"] {
-  /* Custom theme variables from new_theme_light.css */
-  --card: #ffffff;
-  --ring: oklch(0.54 0.204 277);
-  --input: #d1d5db;
-  --muted: #f3f4f6;
-  --accent: #e0e7ff;
-  --border: #d1d5db;
+  /* Round 2g pick D, Moonlit paper: Moonlight hue and strength on a page tinted toward it */
+  --card: #F9FAFD;
+  --ring: oklch(0.48 0.10 274);
+  --input: #CDD2E2;
+  --muted: #E5E8F2;
+  --accent: oklch(0.91 0.035 274);
+  --border: #CDD2E2;
   --radius: 0.5rem;
-  --chart-1: oklch(0.54 0.204 277);
+  --chart-1: oklch(0.48 0.10 274);
   --chart-2: #4f46e5;
   --chart-3: #4338ca;
   --chart-4: #3730a3;
   --chart-5: #312e81;
-  --popover: #ffffff;
-  --primary: oklch(0.54 0.204 277);
-  --sidebar: #f3f4f6;
+  --popover: #F9FAFD;
+  --primary: oklch(0.48 0.10 274);
+  --sidebar: #E5E8F2;
   --font-mono: JetBrains Mono, monospace;
   --font-sans: Inter, sans-serif;
   --secondary: #e5e7eb;
-  --background: #f8fafc;
+  --background: #EEF0F7;
   --font-serif: Merriweather, serif;
-  --foreground: #1e293b;
+  --foreground: #141726;
   --destructive: #ef4444;
   --shadow-blur: 8px;
   --shadow-color: hsl(0 0% 0%);
-  --sidebar-ring: oklch(0.54 0.204 277);
+  --sidebar-ring: oklch(0.48 0.10 274);
   --shadow-spread: -1px;
   --shadow-opacity: 0.1;
-  --sidebar-accent: #e0e7ff;
-  --sidebar-border: #d1d5db;
-  --card-foreground: #1e293b;
+  --sidebar-accent: oklch(0.91 0.035 274);
+  --sidebar-border: #CDD2E2;
+  --card-foreground: #141726;
   --shadow-offset-x: 0px;
   --shadow-offset-y: 4px;
-  --sidebar-primary: oklch(0.54 0.204 277);
-  --muted-foreground: #6b7280;
+  --sidebar-primary: oklch(0.48 0.10 274);
+  --muted-foreground: #565E7C;
   --accent-foreground: #374151;
-  --popover-foreground: #1e293b;
+  --popover-foreground: #141726;
   --primary-foreground: #ffffff;
-  --sidebar-foreground: #1e293b;
+  --sidebar-foreground: #141726;
   --secondary-foreground: #374151;
   --destructive-foreground: #ffffff;
   --sidebar-accent-foreground: #374151;
   --sidebar-primary-foreground: #ffffff;
 
   /* Header distinction */
-  --header-background: #ffffff;
+  --header-background: #F9FAFD;
 
   /* Tag colors: one hue per project area, same hues as the Moonlight dark tags
      with the lightness lowered for light backgrounds */
@@ -76,27 +76,27 @@
   --error: #FF929E;
 
   /* Override MkDocs Material default CSS variables */
-  --md-default-fg-color: #1e293b;
-  --md-default-fg-color--light: #6b7280;
+  --md-default-fg-color: #141726;
+  --md-default-fg-color--light: #565E7C;
   --md-default-fg-color--lighter: #9ca3af;
   --md-default-fg-color--lightest: #d1d5db;
-  --md-default-bg-color: #f8fafc;
-  --md-default-bg-color--light: #ffffff;
-  --md-default-bg-color--lighter: #f3f4f6;
+  --md-default-bg-color: #EEF0F7;
+  --md-default-bg-color--light: #F9FAFD;
+  --md-default-bg-color--lighter: #E5E8F2;
   --md-default-bg-color--lightest: #e5e7eb;
 
-  --md-primary-fg-color: oklch(0.54 0.204 277);
-  --md-primary-fg-color--light: #818cf8;
-  --md-primary-fg-color--dark: #4f46e5;
+  --md-primary-fg-color: oklch(0.48 0.10 274);
+  --md-primary-fg-color--light: oklch(0.62 0.10 274);
+  --md-primary-fg-color--dark: oklch(0.48 0.10 274);
 
-  --md-accent-fg-color: #e0e7ff;
-  --md-accent-fg-color--transparent: rgba(224, 231, 255, 0.1);
+  --md-accent-fg-color: oklch(0.91 0.035 274);
+  --md-accent-fg-color--transparent: oklch(0.91 0.035 274 / 0.1);
 
-  --md-typeset-color: #1e293b;
-  --md-typeset-a-color: oklch(0.54 0.204 277);
+  --md-typeset-color: #141726;
+  --md-typeset-a-color: oklch(0.48 0.10 274);
 
-  --md-code-fg-color: #1e293b;
-  --md-code-bg-color: #f3f4f6;
+  --md-code-fg-color: #141726;
+  --md-code-bg-color: #E5E8F2;
 
   /* Mermaid colors - light colors for dark diagram background */
   --md-mermaid-label-fg-color: #EEEEFA;
@@ -296,7 +296,7 @@
   --spacing-12: 3rem;
 
   --tag-padding: var(--spacing-1) var(--spacing-3_5) var(--spacing-1) var(--spacing-2_5);
-  --button-border-radius: var(--spacing-8);
+  --button-border-radius: 8px;
   --grid-gap: var(--spacing-4);
 
   --section-bg-color: var(--muted);
@@ -576,7 +576,9 @@ code {
     width: 2.2rem;
   }
 
+  /* The input is wider than the folded box; clipped, it no longer covers the theme toggle beside it */
   [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form {
+    overflow: hidden;
     background: none !important;
   }
 
@@ -598,17 +600,17 @@ code {
 
 .md-search__form {
   background-color: var(--input);
-  border-radius: var(--spacing-8);
+  border-radius: 8px;
 }
 
 .md-search__form:hover {
   border: 1px solid var(--border);
-  border-radius: var(--spacing-8);
+  border-radius: 8px;
 }
 
 .md-search__input {
   border: 1px solid var(--border);
-  border-radius: var(--spacing-8);
+  border-radius: 8px;
   color: var(--foreground);
   background-color: var(--input);
 }
@@ -624,7 +626,7 @@ code {
 }
 
 .md-search__output {
-  border-radius: var(--spacing-8) !important;
+  border-radius: 8px !important;
   overflow: hidden;
   background-color: var(--card);
 }
@@ -649,9 +651,17 @@ code {
   border-top: 1px solid var(--border);
 }
 
+/* The current page sits on a selected chip (surface-3 in primary-70 in dark mode); the negative margin keeps its text in line */
 .md-nav__item .md-nav__link--active {
-  border-left: 3px solid;
-  padding-left: 12px;
+  margin-inline: -6px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--accent);
+}
+
+[data-md-color-scheme="slate"] .md-nav__item .md-nav__link--active {
+  background: #252A42;
+  color: #A2B0EA;
 }
 
 .md-nav__list {
@@ -976,11 +986,6 @@ input {
 
 [data-md-color-scheme="slate"] .card-grid .card-content h3 {
   color: var(--foreground) !important;
-}
-
-/* Cards rest on a hairline with no shadow; hover only brightens the edge */
-[data-md-color-scheme="slate"] .project-card:hover {
-  border-color: #7386d0;
 }
 
 [data-md-color-scheme="slate"] .project-external-link {

@@ -40,15 +40,15 @@
     },
     // Same hues as slate at lightness ~0.45 so they hold contrast on white, tints at 16% over white
     default: {
-      bg: '#f8fafc',
-      card: '#ffffff',
-      cardInner: '#f3f4f6',
-      accent: '#e2e7fc',
+      bg: '#EEF0F7',
+      card: '#F9FAFD',
+      cardInner: '#E5E8F2',
+      accent: '#DAE0F9',
       deep: '#c3cbf6',
-      border: '#d1d5db',
-      text: '#1e293b',
-      muted: '#6b7280',
-      primary: '#5757e1',
+      border: '#CDD2E2',
+      text: '#141726',
+      muted: '#565E7C',
+      primary: '#4C5896',
       blue: '#025894',
       sky: '#2e76b4',
       azure: '#2063b0',
@@ -62,10 +62,10 @@
       yellow: '#93690d',
       tinted: ['#e4e4fa', '#d7e4ee', '#eadfe9', '#eedcdf', '#dde9e2', '#eee7d8', '#e4e6ed', '#e7e3f1'],
       mid: ['#ababf0', '#80acca', '#bd9abc', '#ca919c', '#94baa4', '#c9b486', '#aab0c8', '#b3a8d2'],
-      onMid: '#1e293b',
+      onMid: '#141726',
       pie: ['#c3c3f4', '#a4c3d8', '#cfb7ce', '#d9b0b8', '#b2cdbd', '#d8c9a8', '#c1c6d7', '#c8c1df'],
       pieExtra: ['#b4cee4', '#d5b2ca', '#a6c4b6', '#afc7e3'],
-      flow: '#5757e1',
+      flow: '#4C5896',
       flowOpacity: 0.22
     }
   };

@@ -10,7 +10,7 @@
   padding: 3px 12px 5px 12px;
   border-width: 1px;
   border-style: solid;
-  border-radius: var(--spacing-8);
+  border-radius: 8px;
 }
 
 /* Tags carry the color of the area they belong to, not one hue each */
@@ -72,7 +72,7 @@
 
 .palette-swatch {
   padding: 6px 12px;
-  border-radius: var(--spacing-8);
+  border-radius: 8px;
   font-family: var(--md-code-font, monospace);
   font-size: 0.75rem;
   color: #EEEEFA;
@@ -111,7 +111,7 @@
   color: var(--md-default-fg-color--light);
   background: transparent;
   border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 999px;
+  border-radius: 8px;
   padding: 3px 12px;
   cursor: pointer;
 }
@@ -333,7 +333,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 4px 10px;
-  border-radius: 999px;
+  border-radius: 4px;
   margin-bottom: 12px;
 }
 
@@ -605,7 +605,7 @@
   background: var(--muted);
   color: var(--muted-foreground);
   padding: 0.25rem 0.5rem;
-  border-radius: var(--spacing-8);
+  border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 500;
 }
@@ -1035,9 +1035,15 @@
   background: var(--card);
 }
 
+/* The state ladder's hover step, as on the home cards: the fill steps up, the edge stays */
 .md-typeset .post-card:hover,
 .md-typeset .post-card:focus-within {
-  border-color: var(--md-primary-fg-color);
+  background: var(--muted);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .post-card:hover,
+[data-md-color-scheme="slate"] .md-typeset .post-card:focus-within {
+  background: #1C2033;
 }
 
 .md-typeset .post-card__meta {
@@ -1211,7 +1217,7 @@
   width: 2.25rem;
   height: 2.25rem;
   border: 1px solid var(--border);
-  border-radius: var(--button-border-radius);
+  border-radius: 50%;
   background: var(--card);
   color: var(--muted-foreground);
   cursor: pointer;
@@ -1269,12 +1275,17 @@
   margin-top: var(--spacing-2);
 }
 
+/* Same control as the career toggle: 8 px corners, a hairline between the options */
 .mermaid-zoom__toggle {
   display: inline-flex;
   border: 1px solid var(--border);
-  border-radius: var(--button-border-radius);
+  border-radius: 8px;
   background: var(--card);
   overflow: hidden;
+}
+
+.mermaid-zoom__tools .mermaid-zoom__btn--text + .mermaid-zoom__btn--text {
+  border-left: 1px solid var(--border);
 }
 
 .mermaid-zoom__tools .mermaid-zoom__btn--text {
@@ -1288,8 +1299,13 @@
 }
 
 .mermaid-zoom__btn--text[aria-pressed="true"] {
-  background: var(--primary);
-  color: var(--primary-foreground);
+  background: var(--accent);
+  color: var(--primary);
+}
+
+[data-md-color-scheme="slate"] .mermaid-zoom__btn--text[aria-pressed="true"] {
+  background: #252A42;
+  color: #A2B0EA;
 }
 
 .md-typeset .mermaid-zoom__code {

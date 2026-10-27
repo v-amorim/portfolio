@@ -32,7 +32,6 @@ Mods changed that. A mod can draw its own UI, so my workarounds could become fea
 Claude Code wrote the plugin code and the tests, and checked its own work on screen. I decided what each mod should do, how it should look and when it was done.
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#191726','primaryTextColor':'#f8eaf8','primaryBorderColor':'#7386d0','lineColor':'#7386d0','secondaryColor':'#272d44','secondaryTextColor':'#f8eaf8','secondaryBorderColor':'#5dabf3','tertiaryColor':'#3c466f','tertiaryTextColor':'#f8eaf8','tertiaryBorderColor':'#79c0ff','background':'transparent','mainBkg':'#191726','textColor':'#f8eaf8','fontSize':'14px','fontFamily':'Inter, system-ui, sans-serif'}}}%%
 graph LR
     A[Idea] --> B[Board of 2 or 3 looks]
     B --> C[I pick one]
@@ -43,8 +42,6 @@ graph LR
     G -->|No| D
     G -->|Yes| H[I commit]
 
-    style C fill:#272d44,stroke:#7386d0,stroke-width:3px
-    style H fill:#3c466f,stroke:#5dabf3,stroke-width:2px
 ```
 
 A few habits made this loop work:

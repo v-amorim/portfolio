@@ -165,10 +165,15 @@
   background-color: var(--card);
 }
 
-/* Hover is an instant colour change: no lift, no shadow, no glow */
+/* Hover is an instant step up of the fill, as on the home cards: no lift, no shadow, no edge colour */
 .md-typeset .project-card:hover,
 .md-typeset .project-card:focus-within {
-  border-color: var(--primary);
+  background-color: var(--muted);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .project-card:hover,
+[data-md-color-scheme="slate"] .md-typeset .project-card:focus-within {
+  background-color: #1C2033;
 }
 
 /* Filter reflow: every card moves from its old slot to its new one */
@@ -238,11 +243,12 @@
   color: var(--area);
 }
 
+/* The standard badge: a square 4 px tag tinted 15 % with its colour as text */
 .project-badge {
   flex: 0 0 auto;
-  padding: 0.15rem 0.55rem;
-  border: 1px solid var(--md-primary-fg-color);
-  border-radius: 999px;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 15%, transparent);
   font-family: var(--md-code-font-family, monospace);
   font-size: 0.6rem;
   letter-spacing: 0.1em;
