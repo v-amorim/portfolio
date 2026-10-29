@@ -22,6 +22,10 @@
   /* Header distinction */
   --header-background: #F9FAFD;
 
+  /* An icon-only button's hover: primary at 12 % under a primary icon */
+  --icon-hover-bg: color-mix(in srgb, oklch(0.48 0.10 274) 12%, transparent);
+  --icon-hover-fg: oklch(0.48 0.10 274);
+
   /* Tag colors: one hue per project area, same hues as the Moonlight dark tags
      with the lightness lowered for light backgrounds */
   --tag-tools-fg: oklch(0.45 0.12 273);
@@ -85,6 +89,10 @@
 
   /* Header distinction */
   --header-background: oklch(0.167 0.019 279.2);
+
+  /* An icon-only button's hover: primary at 12 % under a primary-70 icon */
+  --icon-hover-bg: #7386D01F;
+  --icon-hover-fg: #A2B0EA;
 
   /* Card depth hierarchy - inner cards within card containers */
   --card-inner: oklch(0.249 0.037 274.3);
@@ -472,6 +480,24 @@ code {
   display: none;
 }
 
+/* Header icons (theme, language, GitHub) hover to the icon tint instead of Material's dimming */
+.md-header__button:hover {
+  opacity: 1;
+  border-radius: 50%;
+  background-color: var(--icon-hover-bg);
+  color: var(--icon-hover-fg);
+}
+
+.md-header__source .md-source:hover {
+  opacity: 1;
+}
+
+/* The GitHub icon box is 40 x 48, so the chip is drawn as a 40 px circle instead of the box's oval */
+.md-header__source .md-source:hover .md-source__icon {
+  background: radial-gradient(circle 20px, var(--icon-hover-bg) 98%, transparent 100%);
+  color: var(--icon-hover-fg);
+}
+
 /* Material centres the menu under a button at the screen edge, so the closed menu widened the page on phones */
 .md-header__tools .md-select__inner {
   --popup-edge: var(--border);
@@ -537,6 +563,19 @@ code {
 
   [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__input::placeholder {
     color: transparent;
+  }
+
+  /* Folded, the search is one more header icon, so it takes the icon tint, not the field's outline */
+  [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form:hover {
+    border: none;
+  }
+
+  /* The icon box is 24 px inside a 36 px form that clips overflow; a 6 px ring of the same tint fills it as a circle */
+  [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form:hover .md-search__icon {
+    border-radius: 50%;
+    background-color: var(--icon-hover-bg);
+    box-shadow: 0 0 0 6px var(--icon-hover-bg);
+    color: var(--icon-hover-fg);
   }
 }
 
@@ -759,11 +798,17 @@ input {
   color: var(--primary);
 }
 
-.glightbox-clean .gclose:hover,
-.glightbox-clean .gnext:hover,
-.glightbox-clean .gprev:hover {
-  color: var(--primary);
-  opacity: 0.8;
+/* body outranks glightbox's own :hover rule, which loads after this sheet */
+body .glightbox-clean .gclose:hover,
+body .glightbox-clean .gnext:hover,
+body .glightbox-clean .gprev:hover {
+  border-radius: 50%;
+  background-color: var(--icon-hover-bg);
+  color: var(--icon-hover-fg);
+}
+
+.glightbox-clean :is(.gclose, .gnext, .gprev):hover svg * {
+  fill: var(--icon-hover-fg);
 }
 
 /* Mermaid */

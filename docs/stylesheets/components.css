@@ -1049,6 +1049,13 @@
   background: #1C2033;
 }
 
+/* Icon-only buttons take the tint; the Diagram and Code text buttons keep the surface step above */
+.mermaid-zoom__btn:not(.mermaid-zoom__btn--text):hover {
+  border-color: transparent;
+  background: var(--icon-hover-bg);
+  color: var(--icon-hover-fg);
+}
+
 .mermaid-zoom__btn:focus-visible {
   color: var(--foreground);
   border-color: var(--md-primary-fg-color);
