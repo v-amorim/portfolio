@@ -474,11 +474,24 @@ code {
 
 /* Material centres the menu under a button at the screen edge, so the closed menu widened the page on phones */
 .md-header__tools .md-select__inner {
+  --popup-edge: var(--border);
   left: auto;
   right: 0;
-  border: 1px solid var(--border);
+  border: 2px solid var(--popup-edge);
   border-radius: 16px;
   transform: translate3d(0, 0.3rem, 0);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1.25);
+}
+
+/* The thread that ties the popup to the button that opened it */
+.md-header__tools .md-select__inner::before {
+  content: "";
+  position: absolute;
+  right: 1.1rem;
+  top: -0.5rem;
+  width: 2px;
+  height: 0.5rem;
+  background: var(--popup-edge);
 }
 
 .md-header__tools .md-select:is(:hover, :focus-within) .md-select__inner {
@@ -494,6 +507,7 @@ code {
 }
 
 [data-md-color-scheme="slate"] .md-header__tools .md-select__inner {
+  --popup-edge: #3A4060;
   background-color: #141726;
   box-shadow: 0 12px 32px #000a;
 }
@@ -558,9 +572,14 @@ code {
 }
 
 .md-search__output {
-  border-radius: 8px !important;
+  border: 2px solid var(--border);
+  border-radius: 16px !important;
   overflow: hidden;
   background-color: var(--card);
+}
+
+[data-md-color-scheme="slate"] .md-search__output {
+  border-color: #3A4060;
 }
 
 .md-search__suggest {

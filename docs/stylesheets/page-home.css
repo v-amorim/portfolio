@@ -121,7 +121,7 @@
 }
 
 .tx-hero__content p {
-  font-weight: 400;
+  font-weight: 500;
   color: var(--md-typeset-color);
   max-width: 30rem;
   margin: 0 auto 1rem;
@@ -131,8 +131,8 @@
    Email Tooltip
    =================================================================== */
 
-/* The standard tooltip: surface-3, 8 px, 11 px text, no arrow, a 100 ms fade */
-.md-button--primary[title]:hover::after {
+/* The standard tooltip: surface-3, 8 px, 11 px text, no arrow, a 100 ms fade both ways */
+.md-button--primary[title]::after {
   content: attr(title);
   position: absolute;
   bottom: 100%;
@@ -148,19 +148,18 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   pointer-events: none;
-  animation: tooltipIn 100ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  opacity: 0;
+  transition: opacity 100ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-[data-md-color-scheme="slate"] .md-button--primary[title]:hover::after {
+.md-button--primary[title]:hover::after {
+  opacity: 1;
+}
+
+[data-md-color-scheme="slate"] .md-button--primary[title]::after {
   background: #252A42;
   border-color: transparent;
   box-shadow: 0 12px 32px #000a;
-}
-
-@keyframes tooltipIn {
-  from {
-    opacity: 0;
-  }
 }
 
 .md-button--primary[title] {
@@ -168,7 +167,7 @@
 }
 
 .md-typeset .md-button[aria-disabled="true"] {
-  opacity: 0.4;
+  opacity: 0.38;
   pointer-events: none;
 }
 
@@ -609,7 +608,7 @@
 .card-grid .card-content p,
 .card-content p {
   font-size: 0.65rem !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   color: var(--md-default-fg-color--light) !important;
   text-align: left !important;
   margin: 0 !important;

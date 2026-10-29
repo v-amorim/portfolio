@@ -411,7 +411,7 @@
 }
 
 [data-md-color-scheme="slate"] .kanban-card:hover {
-  background: #2F3654;
+  background: #252A42;
 }
 
 .kanban-card:active {
@@ -551,8 +551,13 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.timeline-toggle-btn:hover {
+.timeline-toggle-btn:not(.active):hover {
+  background: var(--muted);
   color: var(--foreground);
+}
+
+[data-md-color-scheme="slate"] .timeline-toggle-btn:not(.active):hover {
+  background: #1C2033;
 }
 
 .timeline-toggle-btn.active {
@@ -967,7 +972,7 @@
 
 .glightbox-closing .glightbox-dots {
   opacity: 0;
-  transition: none;
+  transition: opacity 150ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .glightbox-dots {
@@ -1009,7 +1014,7 @@
 
 .glightbox-dots button[aria-current="true"] {
   width: 1.25rem;
-  border-radius: var(--spacing-2);
+  border-radius: 4px;
   background: var(--md-primary-fg-color);
 }
 
@@ -1035,7 +1040,15 @@
   transition: color 0.15s ease, border-color 0.15s ease, scale 0.15s ease;
 }
 
-.mermaid-zoom__btn:hover,
+.mermaid-zoom__btn:hover {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+[data-md-color-scheme="slate"] .mermaid-zoom__btn:hover {
+  background: #1C2033;
+}
+
 .mermaid-zoom__btn:focus-visible {
   color: var(--foreground);
   border-color: var(--md-primary-fg-color);

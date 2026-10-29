@@ -174,8 +174,7 @@
   grid-column: span 3;
 }
 
-.projects-grid > .project-card > :not(.project-media):not(.project-head):not(.project-tags),
-.projects-grid .project-badge {
+.projects-grid > .project-card > :not(.project-media):not(.project-head):not(.project-tags) {
   display: none;
 }
 
@@ -297,17 +296,34 @@
   color: var(--area);
 }
 
-/* The standard badge: a square 4 px tag tinted 15 % with its colour as text */
+/* The standard badge: a neutral 4 px tag led by a dot in its hue */
 .project-badge {
   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   padding: 0.15rem 0.45rem;
   border-radius: 4px;
-  background: color-mix(in srgb, var(--md-primary-fg-color) 15%, transparent);
+  background: var(--muted);
   font-family: var(--md-code-font-family, monospace);
   font-size: 0.6rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--md-primary-fg-color);
+  color: var(--muted-foreground);
+}
+
+.project-badge::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="slate"] .project-badge {
+  background: #252A42;
+  color: #9BA3C4;
 }
 
 .project-card[hidden] {
